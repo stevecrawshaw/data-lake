@@ -1,7 +1,7 @@
 [project]
-name = "vs-code-setup"
+name = "data-lake"
 version = "0.1.0"
-description = "New VS code setup from template"
+description = "Data lake utilities for data processing and analysis."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
