@@ -14,15 +14,6 @@ convert_to_hive_partitioned(
     Path("data_lake") / "staging_parquet" / "epc_non_domestic",
 )
 
-convert_to_hive_partitioned(
-    ROOT
-    / "data_lake"
-    / "landing"
-    / "manual"
-    / "epc_non_domestic"
-    / "all-non-domestic-certificates",
-    ROOT / "data_lake" / "staging_parquet" / "epc_non_domestic",
-)
 # domestic EPCs
 convert_to_hive_partitioned(
     ROOT
@@ -69,4 +60,11 @@ csv_to_parquet(
     / "manual"
     / "2005-23-uk-local-authority-ghg-emissions-CSV-dataset.csv",
     ROOT / "data_lake" / "staging_parquet" / "uk_emissions_by_lad.parquet",
+)
+
+# Housing Tenure LSOA
+
+csv_to_parquet(
+    ROOT / "data_lake" / "landing" / "manual" / "household_tenure21_lsoa21.csv",
+    ROOT / "data_lake" / "staging_parquet" / "household_tenure21_lsoa21.parquet",
 )
