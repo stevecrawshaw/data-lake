@@ -86,7 +86,7 @@ def convert_to_hive_partitioned(source_root: str, staging_root: str, type: str):
     staging_path = Path(staging_root)
 
     # Find all CSVs
-    all_csvs = list(source_path.rglob("*.csv"))
+    all_csvs = list(source_path.rglob("certificates.csv"))
     print(f"Found {len(all_csvs)} CSV files to process.")
 
     con = duckdb.connect()
@@ -130,6 +130,7 @@ def convert_to_hive_partitioned(source_root: str, staging_root: str, type: str):
                     ) TO '{output_path}' (FORMAT PARQUET, COMPRESSION lz4);
                 """  # noqa: S608
                 )
+                print(csv_file)
             else:
                 print(f"Skipping: {district_name} due to 'unknown' in path")
         except Exception as e:
@@ -260,7 +261,9 @@ def create_epc_schema(
     )
 
     raw_schema_df = pl.read_csv(csv_file_path)
-    schema_df = raw_schema_df.select(pl.col("column"), type_strings_expr)
+    schema_df = raw_schema_df.filter(pl.col("filename") == "certificates.csv").select(
+        pl.col("column"), type_strings_expr
+    )
     output_file_path = Path(
         f"../../src/schemas/epc_{epc_type}_certificates_schema.json"
     )
@@ -308,7 +311,30 @@ extract_columns_csv_from_zip(
 create_epc_schema(
     "../../src/schemas/domestic-columns-raw-columns.csv", epc_type="domestic"
 )
+# for the big file
+create_epc_schema(
+    "../../data_lake/landing/manual/epc_domestic/all-domestic-certificates-single-file/columns.csv",
+    epc_type="domestic",
+)
 
 create_epc_schema(
     "../../src/schemas/non-domestic-columns-raw-columns.csv", epc_type="non-domestic"
 )
+
+# testing schema output
+
+with open("../schemas/epc_domestic_certificates_schema.json") as f:
+    EPC_SCHEMA = json.load(f)
+
+print(EPC_SCHEMA)
+
+convert_to_hive_partitioned(
+    "../../data_lake/landing/manual/epc_domestic/all-domestic-certificates",
+    "../../data_lake/staging/epc_domestic_certificates",
+    type="domestic",
+)
+
+# E06000001 to E06000005 have different schemas - for domestic
+# The local authority zip files downloads contain different column names
+# to the columns names contained in the single file download and the
+# zip file bulk download with folders split by LA code
