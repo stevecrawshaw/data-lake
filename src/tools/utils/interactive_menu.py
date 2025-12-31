@@ -194,11 +194,15 @@ class InteractiveMenu:
         choices.append(questionary.Separator())
         choices.append({"name": "← Back to entity list", "value": "__BACK__"})
 
+        # Questionary keyboard shortcuts support max 36 choices (0-9, a-z)
+        # Disable shortcuts for large column lists
+        use_shortcuts = len(columns) <= 35
+
         try:
             result = questionary.select(
                 f"Select column in {entity_type} '{display_name}':",
                 choices=choices,
-                use_shortcuts=True,
+                use_shortcuts=use_shortcuts,
                 instruction="(Use arrow keys, Enter to select)",
             ).ask()
 
