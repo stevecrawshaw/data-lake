@@ -101,12 +101,15 @@ class CommentGenerator:
     ) -> str:
         """Generate all COMMENT statements for tables and views.
 
+        All statements are wrapped in a BEGIN TRANSACTION / COMMIT block
+        to ensure atomicity when applying to the database.
+
         Args:
             tables: List of TableMetadata objects
             views: Optional list of ViewMetadata objects
 
         Returns:
-            Complete SQL script with all COMMENT statements
+            Complete SQL script with all COMMENT statements wrapped in a transaction
         """
         statements: list[str] = []
 
@@ -114,6 +117,11 @@ class CommentGenerator:
         if self.format == "pretty":
             statements.append("-- Generated schema documentation comments")
             statements.append("-- Created by schema_documenter tool")
+            statements.append("")
+
+        # Begin transaction
+        statements.append("BEGIN TRANSACTION;")
+        if self.format == "pretty":
             statements.append("")
 
         # Table comments
@@ -155,6 +163,11 @@ class CommentGenerator:
                 if self.format == "pretty":
                     statements.append("")
 
+        # Commit transaction
+        if self.format == "pretty":
+            statements.append("")
+        statements.append("COMMIT;")
+
         return "\n".join(statements)
 
     def apply_comments(
@@ -164,6 +177,9 @@ class CommentGenerator:
         force: bool = False,
     ) -> dict[str, int]:
         """Apply COMMENT statements directly to the database.
+
+        All statements are executed within a transaction. If any error occurs,
+        all changes are rolled back to maintain database consistency.
 
         Args:
             tables: List of TableMetadata objects
@@ -175,6 +191,7 @@ class CommentGenerator:
 
         Raises:
             ValueError: If database_path not provided during initialization
+            Exception: If any error occurs during comment application (after rollback)
         """
         if not self.database_path:
             msg = "database_path required for apply_comments"
@@ -188,52 +205,68 @@ class CommentGenerator:
         }
 
         with duckdb.connect(str(self.database_path)) as con:
-            # Apply table comments
-            for table in tables:
-                # Check if table comment already exists
-                if not force and self._has_table_comment(con, table.name):
-                    logger.debug(f"Skipping table {table.name} (already has comment)")
-                    stats["tables_skipped"] += 1
-                else:
-                    stmt = self.generate_table_comment(table)
-                    con.execute(stmt)
-                    logger.info(f"Updated table comment: {table.name}")
-                    stats["tables_updated"] += 1
+            try:
+                # Begin transaction
+                con.execute("BEGIN TRANSACTION")
 
-                # Apply column comments
-                for column in table.columns:
-                    if not force and self._has_column_comment(
-                        con, table.name, column.name
-                    ):
-                        stats["columns_skipped"] += 1
-                    else:
-                        stmt = self.generate_column_comment(
-                            table, column.name, column.description
+                # Apply table comments
+                for table in tables:
+                    # Check if table comment already exists
+                    if not force and self._has_table_comment(con, table.name):
+                        logger.debug(
+                            f"Skipping table {table.name} (already has comment)"
                         )
-                        con.execute(stmt)
-                        stats["columns_updated"] += 1
-
-            # Apply view comments
-            if views:
-                for view in views:
-                    if not force and self._has_table_comment(con, view.name):
                         stats["tables_skipped"] += 1
                     else:
-                        stmt = self.generate_table_comment(view)
+                        stmt = self.generate_table_comment(table)
                         con.execute(stmt)
+                        logger.info(f"Updated table comment: {table.name}")
                         stats["tables_updated"] += 1
 
-                    for column in view.columns:
+                    # Apply column comments
+                    for column in table.columns:
                         if not force and self._has_column_comment(
-                            con, view.name, column.name
+                            con, table.name, column.name
                         ):
                             stats["columns_skipped"] += 1
                         else:
                             stmt = self.generate_column_comment(
-                                view, column.name, column.description
+                                table, column.name, column.description
                             )
                             con.execute(stmt)
                             stats["columns_updated"] += 1
+
+                # Apply view comments
+                if views:
+                    for view in views:
+                        if not force and self._has_table_comment(con, view.name):
+                            stats["tables_skipped"] += 1
+                        else:
+                            stmt = self.generate_table_comment(view)
+                            con.execute(stmt)
+                            stats["tables_updated"] += 1
+
+                        for column in view.columns:
+                            if not force and self._has_column_comment(
+                                con, view.name, column.name
+                            ):
+                                stats["columns_skipped"] += 1
+                            else:
+                                stmt = self.generate_column_comment(
+                                    view, column.name, column.description
+                                )
+                                con.execute(stmt)
+                                stats["columns_updated"] += 1
+
+                # Commit transaction
+                con.execute("COMMIT")
+                logger.info("Successfully committed all schema comments")
+
+            except Exception as e:
+                # Rollback on any error
+                con.execute("ROLLBACK")
+                logger.error(f"Error applying comments, rolled back transaction: {e}")
+                raise
 
         return stats
 

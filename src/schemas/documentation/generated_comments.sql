@@ -1,6 +1,8 @@
 -- Generated schema documentation comments
 -- Created by schema_documenter tool
 
+BEGIN TRANSACTION;
+
 -- Table: raw_domestic_epc_certificates_tbl
 COMMENT ON TABLE mca_env_base.raw_domestic_epc_certificates_tbl IS 'Domestic Energy Performance Certificate data from UK government register';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.LMK_KEY IS 'Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.';
@@ -21,8 +23,8 @@ COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.CONSTITUENCY IS
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.COUNTY IS 'County in which the building is located (where applicable)';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.LODGEMENT_DATE IS 'Date lodged on the Energy Performance of Buildings Register';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.TRANSACTION_TYPE IS 'Type of transaction that triggered EPC. For example, one of: marketed sale; non-marketed sale; new-dwelling; rental; not sale or rental; assessment for Green Deal; following Green Deal; FIT application; none of the above; RHI application; ECO assessment. Where the reason for the assessment is unknown by the energy assessor the transaction type will be recorded as ''none of the above''. Transaction types may be changed over time.';
-COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.ENVIRONMENTAL_IMPACT_CURRENT IS 'The Environmental Impact Rating. A measure of the property''s current impact on the environment in terms of carbon dioxide (CO₂) emissions. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
-COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.ENVIRONMENTAL_IMPACT_POTENTIAL IS 'The potential Environmental Impact Rating. A measure of the property''s potential impact on the environment in terms of carbon dioxide (CO₂) emissions after improvements have been carried out. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
+COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.ENVIRONMENT_IMPACT_CURRENT IS 'The Environmental Impact Rating. A measure of the property''s current impact on the environment in terms of carbon dioxide (CO₂) emissions. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
+COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.ENVIRONMENT_IMPACT_POTENTIAL IS 'The potential Environmental Impact Rating. A measure of the property''s potential impact on the environment in terms of carbon dioxide (CO₂) emissions after improvements have been carried out. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.ENERGY_CONSUMPTION_CURRENT IS 'Current estimated total energy consumption for the property in a 12 month period (kWh/m2). Displayed on EPC as the current primary energy use per square metre of floor area.';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.ENERGY_CONSUMPTION_POTENTIAL IS 'Estimated potential total energy consumption for the Property in a 12 month period. Value is Kilowatt Hours per Square Metre (kWh/m²)';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.CO2_EMISSIONS_CURRENT IS 'CO₂ emissions per year in tonnes/year.';
@@ -97,50 +99,6 @@ COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.UPRN IS 'The UP
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.UPRN_SOURCE IS 'Populated with the values "Energy Assessor" or "Address Matched" to show how the UPRN was populated.';
 COMMENT ON COLUMN mca_env_base.raw_domestic_epc_certificates_tbl.REPORT_TYPE IS 'Type of assessment carried out on the building, for domestic dwellings this is either a SAP (Standard Assessment Procedure) or a Reduced SAP. 100: RdSAP (Reduced SAP for existing buildings) and 101: SAP (full Sap for new dwellings, including conversions and change of use). This variable will help distinguish between new and existing dwellings.';
 
--- Table: raw_non_domestic_epc_certificates_tbl
-COMMENT ON TABLE mca_env_base.raw_non_domestic_epc_certificates_tbl IS 'Non-domestic Energy Performance Certificate data from UK government register';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LMK_KEY IS 'Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS1 IS 'First line of the address';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS2 IS 'Second line of the address';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS3 IS 'Third line of the address';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.POSTCODE IS 'The postcode of the property';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_REFERENCE_NUMBER IS 'Unique identifier for the property.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ASSET_RATING IS 'Energy Performance Asset Rating. The CO₂ emissions from the actual building in comparison to a Standard Emission Rate. (kg CO₂/m²)';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ASSET_RATING_BAND IS 'Energy Performance Asset Rating converted into an energy band/grade into a linear ''A+ to G'' scale (where A+ is the most energy efficient and G the least energy efficient)';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.PROPERTY_TYPE IS 'Describes the type of building that is being inspected. Based on planning use class.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.INSPECTION_DATE IS 'The date that the inspection was actually carried out by the energy assessor';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LOCAL_AUTHORITY IS 'Office for National Statistics (ONS) code. Local authority area in which the building is located.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.CONSTITUENCY IS 'Office for National Statistics (ONS) code. Parliamentary constituency in which the building is located.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.COUNTY IS 'County in which the building is located (where applicable)';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LODGEMENT_DATE IS 'Date lodged on the Energy Performance of Buildings Register';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.TRANSACTION_TYPE IS 'Type of transaction that triggered EPC. One of: mandatory issue (marketed sale); mandatory issue (non-marketed sale); mandatory issue (property on construction); mandatory issue (property to let); voluntary re-issue (a valid epc is already lodged); voluntary (no legal requirement for an epc); not recorded. Transaction types may be changed over time.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.NEW_BUILD_BENCHMARK IS 'NEW_BUILD_BENCHMARK';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.EXISTING_STOCK_BENCHMARK IS 'The Benchmark value of existing stock for this type of building';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_LEVEL IS 'Building Complexity Level based on Energy Assessor National Occupation Standards';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.MAIN_HEATING_FUEL IS 'Main Heating fuel for the building is taken as the fuel which delivers the greatest total thermal output for space or water heating';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.OTHER_FUEL_DESC IS 'Text description of unspecified fuel type if ''Other'' is selected for Main Heating Fuel';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.SPECIAL_ENERGY_USES IS 'Special energy uses discounted. This only appears on the Recommendations Report.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.RENEWABLE_SOURCES IS 'On-site renewable energy sources. This only appears on the Advisory Report.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.FLOOR_AREA IS 'The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls, i.e. the gross floor area as measured in accordance with the guidance issued from time to time by the Royal Institute of Chartered Surveyors or by a body replacing that institution. (m2)';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.STANDARD_EMISSIONS IS 'Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.TARGET_EMISSIONS IS 'Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.TYPICAL_EMISSIONS IS 'Typical Emission Rate.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_EMISSIONS IS 'Building Emissions Rate. Annual CO₂ emissions from the building. Decimal (kg CO₂/m²)';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.AIRCON_PRESENT IS 'Air Conditioning System. Does the building have an air conditioning system?';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.AIRCON_KW_RATING IS 'Air conditioning System. Rating in kW';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ESTIMATED_AIRCON_KW_RATING IS 'Air Conditioning System. If exact rating unknown, what is the estimated total effective output rating of the air conditioning system';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.AC_INSPECTION_COMMISSIONED IS 'One of:1=Yes, inspection completed; 2=Yes, inspection commissioned; 3=No inspection completed or commissioned; 4=Not relevant; 5=Don''t know';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_ENVIRONMENT IS 'Building environment which is taken as the servicing strategy that contributes the largest proportion of the building''s CO₂ emissions.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS IS 'Field containing the concatenation of address1, address2 and address3. Note that post code is recorded separately.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LOCAL_AUTHORITY_LABEL IS 'The name of the local authority area in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Local Authority ONS Code.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.CONSTITUENCY_LABEL IS 'The name of the parliamentary constituency in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Constituency ONS Code.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.POSTTOWN IS 'The post town of the property';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LODGEMENT_DATETIME IS 'Date and time lodged on the Energy Performance of Buildings Register.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.PRIMARY_ENERGY_VALUE IS 'Displayed on the non-domestic EPC as primary energy use (kWh/m2 per year)';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.UPRN IS 'The UPRN submitted by an assessor or alternatively from the department’s address matching algorithm.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.UPRN_SOURCE IS 'Populated with the values "Energy Assessor" or "Address Matched" to show how the UPRN was populated.';
-COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.REPORT_TYPE IS 'Type of assessment carried out of the building. 102: assessment using the SBEM (Simplified Building Energy Model) tool for non-domestic (non-residential) buildings.';
-
 -- Table: bdline_ua_lep_diss_tbl
 COMMENT ON TABLE mca_env_base.bdline_ua_lep_diss_tbl IS 'Table containing 3 columns';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_diss_tbl.name IS 'Name';
@@ -170,30 +128,30 @@ COMMENT ON COLUMN mca_env_base.bdline_ward_lep_tbl.id IS 'Id';
 
 -- Table: boundary_lookup_tbl
 COMMENT ON TABLE mca_env_base.boundary_lookup_tbl IS 'Table containing 14 columns';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcd7 IS 'Pcd7';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcd8 IS 'Pcd8';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcds IS 'Pcds';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.dointr IS 'Dointr';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.doterm IS 'Doterm';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.usertype IS 'Usertype';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.oa21cd IS 'Oa21cd';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.lsoa21cd IS 'Lsoa21cd';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.msoa21cd IS 'Msoa21cd';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcd7 IS 'Postcode 7 characters';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcd8 IS 'Postcode 8 characters';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcds IS 'Postcode with space';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.dointr IS 'Date of introduction';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.doterm IS 'Date of termination';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.usertype IS 'User type';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.oa21cd IS 'Output area 2021';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.lsoa21cd IS 'LSOA code 2021';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.msoa21cd IS 'MSOA code 2021';
 COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.ladcd IS 'Local Authority District code';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.lsoa21nm IS 'Lsoa21nm';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.msoa21nm IS 'Msoa21nm';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.lsoa21nm IS 'LSOA name 2021';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.msoa21nm IS 'MSOA name 2021';
 COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.ladnm IS 'Local Authority District name';
-COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.ladnmw IS 'Ladnmw';
+COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.ladnmw IS 'Local Authority District name Welsh';
 
 -- Table: ca_boundaries_bgc_tbl
 COMMENT ON TABLE mca_env_base.ca_boundaries_bgc_tbl IS 'Table containing 11 columns';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.FID IS 'Fid';
-COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.CAUTH25CD IS 'Cauth25cd';
-COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.CAUTH25NM IS 'Cauth25nm';
-COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.BNG_E IS 'Bng e';
-COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.BNG_N IS 'Bng n';
-COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.LONG IS 'Long';
-COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.LAT IS 'Lat';
+COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.CAUTH25CD IS 'Combined authority code 2025';
+COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.CAUTH25NM IS 'Combined authority name 2025';
+COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.BNG_E IS 'Easting';
+COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.BNG_N IS 'Northing';
+COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.LONG IS 'Longitude';
+COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.LAT IS 'Latitude';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.Shape__Area IS 'Shape area';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.Shape__Length IS 'Shape length';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.GlobalID IS 'Globalid';
@@ -201,10 +159,10 @@ COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.geom IS 'Geometry';
 
 -- Table: ca_la_lookup_tbl
 COMMENT ON TABLE mca_env_base.ca_la_lookup_tbl IS 'Table containing 5 columns';
-COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.LAD25CD IS 'Lad25cd';
-COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.LAD25NM IS 'Lad25nm';
-COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.CAUTH25CD IS 'Cauth25cd';
-COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.CAUTH25NM IS 'Cauth25nm';
+COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.LAD25CD IS 'Local authority district code 2025';
+COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.LAD25NM IS 'Local authority district name 2025';
+COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.CAUTH25CD IS 'Combined authority code 2025';
+COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.CAUTH25NM IS 'Combined authority name 2025';
 COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.ObjectId IS 'Objectid';
 
 -- Table: codepoint_open_lep_tbl
@@ -213,10 +171,10 @@ COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.postcode IS 'UK postal cod
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.pc_nospace IS 'Pc nospace';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.admin_district_code IS 'Admin district code';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.admin_ward_code IS 'Admin ward code';
-COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.xco IS 'Xco';
-COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.yco IS 'Yco';
-COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.lon IS 'Lon';
-COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.lat IS 'Lat';
+COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.xco IS 'Easting';
+COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.yco IS 'Northing';
+COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.lon IS 'Longitude';
+COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.lat IS 'Latitude';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.id IS 'Id';
 
@@ -321,8 +279,8 @@ COMMENT ON COLUMN mca_env_base.la_ghg_emissions_wide_tbl.emissions_per_km2_kt_co
 
 -- Table: lsoa_2021_lep_tbl
 COMMENT ON TABLE mca_env_base.lsoa_2021_lep_tbl IS 'Table containing 5 columns';
-COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.lsoa21cd IS 'Lsoa21cd';
-COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.lsoa21nm IS 'Lsoa21nm';
+COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.lsoa21cd IS 'LSOA code 2021';
+COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.lsoa21nm IS 'LSOA name 2021';
 COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.area_m2 IS 'Area m2';
 COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.id IS 'Id';
@@ -398,6 +356,50 @@ COMMENT ON COLUMN mca_env_base.postcode_centroids_tbl.f_matched_parts___part IS 
 COMMENT ON COLUMN mca_env_base.postcode_centroids_tbl.f_matched_parts___startindex IS 'F matched parts startindex';
 COMMENT ON COLUMN mca_env_base.postcode_centroids_tbl.globalid IS 'Globalid';
 
+-- Table: raw_non_domestic_epc_certificates_tbl
+COMMENT ON TABLE mca_env_base.raw_non_domestic_epc_certificates_tbl IS 'Table containing 41 columns';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LMK_KEY IS 'Lodgement Management Key';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS1 IS 'Address1';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS2 IS 'Address2';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS3 IS 'Address3';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.POSTCODE IS 'UK postal code';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_REFERENCE_NUMBER IS 'Building reference number';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ASSET_RATING IS 'Asset rating';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ASSET_RATING_BAND IS 'Asset rating band';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.PROPERTY_TYPE IS 'Property type';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.INSPECTION_DATE IS 'Date of inspection date';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LOCAL_AUTHORITY IS 'Local authority';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.CONSTITUENCY IS 'Parliamentary constituency';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.COUNTY IS 'County';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LODGEMENT_DATE IS 'Date of lodgement date';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.TRANSACTION_TYPE IS 'Transaction type';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.NEW_BUILD_BENCHMARK IS 'New build benchmark';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.EXISTING_STOCK_BENCHMARK IS 'Existing stock benchmark';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_LEVEL IS 'Building level';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.MAIN_HEATING_FUEL IS 'Main heating fuel';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.OTHER_FUEL_DESC IS 'Other fuel description';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.SPECIAL_ENERGY_USES IS 'Special energy uses';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.RENEWABLE_SOURCES IS 'Renewable sources';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.FLOOR_AREA IS 'Floor area';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.STANDARD_EMISSIONS IS 'Standard emissions';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.TARGET_EMISSIONS IS 'Target emissions';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.TYPICAL_EMISSIONS IS 'Typical emissions';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_EMISSIONS IS 'Building emissions';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.AIRCON_PRESENT IS 'Aircon present';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.AIRCON_KW_RATING IS 'Aircon kw rating';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ESTIMATED_AIRCON_KW_RATING IS 'Estimated aircon kw rating';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.AC_INSPECTION_COMMISSIONED IS 'Ac inspection commissioned';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.BUILDING_ENVIRONMENT IS 'Building environment';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.ADDRESS IS 'Full address';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LOCAL_AUTHORITY_LABEL IS 'Local authority label';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.CONSTITUENCY_LABEL IS 'Constituency label';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.POSTTOWN IS 'Post town';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.LODGEMENT_DATETIME IS 'Lodgement datetime';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.PRIMARY_ENERGY_VALUE IS 'Primary energy value';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.UPRN IS 'Unique Property Reference Number';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.UPRN_SOURCE IS 'Uprn source';
+COMMENT ON COLUMN mca_env_base.raw_non_domestic_epc_certificates_tbl.REPORT_TYPE IS 'Report type';
+
 -- Table: uk_lsoa_tenure_tbl
 COMMENT ON TABLE mca_env_base.uk_lsoa_tenure_tbl IS 'Table containing 5 columns';
 COMMENT ON COLUMN mca_env_base.uk_lsoa_tenure_tbl.lsoa21_code IS 'Lsoa21 code';
@@ -444,8 +446,8 @@ COMMENT ON COLUMN mca_env_base.epc_domestic_vw.CONSTITUENCY IS 'Office for Natio
 COMMENT ON COLUMN mca_env_base.epc_domestic_vw.COUNTY IS 'County in which the building is located (where applicable)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_vw.LODGEMENT_DATE IS 'Date lodged on the Energy Performance of Buildings Register';
 COMMENT ON COLUMN mca_env_base.epc_domestic_vw.TRANSACTION_TYPE IS 'Type of transaction that triggered EPC. For example, one of: marketed sale; non-marketed sale; new-dwelling; rental; not sale or rental; assessment for Green Deal; following Green Deal; FIT application; none of the above; RHI application; ECO assessment. Where the reason for the assessment is unknown by the energy assessor the transaction type will be recorded as ''none of the above''. Transaction types may be changed over time.';
-COMMENT ON COLUMN mca_env_base.epc_domestic_vw.ENVIRONMENT_IMPACT_CURRENT IS 'Environment impact current';
-COMMENT ON COLUMN mca_env_base.epc_domestic_vw.ENVIRONMENT_IMPACT_POTENTIAL IS 'Environment impact potential';
+COMMENT ON COLUMN mca_env_base.epc_domestic_vw.ENVIRONMENT_IMPACT_CURRENT IS 'The Environmental Impact Rating. A measure of the property''s current impact on the environment in terms of carbon dioxide (CO₂) emissions. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
+COMMENT ON COLUMN mca_env_base.epc_domestic_vw.ENVIRONMENT_IMPACT_POTENTIAL IS 'The potential Environmental Impact Rating. A measure of the property''s potential impact on the environment in terms of carbon dioxide (CO₂) emissions after improvements have been carried out. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_vw.ENERGY_CONSUMPTION_CURRENT IS 'Current estimated total energy consumption for the property in a 12 month period (kWh/m2). Displayed on EPC as the current primary energy use per square metre of floor area.';
 COMMENT ON COLUMN mca_env_base.epc_domestic_vw.ENERGY_CONSUMPTION_POTENTIAL IS 'Estimated potential total energy consumption for the Property in a 12 month period. Value is Kilowatt Hours per Square Metre (kWh/m²)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_vw.CO2_EMISSIONS_CURRENT IS 'CO₂ emissions per year in tonnes/year.';
@@ -528,47 +530,47 @@ COMMENT ON COLUMN mca_env_base.epc_domestic_vw.LODGEMENT_DAY IS 'Computed field:
 
 -- View: epc_non_domestic_lep_vw
 COMMENT ON TABLE mca_env_base.epc_non_domestic_lep_vw IS 'View based on raw_non_domestic_epc_certificates_tbl, open_uprn_lep_tbl';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LMK_KEY IS 'Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS1 IS 'First line of the address';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS2 IS 'Second line of the address';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS3 IS 'Third line of the address';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.POSTCODE IS 'The postcode of the property';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_REFERENCE_NUMBER IS 'Unique identifier for the property.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ASSET_RATING IS 'Energy Performance Asset Rating. The CO₂ emissions from the actual building in comparison to a Standard Emission Rate. (kg CO₂/m²)';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ASSET_RATING_BAND IS 'Energy Performance Asset Rating converted into an energy band/grade into a linear ''A+ to G'' scale (where A+ is the most energy efficient and G the least energy efficient)';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.PROPERTY_TYPE IS 'Describes the type of building that is being inspected. Based on planning use class.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.INSPECTION_DATE IS 'The date that the inspection was actually carried out by the energy assessor';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LOCAL_AUTHORITY IS 'Office for National Statistics (ONS) code. Local authority area in which the building is located.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.CONSTITUENCY IS 'Office for National Statistics (ONS) code. Parliamentary constituency in which the building is located.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.COUNTY IS 'County in which the building is located (where applicable)';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LODGEMENT_DATE IS 'Date lodged on the Energy Performance of Buildings Register';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.TRANSACTION_TYPE IS 'Type of transaction that triggered EPC. One of: mandatory issue (marketed sale); mandatory issue (non-marketed sale); mandatory issue (property on construction); mandatory issue (property to let); voluntary re-issue (a valid epc is already lodged); voluntary (no legal requirement for an epc); not recorded. Transaction types may be changed over time.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.NEW_BUILD_BENCHMARK IS 'NEW_BUILD_BENCHMARK';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.EXISTING_STOCK_BENCHMARK IS 'The Benchmark value of existing stock for this type of building';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_LEVEL IS 'Building Complexity Level based on Energy Assessor National Occupation Standards';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.MAIN_HEATING_FUEL IS 'Main Heating fuel for the building is taken as the fuel which delivers the greatest total thermal output for space or water heating';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.OTHER_FUEL_DESC IS 'Text description of unspecified fuel type if ''Other'' is selected for Main Heating Fuel';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.SPECIAL_ENERGY_USES IS 'Special energy uses discounted. This only appears on the Recommendations Report.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.RENEWABLE_SOURCES IS 'On-site renewable energy sources. This only appears on the Advisory Report.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.FLOOR_AREA IS 'The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls, i.e. the gross floor area as measured in accordance with the guidance issued from time to time by the Royal Institute of Chartered Surveyors or by a body replacing that institution. (m2)';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.STANDARD_EMISSIONS IS 'Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.TARGET_EMISSIONS IS 'Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.TYPICAL_EMISSIONS IS 'Typical Emission Rate.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_EMISSIONS IS 'Building Emissions Rate. Annual CO₂ emissions from the building. Decimal (kg CO₂/m²)';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.AIRCON_PRESENT IS 'Air Conditioning System. Does the building have an air conditioning system?';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.AIRCON_KW_RATING IS 'Air conditioning System. Rating in kW';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ESTIMATED_AIRCON_KW_RATING IS 'Air Conditioning System. If exact rating unknown, what is the estimated total effective output rating of the air conditioning system';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.AC_INSPECTION_COMMISSIONED IS 'One of:1=Yes, inspection completed; 2=Yes, inspection commissioned; 3=No inspection completed or commissioned; 4=Not relevant; 5=Don''t know';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_ENVIRONMENT IS 'Building environment which is taken as the servicing strategy that contributes the largest proportion of the building''s CO₂ emissions.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS IS 'Field containing the concatenation of address1, address2 and address3. Note that post code is recorded separately.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LOCAL_AUTHORITY_LABEL IS 'The name of the local authority area in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Local Authority ONS Code.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.CONSTITUENCY_LABEL IS 'The name of the parliamentary constituency in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Constituency ONS Code.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.POSTTOWN IS 'The post town of the property';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LODGEMENT_DATETIME IS 'Date and time lodged on the Energy Performance of Buildings Register.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.PRIMARY_ENERGY_VALUE IS 'Displayed on the non-domestic EPC as primary energy use (kWh/m2 per year)';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.UPRN IS 'The UPRN submitted by an assessor or alternatively from the department’s address matching algorithm.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.UPRN_SOURCE IS 'Populated with the values "Energy Assessor" or "Address Matched" to show how the UPRN was populated.';
-COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.REPORT_TYPE IS 'Type of assessment carried out of the building. 102: assessment using the SBEM (Simplified Building Energy Model) tool for non-domestic (non-residential) buildings.';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LMK_KEY IS 'Lodgement Management Key';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS1 IS 'Address1';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS2 IS 'Address2';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS3 IS 'Address3';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.POSTCODE IS 'UK postal code';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_REFERENCE_NUMBER IS 'Building reference number';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ASSET_RATING IS 'Asset rating';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ASSET_RATING_BAND IS 'Asset rating band';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.PROPERTY_TYPE IS 'Property type';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.INSPECTION_DATE IS 'Date of inspection date';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LOCAL_AUTHORITY IS 'Local authority';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.CONSTITUENCY IS 'Parliamentary constituency';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.COUNTY IS 'County';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LODGEMENT_DATE IS 'Date of lodgement date';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.TRANSACTION_TYPE IS 'Transaction type';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.NEW_BUILD_BENCHMARK IS 'New build benchmark';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.EXISTING_STOCK_BENCHMARK IS 'Existing stock benchmark';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_LEVEL IS 'Building level';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.MAIN_HEATING_FUEL IS 'Main heating fuel';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.OTHER_FUEL_DESC IS 'Other fuel description';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.SPECIAL_ENERGY_USES IS 'Special energy uses';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.RENEWABLE_SOURCES IS 'Renewable sources';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.FLOOR_AREA IS 'Floor area';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.STANDARD_EMISSIONS IS 'Standard emissions';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.TARGET_EMISSIONS IS 'Target emissions';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.TYPICAL_EMISSIONS IS 'Typical emissions';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_EMISSIONS IS 'Building emissions';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.AIRCON_PRESENT IS 'Aircon present';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.AIRCON_KW_RATING IS 'Aircon kw rating';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ESTIMATED_AIRCON_KW_RATING IS 'Estimated aircon kw rating';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.AC_INSPECTION_COMMISSIONED IS 'Ac inspection commissioned';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.BUILDING_ENVIRONMENT IS 'Building environment';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.ADDRESS IS 'Full address';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LOCAL_AUTHORITY_LABEL IS 'Local authority label';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.CONSTITUENCY_LABEL IS 'Constituency label';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.POSTTOWN IS 'Post town';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.LODGEMENT_DATETIME IS 'Lodgement datetime';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.PRIMARY_ENERGY_VALUE IS 'Primary energy value';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.UPRN IS 'Unique Property Reference Number';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.UPRN_SOURCE IS 'Uprn source';
+COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.REPORT_TYPE IS 'Report type';
 COMMENT ON COLUMN mca_env_base.epc_non_domestic_lep_vw.geo_point_2d IS 'Geo point 2d';
 
 -- View: epc_domestic_lep_vw
@@ -587,8 +589,8 @@ COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.CONSTITUENCY IS 'Office for N
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.COUNTY IS 'County in which the building is located (where applicable)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.LODGEMENT_DATE IS 'Date lodged on the Energy Performance of Buildings Register';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.TRANSACTION_TYPE IS 'Type of transaction that triggered EPC. For example, one of: marketed sale; non-marketed sale; new-dwelling; rental; not sale or rental; assessment for Green Deal; following Green Deal; FIT application; none of the above; RHI application; ECO assessment. Where the reason for the assessment is unknown by the energy assessor the transaction type will be recorded as ''none of the above''. Transaction types may be changed over time.';
-COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ENVIRONMENT_IMPACT_CURRENT IS 'Environment impact current';
-COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ENVIRONMENT_IMPACT_POTENTIAL IS 'Environment impact potential';
+COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ENVIRONMENT_IMPACT_CURRENT IS 'The Environmental Impact Rating. A measure of the property''s current impact on the environment in terms of carbon dioxide (CO₂) emissions. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
+COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ENVIRONMENT_IMPACT_POTENTIAL IS 'The potential Environmental Impact Rating. A measure of the property''s potential impact on the environment in terms of carbon dioxide (CO₂) emissions after improvements have been carried out. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ENERGY_CONSUMPTION_CURRENT IS 'Current estimated total energy consumption for the property in a 12 month period (kWh/m2). Displayed on EPC as the current primary energy use per square metre of floor area.';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ENERGY_CONSUMPTION_POTENTIAL IS 'Estimated potential total energy consumption for the Property in a 12 month period. Value is Kilowatt Hours per Square Metre (kWh/m²)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.CO2_EMISSIONS_CURRENT IS 'CO₂ emissions per year in tonnes/year.';
@@ -669,3 +671,6 @@ COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.LODGEMENT_YEAR IS 'Computed f
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.LODGEMENT_MONTH IS 'Computed field: LODGEMENT_MONTH';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.LODGEMENT_DAY IS 'Computed field: LODGEMENT_DAY';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.geo_point_2d IS 'Geo point 2d';
+
+
+COMMIT;
