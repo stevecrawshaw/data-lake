@@ -157,9 +157,7 @@ class XMLSchemaParser:
             source="xml",
         )
 
-    def _parse_columns(
-        self, table_elem: etree._Element
-    ) -> list[ColumnMetadata]:
+    def _parse_columns(self, table_elem: etree._Element) -> list[ColumnMetadata]:
         """Parse all column elements within a table.
 
         Args:

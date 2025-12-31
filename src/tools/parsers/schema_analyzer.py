@@ -13,7 +13,6 @@ from pathlib import Path
 
 import duckdb
 import yaml
-from polars import DataFrame
 
 from .models import ColumnMetadata, TableMetadata
 
@@ -65,7 +64,7 @@ class PatternMatcher:
             if no match found. Confidence ranges from 0.0 to 1.0.
         """
         col_lower = column_name.lower()
-        col_upper = column_name.upper()
+        column_name.upper()
 
         # 1. Exact matches (highest confidence)
         if col_lower in self.exact_matches:
@@ -216,9 +215,7 @@ class DataAnalyzer:
                 return (statistics, confidence_adj)
 
         except Exception as e:
-            logger.warning(
-                f"Error analyzing column {table_name}.{column_name}: {e}"
-            )
+            logger.warning(f"Error analyzing column {table_name}.{column_name}: {e}")
             return ({}, 0.0)
 
 

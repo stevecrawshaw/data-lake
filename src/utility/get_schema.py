@@ -42,7 +42,7 @@ def get_schema_as_xml(db_path: str) -> ET.Element:
         # Get column information
         columns = conn.execute(f"""
             SELECT column_name, data_type, is_nullable
-            FROM information_schema.columns 
+            FROM information_schema.columns
             WHERE table_schema = 'main' AND table_name = '{table_name}'
             ORDER BY ordinal_position
         """).fetchall()

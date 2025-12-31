@@ -12,7 +12,6 @@ import questionary
 from pydantic import BaseModel
 from rich.console import Console
 from rich.panel import Panel
-from rich.table import Table
 
 from ..parsers.models import ColumnMetadata
 from .session_manager import SessionManager
@@ -43,7 +42,9 @@ class InteractiveMenu:
         """
         self.console = console or Console()
 
-    def display_welcome_banner(self, database_path: Path, stats: dict[str, int]) -> None:
+    def display_welcome_banner(
+        self, database_path: Path, stats: dict[str, int]
+    ) -> None:
         """Show welcome screen with session info.
 
         Args:
@@ -92,10 +93,7 @@ class InteractiveMenu:
         skipped = stats.get("skipped", 0)
         pending = stats.get("pending", 0)
 
-        if total == 0:
-            percent = 0
-        else:
-            percent = int((reviewed / total) * 100)
+        percent = 0 if total == 0 else int(reviewed / total * 100)
 
         progress_text = [
             f"[green]✓ Reviewed:[/green] {reviewed}/{total} ({percent}%)",
@@ -128,10 +126,7 @@ class InteractiveMenu:
         # Format choices with progress indicators (plain text for questionary)
         choices = []
         for entity_name, entity_type, total_cols, pending_cols in entities:
-            if pending_cols == 0:
-                indicator = "✓"
-            else:
-                indicator = "⊙"
+            indicator = "✓" if pending_cols == 0 else "⊙"
 
             label = f"{indicator} {entity_name} ({entity_type}, {pending_cols}/{total_cols} pending)"
             choices.append({"name": label, "value": entity_name})
@@ -298,7 +293,7 @@ class InteractiveMenu:
             f"[cyan]Type:[/cyan] {metadata.data_type}",
             f"[cyan]Source:[/cyan] {metadata.source} (confidence: {metadata.confidence:.2f})",
             "",
-            f"[yellow]Current Description:[/yellow]",
+            "[yellow]Current Description:[/yellow]",
             f'[white]"{existing_description}"[/white]',
         ]
 

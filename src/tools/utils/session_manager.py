@@ -333,8 +333,8 @@ class SessionManager:
 
         stats = {"total": 0, "reviewed": 0, "skipped": 0, "pending": 0, "confirmed": 0}
 
-        for entity_name, columns in self.state.fields.items():
-            for column_name, field in columns.items():
+        for _entity_name, columns in self.state.fields.items():
+            for _column_name, field in columns.items():
                 stats["total"] += 1
                 stats[field.status] += 1
 

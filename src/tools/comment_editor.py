@@ -9,14 +9,12 @@ import re
 import sys
 from pathlib import Path
 
-import duckdb
 from rich.console import Console
 
 from .generators.view_mapper import ViewMapper
 from .generators.xml_generator import ManualOverrideXMLGenerator
 from .parsers.models import ColumnMetadata, TableMetadata, ViewMetadata
 from .parsers.schema_analyzer import SchemaAnalyzer
-from .parsers.xml_parser import parse_xml_schema
 from .utils.interactive_menu import InteractiveMenu
 from .utils.session_manager import SessionManager
 
@@ -50,7 +48,9 @@ class CommentEditor:
         # Loaded data (populated by load methods)
         self.tables: dict[str, TableMetadata] = {}
         self.views: dict[str, ViewMetadata] = {}
-        self.existing_comments: dict[str, dict[str, str]] = {}  # entity -> column -> desc
+        self.existing_comments: dict[
+            str, dict[str, str]
+        ] = {}  # entity -> column -> desc
 
     def run(self, resume: bool = False) -> None:
         """Run the interactive comment editor.
@@ -196,9 +196,7 @@ class CommentEditor:
         # Views: Include columns where source in ("fallback", "computed")
         for view_name, view in self.views.items():
             review_cols = [
-                col
-                for col in view.columns
-                if col.source in ("fallback", "computed")
+                col for col in view.columns if col.source in ("fallback", "computed")
             ]
 
             if review_cols:
@@ -224,7 +222,9 @@ class CommentEditor:
                 # Get existing comment from generated_comments.sql
                 # Remove "view:" prefix if present
                 lookup_name = (
-                    entity_name.replace("view:", "") if entity_name.startswith("view:") else entity_name
+                    entity_name.replace("view:", "")
+                    if entity_name.startswith("view:")
+                    else entity_name
                 )
                 existing_desc = self.existing_comments.get(lookup_name, {}).get(
                     col.name, col.description
@@ -322,7 +322,7 @@ class CommentEditor:
 
         # Match with metadata
         columns_to_review = []
-        for col_name, field_status in session_columns.items():
+        for col_name, _field_status in session_columns.items():
             col_meta = entity_meta.get_column(col_name)
             if col_meta:
                 columns_to_review.append((col_name, col_meta))
@@ -330,7 +330,11 @@ class CommentEditor:
         while True:
             # Select column (use full entity_name for session tracking)
             selected = self.menu.select_column(
-                entity_name, display_name, entity_type, columns_to_review, self.session_manager
+                entity_name,
+                display_name,
+                entity_type,
+                columns_to_review,
+                self.session_manager,
             )
 
             if selected == "__BACK__":

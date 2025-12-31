@@ -34,9 +34,7 @@ class ViewMapper:
         """
         self.database_path = database_path
 
-    def map_views(
-        self, tables: list[TableMetadata]
-    ) -> list[ViewMetadata]:
+    def map_views(self, tables: list[TableMetadata]) -> list[ViewMetadata]:
         """Map table metadata to all views in the database using multi-pass processing.
 
         Uses iterative enrichment to propagate comments through view chains:
@@ -148,8 +146,7 @@ class ViewMapper:
 
         # Count columns that were successfully mapped (not fallback)
         mapped_columns = [
-            c for c in view_metadata.columns
-            if c.source not in ("fallback", "computed")
+            c for c in view_metadata.columns if c.source not in ("fallback", "computed")
         ]
 
         # Require at least 80% of columns to be successfully mapped

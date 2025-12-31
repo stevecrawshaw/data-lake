@@ -13,15 +13,11 @@ from pathlib import Path
 # Fix Windows console encoding for Unicode characters
 if sys.platform == "win32":
     import io
-    sys.stdout = io.TextIOWrapper(
-        sys.stdout.buffer, encoding="utf-8", errors="replace"
-    )
-    sys.stderr = io.TextIOWrapper(
-        sys.stderr.buffer, encoding="utf-8", errors="replace"
-    )
+
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 import click
-import yaml
 from rich.console import Console
 from rich.logging import RichHandler
 from rich.progress import Progress, SpinnerColumn, TextColumn
@@ -191,7 +187,9 @@ def generate(
         ) as progress:
             # Parse XML schemas if provided
             if xml_schema:
-                task = progress.add_task("Parsing XML schemas...", total=len(xml_schema))
+                task = progress.add_task(
+                    "Parsing XML schemas...", total=len(xml_schema)
+                )
                 for xml_path in xml_schema:
                     logger.info(f"Parsing XML: {xml_path}")
                     xml_tables = parse_xml_schema(xml_path)
@@ -199,7 +197,9 @@ def generate(
                     progress.advance(task)
 
             # Load manual overrides if present
-            manual_overrides_path = Path("src/schemas/documentation/manual_overrides.xml")
+            manual_overrides_path = Path(
+                "src/schemas/documentation/manual_overrides.xml"
+            )
             if manual_overrides_path.exists():
                 logger.info("Loading manual schema overrides...")
                 manual_tables = parse_xml_schema(manual_overrides_path)
@@ -207,9 +207,12 @@ def generate(
                 # Merge with priority: manual > external XML
                 for manual_table in manual_tables:
                     existing_idx = next(
-                        (i for i, t in enumerate(all_tables)
-                         if t.name.upper() == manual_table.name.upper()),
-                        None
+                        (
+                            i
+                            for i, t in enumerate(all_tables)
+                            if t.name.upper() == manual_table.name.upper()
+                        ),
+                        None,
                     )
                     if existing_idx is not None:
                         # Replace with manual override (has higher priority)
@@ -220,7 +223,9 @@ def generate(
                         # Add new table from manual overrides
                         all_tables.append(manual_table)
 
-                console.print(f"[cyan]✓[/cyan] Loaded {len(manual_tables)} table(s) from manual overrides")
+                console.print(
+                    f"[cyan]✓[/cyan] Loaded {len(manual_tables)} table(s) from manual overrides"
+                )
 
             # Analyze database schema for tables not in XML
             task = progress.add_task("Analyzing database schema...", total=None)
@@ -295,7 +300,7 @@ def generate(
                 format="pretty",
             )
 
-            console.print(f"\n[green]✓[/green] Applied comments to database")
+            console.print("\n[green]✓[/green] Applied comments to database")
             console.print(f"  Tables updated: {stats['tables_updated']}")
             console.print(f"  Columns updated: {stats['columns_updated']}")
             console.print(f"  SQL saved to: {output}")

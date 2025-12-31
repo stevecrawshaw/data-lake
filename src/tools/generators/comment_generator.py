@@ -13,7 +13,7 @@ from pathlib import Path
 
 import duckdb
 
-from ..parsers.models import DatabaseMetadata, TableMetadata, ViewMetadata
+from ..parsers.models import TableMetadata, ViewMetadata
 
 logger = logging.getLogger(__name__)
 
@@ -127,9 +127,7 @@ class CommentGenerator:
             # Column descriptions
             for column in table.columns:
                 statements.append(
-                    self.generate_column_comment(
-                        table, column.name, column.description
-                    )
+                    self.generate_column_comment(table, column.name, column.description)
                 )
 
             if self.format == "pretty":
@@ -326,9 +324,7 @@ def save_comments_to_file(
     Example:
         >>> tables = [...]
         >>> save_comments_to_file(
-        ...     Path("generated_comments.sql"),
-        ...     tables,
-        ...     format="pretty"
+        ...     Path("generated_comments.sql"), tables, format="pretty"
         ... )
     """
     generator = CommentGenerator(format=format, database_name=database_name)
