@@ -125,26 +125,21 @@ class InteractiveMenu:
             self.console.print("[yellow]No entities to review[/yellow]")
             return None
 
-        # Format choices with progress indicators
+        # Format choices with progress indicators (plain text for questionary)
         choices = []
         for entity_name, entity_type, total_cols, pending_cols in entities:
             if pending_cols == 0:
-                indicator = "[green]✓[/green]"
+                indicator = "✓"
             else:
-                indicator = "[yellow]⊙[/yellow]"
+                indicator = "⊙"
 
-            label = (
-                f"{indicator} {entity_name} "
-                f"[dim]({entity_type}, {pending_cols}/{total_cols} pending)[/dim]"
-            )
+            label = f"{indicator} {entity_name} ({entity_type}, {pending_cols}/{total_cols} pending)"
             choices.append({"name": label, "value": entity_name})
 
         # Add option to finish
         choices.append(questionary.Separator())
-        choices.append({"name": "[green]Save & Quit[/green]", "value": "__SAVE_QUIT__"})
-        choices.append(
-            {"name": "[red]Quit without saving[/red]", "value": "__QUIT_NO_SAVE__"}
-        )
+        choices.append({"name": "✓ Save & Quit", "value": "__SAVE_QUIT__"})
+        choices.append({"name": "✗ Quit without saving", "value": "__QUIT_NO_SAVE__"})
 
         try:
             result = questionary.select(
@@ -161,53 +156,52 @@ class InteractiveMenu:
     def select_column(
         self,
         entity_name: str,
+        display_name: str,
         entity_type: str,
         columns: list[tuple[str, ColumnMetadata]],
         session: SessionManager,
-    ) -> tuple[str, ColumnMetadata] | None:
+    ) -> tuple[str, ColumnMetadata] | str:
         """Show column selection menu with status indicators.
 
         Args:
-            entity_name: Table or view name
+            entity_name: Full entity name for session tracking (with view: prefix if applicable)
+            display_name: Display name without prefix for UI display
             entity_type: 'table' or 'view'
             columns: List of tuples (column_name, ColumnMetadata)
             session: SessionManager to check field status
 
         Returns:
-            Tuple of (column_name, ColumnMetadata) or None if back/cancelled
+            Tuple of (column_name, ColumnMetadata) or "__BACK__" if back/cancelled
         """
         if not columns:
             self.console.print("[yellow]No columns to review[/yellow]")
-            return None
+            return "__BACK__"
 
-        # Format choices with status indicators
+        # Format choices with status indicators (plain text for questionary)
         choices = []
         for col_name, col_meta in columns:
             status_obj = session.get_field_status(entity_name, col_name)
 
             if status_obj:
                 if status_obj.status in ("reviewed", "confirmed"):
-                    indicator = "[green]✓[/green]"
+                    indicator = "✓"
                 elif status_obj.status == "skipped":
-                    indicator = "[yellow]⊘[/yellow]"
+                    indicator = "⊘"
                 else:  # pending
-                    indicator = "[white]⊙[/white]"
+                    indicator = "⊙"
             else:
-                indicator = "[white]⊙[/white]"
+                indicator = "⊙"
 
-            label = (
-                f"{indicator} {col_name} "
-                f"[dim]({col_meta.data_type}, {col_meta.source})[/dim]"
-            )
+            label = f"{indicator} {col_name} ({col_meta.data_type}, {col_meta.source})"
             choices.append({"name": label, "value": (col_name, col_meta)})
 
         # Add navigation options
         choices.append(questionary.Separator())
-        choices.append({"name": "[cyan]← Back to entity list[/cyan]", "value": None})
+        choices.append({"name": "← Back to entity list", "value": "__BACK__"})
 
         try:
             result = questionary.select(
-                f"Select column in {entity_type} '{entity_name}':",
+                f"Select column in {entity_type} '{display_name}':",
                 choices=choices,
                 use_shortcuts=True,
                 instruction="(Use arrow keys, Enter to select)",
@@ -215,7 +209,7 @@ class InteractiveMenu:
 
             return result
         except KeyboardInterrupt:
-            return None
+            return "__BACK__"
 
     def review_field(
         self,

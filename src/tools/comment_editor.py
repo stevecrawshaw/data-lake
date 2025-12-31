@@ -328,14 +328,19 @@ class CommentEditor:
                 columns_to_review.append((col_name, col_meta))
 
         while True:
-            # Select column
+            # Select column (use full entity_name for session tracking)
             selected = self.menu.select_column(
-                display_name, entity_type, columns_to_review, self.session_manager
+                entity_name, display_name, entity_type, columns_to_review, self.session_manager
             )
 
-            if not selected:
+            if selected == "__BACK__":
                 # Back to entity list
                 break
+
+            # Defensive unpacking with validation
+            if not isinstance(selected, tuple) or len(selected) != 2:
+                self.menu.show_error(f"Invalid selection format: {type(selected)}")
+                continue
 
             col_name, col_meta = selected
 
