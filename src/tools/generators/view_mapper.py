@@ -37,7 +37,12 @@ class ViewMapper:
     def map_views(
         self, tables: list[TableMetadata]
     ) -> list[ViewMetadata]:
-        """Map table metadata to all views in the database.
+        """Map table metadata to all views in the database using multi-pass processing.
+
+        Uses iterative enrichment to propagate comments through view chains:
+        - Pass 1: Maps views sourcing directly from base tables
+        - Pass 2+: Maps views sourcing from previously-mapped views
+        - Continues until no new views are successfully mapped
 
         Args:
             tables: List of TableMetadata objects for base tables
@@ -45,48 +50,132 @@ class ViewMapper:
         Returns:
             List of ViewMetadata objects with mapped column descriptions
         """
-        views: list[ViewMetadata] = []
-
-        # Create table lookup dictionary
-        table_lookup = {t.name.upper(): t for t in tables}
+        # Initialize lookup with base tables (can contain both tables and views)
+        entity_lookup: dict[str, TableMetadata | ViewMetadata] = {
+            t.name.upper(): t for t in tables
+        }
 
         with duckdb.connect(str(self.database_path), read_only=True) as con:
-            # Get all views
+            # Get all views from database
             views_query = """
                 SELECT view_name, sql
                 FROM duckdb_views()
                 ORDER BY view_name
             """
-            view_rows = con.execute(views_query).fetchall()
+            all_view_rows = con.execute(views_query).fetchall()
 
-            for view_name, view_sql in view_rows:
-                logger.info(f"Mapping view: {view_name}")
+            # Multi-pass processing
+            mapped_views: list[ViewMetadata] = []
+            unmapped_views = all_view_rows.copy()
+            max_passes = 10
 
-                try:
-                    view_metadata = self._map_view(
-                        con, view_name, view_sql, table_lookup
+            for pass_num in range(1, max_passes + 1):
+                if not unmapped_views:
+                    logger.info("All views successfully mapped")
+                    break
+
+                newly_mapped = []
+                still_unmapped = []
+
+                logger.info(
+                    f"Pass {pass_num}: Processing {len(unmapped_views)} unmapped views"
+                )
+
+                for view_name, view_sql in unmapped_views:
+                    try:
+                        view_metadata = self._map_view(
+                            con, view_name, view_sql, entity_lookup
+                        )
+
+                        # Check if mapping was successful
+                        if self._is_successfully_mapped(view_metadata):
+                            newly_mapped.append(view_metadata)
+                            # Add to lookup for next pass
+                            entity_lookup[view_metadata.name.upper()] = view_metadata
+                            logger.debug(
+                                f"Successfully mapped view: {view_name} "
+                                f"(sources: {', '.join(view_metadata.source_tables)})"
+                            )
+                        else:
+                            still_unmapped.append((view_name, view_sql))
+                            logger.debug(
+                                f"View {view_name} not fully mapped, deferring to next pass"
+                            )
+
+                    except Exception as e:
+                        logger.error(f"Error mapping view {view_name}: {e}")
+                        still_unmapped.append((view_name, view_sql))
+                        continue
+
+                if newly_mapped:
+                    logger.info(
+                        f"Pass {pass_num}: Successfully mapped {len(newly_mapped)} views"
                     )
-                    views.append(view_metadata)
-                except Exception as e:
-                    logger.error(f"Error mapping view {view_name}: {e}")
-                    continue
+                    mapped_views.extend(newly_mapped)
+                    unmapped_views = still_unmapped
+                else:
+                    # No progress made, stop iterating
+                    logger.warning(
+                        f"Pass {pass_num}: No views mapped, stopping multi-pass processing"
+                    )
+                    break
 
-        return views
+            # Log warnings for unmapped views
+            if unmapped_views:
+                unmapped_names = [name for name, _ in unmapped_views]
+                logger.warning(
+                    f"{len(unmapped_views)} views could not be fully mapped: "
+                    f"{', '.join(unmapped_names)}"
+                )
+
+        return mapped_views
+
+    def _is_successfully_mapped(self, view_metadata: ViewMetadata) -> bool:
+        """Check if a view was successfully mapped (has non-fallback sources).
+
+        A view is considered successfully mapped if:
+        - At least 80% of columns are mapped (not fallback or computed)
+        - This ensures views are only marked complete when most columns have proper sources
+
+        Args:
+            view_metadata: ViewMetadata object to check
+
+        Returns:
+            True if view has successfully mapped columns, False otherwise
+        """
+        if not view_metadata.columns:
+            return False
+
+        # Count columns that were successfully mapped (not fallback)
+        mapped_columns = [
+            c for c in view_metadata.columns
+            if c.source not in ("fallback", "computed")
+        ]
+
+        # Require at least 80% of columns to be successfully mapped
+        mapped_ratio = len(mapped_columns) / len(view_metadata.columns)
+
+        logger.debug(
+            f"View {view_metadata.name}: {len(mapped_columns)}/{len(view_metadata.columns)} "
+            f"columns mapped ({mapped_ratio:.1%})"
+        )
+
+        return mapped_ratio >= 0.80
 
     def _map_view(
         self,
         con: duckdb.DuckDBPyConnection,
         view_name: str,
         view_sql: str,
-        table_lookup: dict[str, TableMetadata],
+        entity_lookup: dict[str, TableMetadata | ViewMetadata],
     ) -> ViewMetadata:
-        """Map a single view to its source tables.
+        """Map a single view to its source tables or views.
 
         Args:
             con: DuckDB connection
             view_name: Name of the view
             view_sql: SQL definition of the view
-            table_lookup: Dictionary mapping table names to TableMetadata
+            entity_lookup: Dictionary mapping table/view names to their metadata
 
         Returns:
             ViewMetadata object with mapped column descriptions
@@ -109,7 +198,7 @@ class ViewMapper:
         columns: list[ColumnMetadata] = []
         for col_name, data_type in column_rows:
             column_meta = self._map_view_column(
-                col_name, data_type, source_tables, table_lookup, view_sql
+                col_name, data_type, source_tables, entity_lookup, view_sql
             )
             columns.append(column_meta)
 
@@ -134,41 +223,63 @@ class ViewMapper:
         col_name: str,
         data_type: str,
         source_tables: list[str],
-        table_lookup: dict[str, TableMetadata],
+        entity_lookup: dict[str, TableMetadata | ViewMetadata],
         view_sql: str,
     ) -> ColumnMetadata:
-        """Map a single view column to its source table column.
+        """Map a single view column to its source table or view column.
+
+        Supports propagation through view chains by looking up both tables
+        and previously-mapped views.
 
         Args:
             col_name: View column name
             data_type: View column data type
-            source_tables: List of source table names
-            table_lookup: Dictionary mapping table names to TableMetadata
+            source_tables: List of source table/view names
+            entity_lookup: Dictionary mapping table/view names to their metadata
             view_sql: SQL definition of the view
 
         Returns:
             ColumnMetadata object with description
         """
-        # Try to find matching column in source tables
-        for source_table_name in source_tables:
-            source_table = table_lookup.get(source_table_name.upper())
-            if not source_table:
+        # Try to find matching column in source entities (tables or views)
+        for source_name in source_tables:
+            source_entity = entity_lookup.get(source_name.upper())
+            if not source_entity:
+                logger.debug(
+                    f"Source '{source_name}' not found in lookup for column {col_name}"
+                )
                 continue
 
-            # Look for exact column name match
-            source_column = source_table.get_column(col_name)
+            # Both TableMetadata and ViewMetadata have get_column() method
+            source_column = source_entity.get_column(col_name)
             if source_column:
-                # Copy description from source table
+                # Adjust confidence based on indirection level
+                # Slightly lower confidence when inheriting from views vs tables
+                if isinstance(source_entity, TableMetadata):
+                    confidence_multiplier = 0.95
+                    logger.debug(
+                        f"Mapped {col_name} from table {source_name} "
+                        f"(confidence: {source_column.confidence * confidence_multiplier:.2f})"
+                    )
+                else:  # ViewMetadata
+                    confidence_multiplier = 0.90
+                    logger.debug(
+                        f"Mapped {col_name} from view {source_name} "
+                        f"(confidence: {source_column.confidence * confidence_multiplier:.2f})"
+                    )
+
+                # Copy description from source, preserving XML-sourced detail
                 return ColumnMetadata(
                     name=col_name,
                     data_type=data_type,
                     description=source_column.description,
-                    confidence=source_column.confidence * 0.95,  # Slight reduction
-                    source=f"mapped_from_{source_table_name}",
+                    confidence=source_column.confidence * confidence_multiplier,
+                    source=f"mapped_from_{source_name}",
                 )
 
         # Check if column is computed/derived
         if self._is_computed_column(col_name, view_sql):
+            logger.debug(f"Column {col_name} identified as computed")
             return ColumnMetadata(
                 name=col_name,
                 data_type=data_type,
@@ -178,6 +289,7 @@ class ViewMapper:
             )
 
         # Fallback: use column name as description
+        logger.debug(f"Using fallback description for column {col_name}")
         return ColumnMetadata(
             name=col_name,
             data_type=data_type,
