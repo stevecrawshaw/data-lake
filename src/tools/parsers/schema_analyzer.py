@@ -271,8 +271,15 @@ class SchemaAnalyzer:
         tables: list[TableMetadata] = []
 
         with duckdb.connect(str(self.database_path), read_only=True) as con:
-            # Get all table names
-            tables_query = "SELECT DISTINCT table_name FROM duckdb_tables() WHERE table_type = 'BASE TABLE'"
+            # Get all base table names (exclude internal, temporary, and views)
+            tables_query = """
+                SELECT DISTINCT t.table_name
+                FROM duckdb_tables() t
+                WHERE t.internal = false
+                  AND t.temporary = false
+                  AND t.table_name NOT IN (SELECT view_name FROM duckdb_views())
+                ORDER BY t.table_name
+            """
             table_rows = con.execute(tables_query).fetchall()
 
             for (table_name,) in table_rows:

@@ -138,7 +138,9 @@ class XMLSchemaParser:
                 raise ValueError(msg)
 
         # Extract table description
-        desc_elem = table_elem.find("description") or table_elem.find("Description")
+        desc_elem = table_elem.find("description")
+        if desc_elem is None:
+            desc_elem = table_elem.find("Description")
         table_description = (
             desc_elem.text.strip()
             if desc_elem is not None and desc_elem.text
@@ -206,7 +208,9 @@ class XMLSchemaParser:
                 raise ValueError(msg)
 
         # Extract data type
-        type_elem = col_elem.find("type") or col_elem.find("Type")
+        type_elem = col_elem.find("type")
+        if type_elem is None:
+            type_elem = col_elem.find("Type")
         data_type = (
             type_elem.text.strip()
             if type_elem is not None and type_elem.text
@@ -214,7 +218,9 @@ class XMLSchemaParser:
         )
 
         # Extract description
-        desc_elem = col_elem.find("description") or col_elem.find("Description")
+        desc_elem = col_elem.find("description")
+        if desc_elem is None:
+            desc_elem = col_elem.find("Description")
         description = (
             desc_elem.text.strip()
             if desc_elem is not None and desc_elem.text
@@ -223,7 +229,9 @@ class XMLSchemaParser:
 
         # Extract constraints (optional)
         constraints: list[str] = []
-        constraint_elem = col_elem.find("constraints") or col_elem.find("Constraints")
+        constraint_elem = col_elem.find("constraints")
+        if constraint_elem is None:
+            constraint_elem = col_elem.find("Constraints")
         if constraint_elem is not None:
             for constraint in constraint_elem.findall("constraint"):
                 if constraint.text:

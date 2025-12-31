@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema>
+  <table name="raw_non_domestic_epc_certificates_tbl">
+    <description>Non-domestic Energy Performance Certificate data from UK government register</description>
+    <column name="LMK_KEY">
+      <type>STRING</type>
+      <description>Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.</description>
+    </column>
+    <column name="ADDRESS1">
+      <type>STRING</type>
+      <description>First line of the address</description>
+    </column>
+    <column name="ADDRESS2">
+      <type>STRING</type>
+      <description>Second line of the address</description>
+    </column>
+    <column name="ADDRESS3">
+      <type>STRING</type>
+      <description>Third line of the address</description>
+    </column>
+    <column name="POSTCODE">
+      <type>STRING</type>
+      <description>The postcode of the property</description>
+    </column>
+    <column name="BUILDING_REFERENCE_NUMBER">
+      <type>STRING</type>
+      <description>Unique identifier for the property.</description>
+    </column>
+    <column name="ASSET_RATING">
+      <type>INTEGER</type>
+      <description>Energy Performance Asset Rating. The CO₂ emissions from the actual building in comparison to a Standard Emission Rate. (kg CO₂/m²)</description>
+    </column>
+    <column name="ASSET_RATING_BAND">
+      <type>STRING</type>
+      <description>Energy Performance Asset Rating converted into an energy band/grade into a linear 'A+ to G' scale (where A+ is the most energy efficient and G the least energy efficient)</description>
+    </column>
+    <column name="PROPERTY_TYPE">
+      <type>STRING</type>
+      <description>Describes the type of building that is being inspected. Based on planning use class.</description>
+    </column>
+    <column name="INSPECTION_DATE">
+      <type>DATE</type>
+      <description>The date that the inspection was actually carried out by the energy assessor</description>
+    </column>
+    <column name="LOCAL_AUTHORITY">
+      <type>STRING</type>
+      <description>Office for National Statistics (ONS) code. Local authority area in which the building is located.</description>
+    </column>
+    <column name="CONSTITUENCY">
+      <type>STRING</type>
+      <description>Office for National Statistics (ONS) code. Parliamentary constituency in which the building is located.</description>
+    </column>
+    <column name="COUNTY">
+      <type>STRING</type>
+      <description>County in which the building is located (where applicable)</description>
+    </column>
+    <column name="LODGEMENT_DATE">
+      <type>DATE</type>
+      <description>Date lodged on the Energy Performance of Buildings Register</description>
+    </column>
+    <column name="TRANSACTION_TYPE">
+      <type>STRING</type>
+      <description>Type of transaction that triggered EPC. One of: mandatory issue (marketed sale); mandatory issue (non-marketed sale); mandatory issue (property on construction); mandatory issue (property to let); voluntary re-issue (a valid epc is already lodged); voluntary (no legal requirement for an epc); not recorded. Transaction types may be changed over time.</description>
+    </column>
+    <column name="NEW_BUILD_BENCHMARK">
+      <type>STRING</type>
+      <description></description>
+    </column>
+    <column name="EXISTING_STOCK_BENCHMARK">
+      <type>STRING</type>
+      <description>The Benchmark value of existing stock for this type of building</description>
+    </column>
+    <column name="BUILDING_LEVEL">
+      <type>STRING</type>
+      <description>Building Complexity Level based on Energy Assessor National Occupation Standards</description>
+    </column>
+    <column name="MAIN_HEATING_FUEL">
+      <type>STRING</type>
+      <description>Main Heating fuel for the building is taken as the fuel which delivers the greatest total thermal output for space or water heating</description>
+    </column>
+    <column name="OTHER_FUEL_DESC">
+      <type>STRING</type>
+      <description>Text description of unspecified fuel type if 'Other' is selected for Main Heating Fuel</description>
+    </column>
+    <column name="SPECIAL_ENERGY_USES">
+      <type>STRING</type>
+      <description>Special energy uses discounted. This only appears on the Recommendations Report.</description>
+    </column>
+    <column name="RENEWABLE_SOURCES">
+      <type>STRING</type>
+      <description>On-site renewable energy sources. This only appears on the Advisory Report.</description>
+    </column>
+    <column name="FLOOR_AREA">
+      <type>INTEGER</type>
+      <description>The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls, i.e. the gross floor area as measured in accordance with the guidance issued from time to time by the Royal Institute of Chartered Surveyors or by a body replacing that institution. (m2)</description>
+    </column>
+    <column name="STANDARD_EMISSIONS">
+      <type>DECIMAL</type>
+      <description>Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).</description>
+    </column>
+    <column name="TARGET_EMISSIONS">
+      <type>DECIMAL</type>
+      <description>Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).</description>
+    </column>
+    <column name="TYPICAL_EMISSIONS">
+      <type>DECIMAL</type>
+      <description>Typical Emission Rate.</description>
+    </column>
+    <column name="BUILDING_EMISSIONS">
+      <type>DECIMAL</type>
+      <description>Building Emissions Rate. Annual CO₂ emissions from the building. Decimal (kg CO₂/m²)</description>
+    </column>
+    <column name="AIRCON_PRESENT">
+      <type>STRING</type>
+      <description>Air Conditioning System. Does the building have an air conditioning system?</description>
+    </column>
+    <column name="AIRCON_KW_RATING">
+      <type>DECIMAL</type>
+      <description>Air conditioning System. Rating in kW</description>
+    </column>
+    <column name="ESTIMATED_AIRCON_KW_RATING">
+      <type>DECIMAL</type>
+      <description>Air Conditioning System. If exact rating unknown, what is the estimated total effective output rating of the air conditioning system</description>
+    </column>
+    <column name="AC_INSPECTION_COMMISSIONED">
+      <type>INTEGER</type>
+      <description>One of:1=Yes, inspection completed; 2=Yes, inspection commissioned; 3=No inspection completed or commissioned; 4=Not relevant; 5=Don't know</description>
+    </column>
+    <column name="BUILDING_ENVIRONMENT">
+      <type>STRING</type>
+      <description>Building environment which is taken as the servicing strategy that contributes the largest proportion of the building's CO₂ emissions.</description>
+    </column>
+    <column name="ADDRESS">
+      <type>STRING</type>
+      <description>Field containing the concatenation of address1, address2 and address3. Note that post code is recorded separately.</description>
+    </column>
+    <column name="LOCAL_AUTHORITY_LABEL">
+      <type>STRING</type>
+      <description>The name of the local authority area in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Local Authority ONS Code.</description>
+    </column>
+    <column name="CONSTITUENCY_LABEL">
+      <type>STRING</type>
+      <description>The name of the parliamentary constituency in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Constituency ONS Code.</description>
+    </column>
+    <column name="POSTTOWN">
+      <type>STRING</type>
+      <description>The post town of the property</description>
+    </column>
+    <column name="LODGEMENT_DATETIME">
+      <type>STRING</type>
+      <description>Date and time lodged on the Energy Performance of Buildings Register.</description>
+    </column>
+    <column name="PRIMARY_ENERGY_VALUE">
+      <type>INTEGER</type>
+      <description>Displayed on the non-domestic EPC as primary energy use (kWh/m2 per year)</description>
+    </column>
+    <column name="UPRN">
+      <type>INTEGER</type>
+      <description>The UPRN submitted by an assessor or alternatively from the department’s address matching algorithm.</description>
+    </column>
+    <column name="UPRN_SOURCE">
+      <type>STRING</type>
+      <description>Populated with the values "Energy Assessor" or "Address Matched" to show how the UPRN was populated.</description>
+    </column>
+    <column name="REPORT_TYPE">
+      <type>INTEGER</type>
+      <description>Type of assessment carried out of the building. 102: assessment using the SBEM (Simplified Building Energy Model) tool for non-domestic (non-residential) buildings.</description>
+    </column>
+  </table>
+</schema>
