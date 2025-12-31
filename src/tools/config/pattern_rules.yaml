@@ -1,0 +1,45 @@
+# Pattern-based description rules for schema documentation
+# These patterns help generate intelligent descriptions for columns
+
+suffix_patterns:
+  _cd: "code"
+  _nm: "name"
+  _desc: "description"
+  _dt: "date"
+  _flag: "flag (Y/N)"
+  _count: "count"
+  _pct: "percentage"
+  _id: "identifier"
+  _key: "key"
+  _ref: "reference"
+  _type: "type"
+  _status: "status"
+  _ind: "indicator"
+
+prefix_patterns:
+  current_: "Current value of"
+  potential_: "Potential value of"
+  total_: "Total"
+  max_: "Maximum"
+  min_: "Minimum"
+  avg_: "Average"
+  sum_: "Sum of"
+
+exact_matches:
+  uprn: "Unique Property Reference Number"
+  lmk_key: "Lodgement Management Key"
+  postcode: "UK postal code"
+  lsoa: "Lower Layer Super Output Area code"
+  msoa: "Middle Layer Super Output Area code"
+  oa: "Output Area code"
+  lad: "Local Authority District code"
+  ladcd: "Local Authority District code"
+  ladnm: "Local Authority District name"
+  cauthcd: "Combined Authority code"
+  cauthnm: "Combined Authority name"
+  geom: "Geometry"
+  shape: "Spatial geometry"
+  address: "Full address"
+  posttown: "Post town"
+  county: "County"
+  constituency: "Parliamentary constituency"

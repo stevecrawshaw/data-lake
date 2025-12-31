@@ -1,0 +1,35 @@
+database:
+  default_path: "data_lake/mca_env_base.duckdb"
+  attached_databases:
+    - name: "mca_data"
+      path: "md:mca_data"  # MotherDuck
+
+xml_schemas:
+  - table: "raw_domestic_epc_certificates_tbl"
+    xml_path: "src/schemas/documentation/epc_domestic_schema.xml"
+  - table: "raw_non_domestic_epc_certificates_tbl"
+    xml_path: "src/schemas/documentation/epc_nondom_schema.xml"
+
+inference:
+  enabled: true
+  confidence_threshold: 0.6
+  sample_size: 1000
+  use_data_analysis: true
+
+view_mappings:
+  auto_detect: true
+  view_definitions_file: "src/create_views.sql"
+
+overrides:
+  # Manual overrides for specific columns
+  # Example:
+  # raw_domestic_epc_certificates_tbl:
+  #   UPRN: "Unique Property Reference Number - UK-wide unique property identifier"
+
+output:
+  sql_file: "src/schemas/documentation/generated_comments.sql"
+  format: "pretty"  # or "compact"
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: null  # Set to path for file logging
