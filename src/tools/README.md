@@ -119,6 +119,100 @@ Validate comment coverage in database (coming soon).
 
 Export existing comments from database as SQL (coming soon).
 
+### `edit-comments`
+
+Launch interactive comment editor to manually review and edit schema comments.
+
+The interactive editor guides you through tables without XML schemas and views with fallback/computed columns, allowing you to provide detailed descriptions. Progress is saved automatically so you can resume later.
+
+**Options:**
+- `-d, --database PATH`: Path to DuckDB database file (required)
+- `--resume`: Resume previous editing session
+- `--clear-session`: Clear existing session and start fresh
+
+**Features:**
+- **Interactive Navigation**: Arrow keys to navigate entities and columns
+- **Automatic Progress Tracking**: Session saved after each edit
+- **Smart Filtering**:
+  - Tables: Reviews ALL columns for tables without external XML schemas
+  - Views: Reviews only columns with `source="fallback"` or `source="computed"`
+- **Default Descriptions**: Shows existing inferred descriptions for quick confirmation
+- **Skip & Resume**: Skip difficult fields and return to them later
+- **XML Output**: Generates `manual_overrides.xml` automatically integrated into the main workflow
+
+**Example Workflow:**
+
+```bash
+# Step 1: Start interactive editing session
+uv run python -m src.tools.schema_documenter edit-comments \
+    -d data_lake/mca_env_base.duckdb
+
+# Navigate through entities and columns using arrow keys
+# Edit, keep, or skip each field
+# Session auto-saves after each action
+
+# Step 2: Resume later if needed
+uv run python -m src.tools.schema_documenter edit-comments \
+    -d data_lake/mca_env_base.duckdb --resume
+
+# Step 3: Clear session and start over (if needed)
+uv run python -m src.tools.schema_documenter edit-comments \
+    -d data_lake/mca_env_base.duckdb --clear-session
+
+# Step 4: Generate with manual overrides (automatic!)
+uv run python -m src.tools.schema_documenter generate \
+    -d data_lake/mca_env_base.duckdb \
+    -x src/schemas/documentation/epc_domestic_schema.xml \
+    --dry-run
+
+# Manual overrides are automatically loaded if manual_overrides.xml exists
+```
+
+**UI Preview:**
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║          Schema Comment Editor - Session Active              ║
+╠══════════════════════════════════════════════════════════════╣
+║ Database: data_lake/mca_env_base.duckdb                     ║
+║ Progress: 45/127 fields reviewed (35%), 8 skipped           ║
+╚══════════════════════════════════════════════════════════════╝
+
+┌─ Table: raw_building_stocks_tbl ────────────────────────────┐
+│ Column: construction_year                                   │
+│ Type: INTEGER                                               │
+│ Source: inferred (confidence: 0.80)                         │
+│                                                              │
+│ Current Description:                                        │
+│ "Construction year"                                         │
+└──────────────────────────────────────────────────────────────┘
+
+? What would you like to do?
+  → Edit description
+    Keep current description
+    Skip for later
+    Save & Quit
+```
+
+**Keyboard Shortcuts:**
+- **Arrow keys**: Navigate options
+- **Enter**: Select option
+- **Ctrl+C**: Save and quit
+
+**Output:**
+- Session state: `.schema_review_session.json` (automatically managed)
+- XML output: `src/schemas/documentation/manual_overrides.xml`
+
+**Integration with Main Workflow:**
+
+The `manual_overrides.xml` file is automatically loaded during `generate` with highest priority:
+- Manual overrides > External XML schemas > Pattern inference
+
+This means you can:
+1. Use `edit-comments` to refine specific descriptions
+2. Run `generate` normally - your manual edits are preserved
+3. Re-run `edit-comments` anytime to make additional changes
+
 ## Configuration
 
 ### Pattern Rules

@@ -44,6 +44,46 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def merge_table_metadata(base: TableMetadata, override: TableMetadata) -> TableMetadata:
+    """Merge table metadata with manual override priority.
+
+    Args:
+        base: Base table metadata (from external XML or inference)
+        override: Override table metadata (from manual_overrides.xml)
+
+    Returns:
+        Merged TableMetadata with override taking precedence
+    """
+    # Create column lookups (case-insensitive)
+    override_cols = {c.name.upper(): c for c in override.columns}
+    base_cols = {c.name.upper(): c for c in base.columns}
+
+    # Merge columns: override takes precedence
+    merged_columns = []
+    for col_name_upper, col in base_cols.items():
+        if col_name_upper in override_cols:
+            # Use override column
+            merged_columns.append(override_cols[col_name_upper])
+        else:
+            # Keep base column
+            merged_columns.append(col)
+
+    # Add any new columns from override not in base
+    for col_name_upper, col in override_cols.items():
+        if col_name_upper not in base_cols:
+            merged_columns.append(col)
+
+    # Return merged metadata with override description and source
+    return TableMetadata(
+        name=base.name,
+        description=override.description,
+        columns=merged_columns,
+        schema_name=base.schema_name,
+        table_type=base.table_type,
+        source="manual_override",
+    )
+
+
 @click.group()
 @click.option(
     "--verbose",
@@ -157,6 +197,30 @@ def generate(
                     xml_tables = parse_xml_schema(xml_path)
                     all_tables.extend(xml_tables)
                     progress.advance(task)
+
+            # Load manual overrides if present
+            manual_overrides_path = Path("src/schemas/documentation/manual_overrides.xml")
+            if manual_overrides_path.exists():
+                logger.info("Loading manual schema overrides...")
+                manual_tables = parse_xml_schema(manual_overrides_path)
+
+                # Merge with priority: manual > external XML
+                for manual_table in manual_tables:
+                    existing_idx = next(
+                        (i for i, t in enumerate(all_tables)
+                         if t.name.upper() == manual_table.name.upper()),
+                        None
+                    )
+                    if existing_idx is not None:
+                        # Replace with manual override (has higher priority)
+                        all_tables[existing_idx] = merge_table_metadata(
+                            all_tables[existing_idx], manual_table
+                        )
+                    else:
+                        # Add new table from manual overrides
+                        all_tables.append(manual_table)
+
+                console.print(f"[cyan]✓[/cyan] Loaded {len(manual_tables)} table(s) from manual overrides")
 
             # Analyze database schema for tables not in XML
             task = progress.add_task("Analyzing database schema...", total=None)
@@ -385,6 +449,62 @@ def export(
     # TODO: Implement export logic
     console.print("[yellow]⚠️  Export not yet implemented[/yellow]")
     sys.exit(1)
+
+
+@cli.command()
+@click.option(
+    "--database",
+    "-d",
+    type=click.Path(exists=True, path_type=Path),
+    required=True,
+    help="Path to DuckDB database file",
+)
+@click.option(
+    "--resume",
+    is_flag=True,
+    help="Resume previous editing session",
+)
+@click.option(
+    "--clear-session",
+    is_flag=True,
+    help="Clear existing session and start fresh",
+)
+def edit_comments(
+    database: Path,
+    resume: bool,
+    clear_session: bool,
+) -> None:
+    """Launch interactive comment editor.
+
+    Interactively review and edit comments for tables without XML schemas
+    and views with fallback/computed columns. Progress is saved automatically
+    and can be resumed later.
+
+    Example:
+        schema-doc edit-comments -d data_lake/mca_env_base.duckdb
+
+        # Resume previous session
+        schema-doc edit-comments -d data_lake/mca_env_base.duckdb --resume
+
+        # Clear session and start over
+        schema-doc edit-comments -d data_lake/mca_env_base.duckdb --clear-session
+    """
+    from .comment_editor import CommentEditor
+
+    console.print("[bold blue]Interactive Schema Comment Editor[/bold blue]\n")
+
+    try:
+        editor = CommentEditor(database_path=database)
+
+        if clear_session:
+            editor.clear_session()
+
+        editor.run(resume=resume)
+
+    except Exception as e:
+        console.print(f"[red]Error: {e}[/red]")
+        logger.exception("Edit session failed")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
