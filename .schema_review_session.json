@@ -1,0 +1,3334 @@
+{
+  "version": "1.0",
+  "database_path": "data_lake\\mca_env_base.duckdb",
+  "created_at": "2025-12-31T13:38:32.722211",
+  "last_updated": "2025-12-31T18:12:36.586373",
+  "current_position": null,
+  "fields": {
+    "bdline_ua_lep_diss_tbl": {
+      "name": {
+        "status": "confirmed",
+        "original_description": "Name",
+        "user_description": "Name",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T13:55:14.366796"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T13:58:14.341569"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T13:58:26.427449"
+      }
+    },
+    "bdline_ua_lep_tbl": {
+      "name": {
+        "status": "confirmed",
+        "original_description": "Name",
+        "user_description": "Name",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:00.386329"
+      },
+      "code": {
+        "status": "confirmed",
+        "original_description": "Code",
+        "user_description": "Code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:03.704983"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:07.168748"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:09.796302"
+      }
+    },
+    "bdline_ua_weca_diss_tbl": {
+      "name": {
+        "status": "confirmed",
+        "original_description": "Name",
+        "user_description": "Name",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:25.322992"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:28.025149"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:30.267214"
+      }
+    },
+    "bdline_ward_lep_tbl": {
+      "name": {
+        "status": "confirmed",
+        "original_description": "Name",
+        "user_description": "Name",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:54.892676"
+      },
+      "file_name": {
+        "status": "confirmed",
+        "original_description": "File name",
+        "user_description": "File name",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:08:57.298886"
+      },
+      "code": {
+        "status": "confirmed",
+        "original_description": "Code",
+        "user_description": "Code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:09:00.667634"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:09:03.346610"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:09:10.927262"
+      }
+    },
+    "boundary_lookup_tbl": {
+      "pcd7": {
+        "status": "reviewed",
+        "original_description": "Pcd7",
+        "user_description": "Postcode 7 characters",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:03:45.213133"
+      },
+      "pcd8": {
+        "status": "reviewed",
+        "original_description": "Pcd8",
+        "user_description": "Postcode 8 characters",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:04:03.909939"
+      },
+      "pcds": {
+        "status": "reviewed",
+        "original_description": "Pcds",
+        "user_description": "Postcode with space",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:04:18.988286"
+      },
+      "dointr": {
+        "status": "reviewed",
+        "original_description": "Dointr",
+        "user_description": "Date of introduction",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:05:00.794175"
+      },
+      "doterm": {
+        "status": "reviewed",
+        "original_description": "Doterm",
+        "user_description": "Date of termination",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:05:15.380971"
+      },
+      "usertype": {
+        "status": "reviewed",
+        "original_description": "Usertype",
+        "user_description": "User type",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:05:25.491508"
+      },
+      "oa21cd": {
+        "status": "reviewed",
+        "original_description": "Oa21cd",
+        "user_description": "Output area 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:05:39.197118"
+      },
+      "lsoa21cd": {
+        "status": "reviewed",
+        "original_description": "Lsoa21cd",
+        "user_description": "LSOA code 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:05:52.669266"
+      },
+      "msoa21cd": {
+        "status": "reviewed",
+        "original_description": "Msoa21cd",
+        "user_description": "MSOA code 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:06:05.926114"
+      },
+      "ladcd": {
+        "status": "reviewed",
+        "original_description": "Local Authority District code",
+        "user_description": "Local Authority District code",
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:06:17.290633"
+      },
+      "lsoa21nm": {
+        "status": "reviewed",
+        "original_description": "Lsoa21nm",
+        "user_description": "LSOA name 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:06:30.147996"
+      },
+      "msoa21nm": {
+        "status": "reviewed",
+        "original_description": "Msoa21nm",
+        "user_description": "MSOA name 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:06:42.636394"
+      },
+      "ladnm": {
+        "status": "reviewed",
+        "original_description": "Local Authority District name",
+        "user_description": "Local Authority District name",
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:06:50.246283"
+      },
+      "ladnmw": {
+        "status": "reviewed",
+        "original_description": "Ladnmw",
+        "user_description": "Local Authority District name Welsh",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:07:13.553290"
+      }
+    },
+    "ca_boundaries_bgc_tbl": {
+      "FID": {
+        "status": "confirmed",
+        "original_description": "Fid",
+        "user_description": "Fid",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:09:23.344458"
+      },
+      "CAUTH25CD": {
+        "status": "reviewed",
+        "original_description": "Cauth25cd",
+        "user_description": "Combined authority code 2025",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:09:48.039937"
+      },
+      "CAUTH25NM": {
+        "status": "reviewed",
+        "original_description": "Cauth25nm",
+        "user_description": "Combined authority name 2025",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:00.474356"
+      },
+      "BNG_E": {
+        "status": "reviewed",
+        "original_description": "Bng e",
+        "user_description": "Easting",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:13.668260"
+      },
+      "BNG_N": {
+        "status": "reviewed",
+        "original_description": "Bng n",
+        "user_description": "Northing",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:22.226163"
+      },
+      "LONG": {
+        "status": "reviewed",
+        "original_description": "Long",
+        "user_description": "Longitude",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:29.947497"
+      },
+      "LAT": {
+        "status": "reviewed",
+        "original_description": "Lat",
+        "user_description": "Latitude",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:36.288931"
+      },
+      "Shape__Area": {
+        "status": "confirmed",
+        "original_description": "Shape area",
+        "user_description": "Shape area",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:41.359441"
+      },
+      "Shape__Length": {
+        "status": "confirmed",
+        "original_description": "Shape length",
+        "user_description": "Shape length",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:46.138351"
+      },
+      "GlobalID": {
+        "status": "confirmed",
+        "original_description": "Globalid",
+        "user_description": "Globalid",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:50.058837"
+      },
+      "geom": {
+        "status": "confirmed",
+        "original_description": "Geometry",
+        "user_description": "Geometry",
+        "data_type": "GEOMETRY",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:10:58.290772"
+      }
+    },
+    "ca_la_lookup_tbl": {
+      "LAD25CD": {
+        "status": "reviewed",
+        "original_description": "Lad25cd",
+        "user_description": "Local authority district code 2025",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:11:25.994773"
+      },
+      "LAD25NM": {
+        "status": "reviewed",
+        "original_description": "Lad25nm",
+        "user_description": "Local authority district name 2025",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:11:37.049447"
+      },
+      "CAUTH25CD": {
+        "status": "reviewed",
+        "original_description": "Cauth25cd",
+        "user_description": "Combined authority code 2025",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:11:53.227201"
+      },
+      "CAUTH25NM": {
+        "status": "reviewed",
+        "original_description": "Cauth25nm",
+        "user_description": "Combined authority name 2025",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:08.531744"
+      },
+      "ObjectId": {
+        "status": "confirmed",
+        "original_description": "Objectid",
+        "user_description": "Objectid",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:12.339038"
+      }
+    },
+    "codepoint_open_lep_tbl": {
+      "postcode": {
+        "status": "confirmed",
+        "original_description": "UK postal code",
+        "user_description": "UK postal code",
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:24.248545"
+      },
+      "pc_nospace": {
+        "status": "confirmed",
+        "original_description": "Pc nospace",
+        "user_description": "Pc nospace",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:27.064008"
+      },
+      "admin_district_code": {
+        "status": "confirmed",
+        "original_description": "Admin district code",
+        "user_description": "Admin district code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:33.240596"
+      },
+      "admin_ward_code": {
+        "status": "confirmed",
+        "original_description": "Admin ward code",
+        "user_description": "Admin ward code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:36.666089"
+      },
+      "xco": {
+        "status": "reviewed",
+        "original_description": "Xco",
+        "user_description": "Easting",
+        "data_type": "DECIMAL(10,2)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:12:55.242637"
+      },
+      "yco": {
+        "status": "reviewed",
+        "original_description": "Yco",
+        "user_description": "Northing",
+        "data_type": "DECIMAL(10,2)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:13:02.648060"
+      },
+      "lon": {
+        "status": "reviewed",
+        "original_description": "Lon",
+        "user_description": "Longitude",
+        "data_type": "DECIMAL(9,7)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:13:10.129068"
+      },
+      "lat": {
+        "status": "reviewed",
+        "original_description": "Lat",
+        "user_description": "Latitude",
+        "data_type": "DECIMAL(9,7)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:13:16.730136"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:13:20.231761"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:13:23.529651"
+      }
+    },
+    "eng_lsoa_imd_tbl": {
+      "lsoa21_code": {
+        "status": "confirmed",
+        "original_description": "Lsoa21 code",
+        "user_description": "Lsoa21 code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:13:57.026463"
+      },
+      "imd_decile": {
+        "status": "confirmed",
+        "original_description": "Imd decile",
+        "user_description": "Imd decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:20.897439"
+      },
+      "income_decile": {
+        "status": "confirmed",
+        "original_description": "Income decile",
+        "user_description": "Income decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:03.619001"
+      },
+      "employment_decile": {
+        "status": "confirmed",
+        "original_description": "Employment decile",
+        "user_description": "Employment decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:07.002623"
+      },
+      "education_decile": {
+        "status": "confirmed",
+        "original_description": "Education decile",
+        "user_description": "Education decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:12.449857"
+      },
+      "health_decile": {
+        "status": "confirmed",
+        "original_description": "Health decile",
+        "user_description": "Health decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:19.482031"
+      },
+      "crime_decile": {
+        "status": "confirmed",
+        "original_description": "Crime decile",
+        "user_description": "Crime decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:25.554277"
+      },
+      "housing_and_services_decile": {
+        "status": "confirmed",
+        "original_description": "Housing and services decile",
+        "user_description": "Housing and services decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:29.930542"
+      },
+      "environment_decile": {
+        "status": "confirmed",
+        "original_description": "Environment decile",
+        "user_description": "Environment decile",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:33.034349"
+      },
+      "imd_rank": {
+        "status": "confirmed",
+        "original_description": "Imd rank",
+        "user_description": "Imd rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:44.607858"
+      },
+      "income_rank": {
+        "status": "confirmed",
+        "original_description": "Income rank",
+        "user_description": "Income rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:48.857889"
+      },
+      "employment_rank": {
+        "status": "confirmed",
+        "original_description": "Employment rank",
+        "user_description": "Employment rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:51.681230"
+      },
+      "education_rank": {
+        "status": "confirmed",
+        "original_description": "Education rank",
+        "user_description": "Education rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:55.193210"
+      },
+      "health_rank": {
+        "status": "confirmed",
+        "original_description": "Health rank",
+        "user_description": "Health rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:14:58.219493"
+      },
+      "crime_rank": {
+        "status": "confirmed",
+        "original_description": "Crime rank",
+        "user_description": "Crime rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:01.481774"
+      },
+      "housing_and_services_rank": {
+        "status": "confirmed",
+        "original_description": "Housing and services rank",
+        "user_description": "Housing and services rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:03.065568"
+      },
+      "environment_rank": {
+        "status": "confirmed",
+        "original_description": "Environment rank",
+        "user_description": "Environment rank",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:07.306670"
+      },
+      "imd_score": {
+        "status": "confirmed",
+        "original_description": "Imd score",
+        "user_description": "Imd score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:14.911323"
+      },
+      "income_score": {
+        "status": "confirmed",
+        "original_description": "Income score",
+        "user_description": "Income score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:18.935101"
+      },
+      "employment_score": {
+        "status": "confirmed",
+        "original_description": "Employment score",
+        "user_description": "Employment score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:36.736355"
+      },
+      "education_score": {
+        "status": "confirmed",
+        "original_description": "Education score",
+        "user_description": "Education score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:42.602235"
+      },
+      "health_score": {
+        "status": "confirmed",
+        "original_description": "Health score",
+        "user_description": "Health score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:48.142419"
+      },
+      "crime_score": {
+        "status": "confirmed",
+        "original_description": "Crime score",
+        "user_description": "Crime score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:52.658722"
+      },
+      "housing_and_services_score": {
+        "status": "confirmed",
+        "original_description": "Housing and services score",
+        "user_description": "Housing and services score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:15:57.957906"
+      },
+      "environment_score": {
+        "status": "confirmed",
+        "original_description": "Environment score",
+        "user_description": "Environment score",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:04.952812"
+      }
+    },
+    "la_ghg_emissions_tbl": {
+      "country": {
+        "status": "confirmed",
+        "original_description": "Country",
+        "user_description": "Country",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:25.090072"
+      },
+      "country_code": {
+        "status": "confirmed",
+        "original_description": "Country code",
+        "user_description": "Country code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:27.889611"
+      },
+      "region": {
+        "status": "confirmed",
+        "original_description": "Region",
+        "user_description": "Region",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:31.767150"
+      },
+      "region_code": {
+        "status": "confirmed",
+        "original_description": "Region code",
+        "user_description": "Region code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:33.669789"
+      },
+      "second_tier_authority": {
+        "status": "confirmed",
+        "original_description": "Second tier authority",
+        "user_description": "Second tier authority",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:35.913616"
+      },
+      "local_authority": {
+        "status": "confirmed",
+        "original_description": "Local authority",
+        "user_description": "Local authority",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:37.721559"
+      },
+      "local_authority_code": {
+        "status": "confirmed",
+        "original_description": "Local authority code",
+        "user_description": "Local authority code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:39.152926"
+      },
+      "calendar_year": {
+        "status": "confirmed",
+        "original_description": "Calendar year",
+        "user_description": "Calendar year",
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:41.854736"
+      },
+      "la_ghg_sector": {
+        "status": "confirmed",
+        "original_description": "La ghg sector",
+        "user_description": "La ghg sector",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:45.429808"
+      },
+      "la_ghg_subsector": {
+        "status": "confirmed",
+        "original_description": "La ghg subsector",
+        "user_description": "La ghg subsector",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:49.882504"
+      },
+      "greenhouse_gas": {
+        "status": "confirmed",
+        "original_description": "Greenhouse gas",
+        "user_description": "Greenhouse gas",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:52.518905"
+      },
+      "territorial_emissions_kt_co2e": {
+        "status": "confirmed",
+        "original_description": "Territorial emissions kt co2e",
+        "user_description": "Territorial emissions kt co2e",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:54.538021"
+      },
+      "emissions_within_the_scope_of_influence_of_las_kt_co2": {
+        "status": "confirmed",
+        "original_description": "Emissions within the scope of influence of las kt co2",
+        "user_description": "Emissions within the scope of influence of las kt co2",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:16:58.721669"
+      },
+      "midyear_population_thousands": {
+        "status": "confirmed",
+        "original_description": "Midyear population thousands",
+        "user_description": "Midyear population thousands",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:17:01.865017"
+      },
+      "area_km2": {
+        "status": "confirmed",
+        "original_description": "Area km2",
+        "user_description": "Area km2",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T14:17:04.621706"
+      }
+    },
+    "la_ghg_emissions_wide_tbl": {
+      "regioncountry": {
+        "status": "confirmed",
+        "original_description": "Regioncountry",
+        "user_description": "Regioncountry",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:21.675155"
+      },
+      "second_tier_authority": {
+        "status": "confirmed",
+        "original_description": "Second tier authority",
+        "user_description": "Second tier authority",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:25.072901"
+      },
+      "local_authority": {
+        "status": "confirmed",
+        "original_description": "Local authority",
+        "user_description": "Local authority",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:27.796211"
+      },
+      "local_authority_code": {
+        "status": "confirmed",
+        "original_description": "Local authority code",
+        "user_description": "Local authority code",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:29.991065"
+      },
+      "calendar_year": {
+        "status": "confirmed",
+        "original_description": "Calendar year",
+        "user_description": "Calendar year",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:32.802682"
+      },
+      "industry_electricity": {
+        "status": "confirmed",
+        "original_description": "Industry electricity",
+        "user_description": "Industry electricity",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:35.957657"
+      },
+      "industry_gas": {
+        "status": "confirmed",
+        "original_description": "Industry gas",
+        "user_description": "Industry gas",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:39.502483"
+      },
+      "large_industrial_installations": {
+        "status": "confirmed",
+        "original_description": "Large industrial installations",
+        "user_description": "Large industrial installations",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:48.583192"
+      },
+      "industry_other": {
+        "status": "confirmed",
+        "original_description": "Industry other",
+        "user_description": "Industry other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:52.270977"
+      },
+      "industry_total": {
+        "status": "confirmed",
+        "original_description": "Industry total",
+        "user_description": "Industry total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:54.843269"
+      },
+      "commercial_electricity": {
+        "status": "confirmed",
+        "original_description": "Commercial electricity",
+        "user_description": "Commercial electricity",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:03:57.528428"
+      },
+      "commercial_gas": {
+        "status": "confirmed",
+        "original_description": "Commercial gas",
+        "user_description": "Commercial gas",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:00.058944"
+      },
+      "commercial_other": {
+        "status": "confirmed",
+        "original_description": "Commercial other",
+        "user_description": "Commercial other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:02.651541"
+      },
+      "commercial_total": {
+        "status": "confirmed",
+        "original_description": "Commercial total",
+        "user_description": "Commercial total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:05.341208"
+      },
+      "public_sector_electricity": {
+        "status": "confirmed",
+        "original_description": "Public sector electricity",
+        "user_description": "Public sector electricity",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:09.998139"
+      },
+      "public_sector_gas": {
+        "status": "confirmed",
+        "original_description": "Public sector gas",
+        "user_description": "Public sector gas",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:21.324843"
+      },
+      "public_sector_other": {
+        "status": "confirmed",
+        "original_description": "Public sector other",
+        "user_description": "Public sector other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:25.118660"
+      },
+      "public_sector_total": {
+        "status": "confirmed",
+        "original_description": "Public sector total",
+        "user_description": "Public sector total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:28.541540"
+      },
+      "domestic_electricity": {
+        "status": "confirmed",
+        "original_description": "Domestic electricity",
+        "user_description": "Domestic electricity",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:32.149253"
+      },
+      "domestic_gas": {
+        "status": "confirmed",
+        "original_description": "Domestic gas",
+        "user_description": "Domestic gas",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:37.653168"
+      },
+      "domestic_other": {
+        "status": "confirmed",
+        "original_description": "Domestic other",
+        "user_description": "Domestic other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:41.842843"
+      },
+      "domestic_total": {
+        "status": "confirmed",
+        "original_description": "Domestic total",
+        "user_description": "Domestic total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:46.550706"
+      },
+      "road_transport_a_roads": {
+        "status": "confirmed",
+        "original_description": "Road transport a roads",
+        "user_description": "Road transport a roads",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:50.125751"
+      },
+      "road_transport_motorways": {
+        "status": "confirmed",
+        "original_description": "Road transport motorways",
+        "user_description": "Road transport motorways",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:54.517533"
+      },
+      "road_transport_minor_roads": {
+        "status": "confirmed",
+        "original_description": "Road transport minor roads",
+        "user_description": "Road transport minor roads",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:58.257548"
+      },
+      "diesel_railways": {
+        "status": "confirmed",
+        "original_description": "Diesel railways",
+        "user_description": "Diesel railways",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:01.853072"
+      },
+      "transport_other": {
+        "status": "confirmed",
+        "original_description": "Transport other",
+        "user_description": "Transport other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:05.818812"
+      },
+      "transport_total": {
+        "status": "confirmed",
+        "original_description": "Transport total",
+        "user_description": "Transport total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:09.342365"
+      },
+      "net_emissions_forestry": {
+        "status": "confirmed",
+        "original_description": "Net emissions forestry",
+        "user_description": "Net emissions forestry",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:12.876411"
+      },
+      "net_emissions_cropland_mineral_soils_change": {
+        "status": "confirmed",
+        "original_description": "Net emissions cropland mineral soils change",
+        "user_description": "Net emissions cropland mineral soils change",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:17.171836"
+      },
+      "net_emissions_grassland_mineral_soils_change": {
+        "status": "confirmed",
+        "original_description": "Net emissions grassland mineral soils change",
+        "user_description": "Net emissions grassland mineral soils change",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:23.491673"
+      },
+      "net_emissions_settlements": {
+        "status": "confirmed",
+        "original_description": "Net emissions settlements",
+        "user_description": "Net emissions settlements",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:27.839241"
+      },
+      "net_emissions_peatland": {
+        "status": "confirmed",
+        "original_description": "Net emissions peatland",
+        "user_description": "Net emissions peatland",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:32.891928"
+      },
+      "net_emissions_bioenergy_crops": {
+        "status": "confirmed",
+        "original_description": "Net emissions bioenergy crops",
+        "user_description": "Net emissions bioenergy crops",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:38.117192"
+      },
+      "net_emissions_other_lulucf": {
+        "status": "confirmed",
+        "original_description": "Net emissions other lulucf",
+        "user_description": "Net emissions other lulucf",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:49.053307"
+      },
+      "lulucf_net_emissions": {
+        "status": "confirmed",
+        "original_description": "Lulucf net emissions",
+        "user_description": "Lulucf net emissions",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:54.150636"
+      },
+      "agriculture_electricity": {
+        "status": "confirmed",
+        "original_description": "Agriculture electricity",
+        "user_description": "Agriculture electricity",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:05:59.310828"
+      },
+      "agriculture_gas": {
+        "status": "confirmed",
+        "original_description": "Agriculture gas",
+        "user_description": "Agriculture gas",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:03.626653"
+      },
+      "agriculture_other": {
+        "status": "confirmed",
+        "original_description": "Agriculture other",
+        "user_description": "Agriculture other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:08.501840"
+      },
+      "agriculture_livestock": {
+        "status": "confirmed",
+        "original_description": "Agriculture livestock",
+        "user_description": "Agriculture livestock",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:12.403987"
+      },
+      "agriculture_soils": {
+        "status": "confirmed",
+        "original_description": "Agriculture soils",
+        "user_description": "Agriculture soils",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:16.374145"
+      },
+      "agriculture_total": {
+        "status": "confirmed",
+        "original_description": "Agriculture total",
+        "user_description": "Agriculture total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:20.491188"
+      },
+      "landfill": {
+        "status": "confirmed",
+        "original_description": "Landfill",
+        "user_description": "Landfill",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:24.779115"
+      },
+      "waste_other": {
+        "status": "confirmed",
+        "original_description": "Waste other",
+        "user_description": "Waste other",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:31.403768"
+      },
+      "waste_total": {
+        "status": "confirmed",
+        "original_description": "Waste total",
+        "user_description": "Waste total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:34.854138"
+      },
+      "grand_total": {
+        "status": "confirmed",
+        "original_description": "Grand total",
+        "user_description": "Grand total",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:37.819671"
+      },
+      "population_000s_midyear_estimate": {
+        "status": "confirmed",
+        "original_description": "Population 000s midyear estimate",
+        "user_description": "Population 000s midyear estimate",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:40.331463"
+      },
+      "per_capita_emissions_t_co2e": {
+        "status": "confirmed",
+        "original_description": "Per capita emissions t co2e",
+        "user_description": "Per capita emissions t co2e",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:43.005606"
+      },
+      "area_km2": {
+        "status": "confirmed",
+        "original_description": "Area km2",
+        "user_description": "Area km2",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:06:46.005240"
+      },
+      "emissions_per_km2_kt_co2e": {
+        "status": "confirmed",
+        "original_description": "Emissions per km2 kt co2e",
+        "user_description": "Emissions per km2 kt co2e",
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:04:15.678758"
+      }
+    },
+    "lsoa_2021_lep_tbl": {
+      "lsoa21cd": {
+        "status": "reviewed",
+        "original_description": "Lsoa21cd",
+        "user_description": "LSOA code 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:07:19.308897"
+      },
+      "lsoa21nm": {
+        "status": "reviewed",
+        "original_description": "Lsoa21nm",
+        "user_description": "LSOA name 2021",
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:07:30.213666"
+      },
+      "area_m2": {
+        "status": "confirmed",
+        "original_description": "Area m2",
+        "user_description": "Area m2",
+        "data_type": "DECIMAL(12,3)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:07:38.454678"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:07:41.511974"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:07:46.084917"
+      }
+    },
+    "open_uprn_lep_tbl": {
+      "uprn": {
+        "status": "reviewed",
+        "original_description": "Unique Property Reference Number",
+        "user_description": "Unique Property Reference Number",
+        "data_type": "BIGINT",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:07:56.087571"
+      },
+      "x_coordinate": {
+        "status": "confirmed",
+        "original_description": "X coordinate",
+        "user_description": "X coordinate",
+        "data_type": "DECIMAL(10,2)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:08:07.052842"
+      },
+      "y_coordinate": {
+        "status": "confirmed",
+        "original_description": "Y coordinate",
+        "user_description": "Y coordinate",
+        "data_type": "DECIMAL(10,2)",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:08:09.277647"
+      },
+      "shape": {
+        "status": "confirmed",
+        "original_description": "Spatial geometry",
+        "user_description": "Spatial geometry",
+        "data_type": "WKB_BLOB",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:08:11.715631"
+      },
+      "id": {
+        "status": "confirmed",
+        "original_description": "Id",
+        "user_description": "Id",
+        "data_type": "INTEGER",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": "2025-12-31T15:08:14.125068"
+      }
+    },
+    "postcode_centroids_tbl": {
+      "x": {
+        "status": "pending",
+        "original_description": "X",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "y": {
+        "status": "pending",
+        "original_description": "Y",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "objectid": {
+        "status": "pending",
+        "original_description": "Objectid",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "pcd7": {
+        "status": "pending",
+        "original_description": "Pcd7",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "pcd8": {
+        "status": "pending",
+        "original_description": "Pcd8",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "pcds": {
+        "status": "pending",
+        "original_description": "Pcds",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "dointr": {
+        "status": "pending",
+        "original_description": "Dointr",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "doterm": {
+        "status": "pending",
+        "original_description": "Doterm",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "cty25cd": {
+        "status": "pending",
+        "original_description": "Cty25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ced25cd": {
+        "status": "pending",
+        "original_description": "Ced25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lad25cd": {
+        "status": "pending",
+        "original_description": "Lad25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "wd25cd": {
+        "status": "pending",
+        "original_description": "Wd25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "parncp25cd": {
+        "status": "pending",
+        "original_description": "Parncp25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "usrtypind": {
+        "status": "pending",
+        "original_description": "Usrtypind",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "east1m": {
+        "status": "pending",
+        "original_description": "East1m",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "north1m": {
+        "status": "pending",
+        "original_description": "North1m",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "gridind": {
+        "status": "pending",
+        "original_description": "Gridind",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "hlth19cd": {
+        "status": "pending",
+        "original_description": "Hlth19cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "nhser24cd": {
+        "status": "pending",
+        "original_description": "Nhser24cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ctry25cd": {
+        "status": "pending",
+        "original_description": "Ctry25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "rgn25cd": {
+        "status": "pending",
+        "original_description": "Rgn25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ssr95cd": {
+        "status": "pending",
+        "original_description": "Ssr95cd",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "pcon24cd": {
+        "status": "pending",
+        "original_description": "Pcon24cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "eer20cd": {
+        "status": "pending",
+        "original_description": "Eer20cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "educ23cd": {
+        "status": "pending",
+        "original_description": "Educ23cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ttwa15cd": {
+        "status": "pending",
+        "original_description": "Ttwa15cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "pco19cd": {
+        "status": "pending",
+        "original_description": "Pco19cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "itl25cd": {
+        "status": "pending",
+        "original_description": "Itl25cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "wdstl05cd": {
+        "status": "pending",
+        "original_description": "Wdstl05cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "oa01cd": {
+        "status": "pending",
+        "original_description": "Oa01cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "wdcas03cd": {
+        "status": "pending",
+        "original_description": "Wdcas03cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "npark16cd": {
+        "status": "pending",
+        "original_description": "Npark16cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lsoa01cd": {
+        "status": "pending",
+        "original_description": "Lsoa01cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "msoa01cd": {
+        "status": "pending",
+        "original_description": "Msoa01cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ruc01ind": {
+        "status": "pending",
+        "original_description": "Ruc01ind",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "oac01ind": {
+        "status": "pending",
+        "original_description": "Oac01ind",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "oa11cd": {
+        "status": "pending",
+        "original_description": "Oa11cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lsoa11cd": {
+        "status": "pending",
+        "original_description": "Lsoa11cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "msoa11cd": {
+        "status": "pending",
+        "original_description": "Msoa11cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "wz11cd": {
+        "status": "pending",
+        "original_description": "Wz11cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "sicbl24cd": {
+        "status": "pending",
+        "original_description": "Sicbl24cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "bua24cd": {
+        "status": "pending",
+        "original_description": "Bua24cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ruc11ind": {
+        "status": "pending",
+        "original_description": "Ruc11ind",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "oac11ind": {
+        "status": "pending",
+        "original_description": "Oac11ind",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lat": {
+        "status": "pending",
+        "original_description": "Lat",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "long": {
+        "status": "pending",
+        "original_description": "Long",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lep21cd1": {
+        "status": "pending",
+        "original_description": "Lep21cd1",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lep21cd2": {
+        "status": "pending",
+        "original_description": "Lep21cd2",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "pfa23cd": {
+        "status": "pending",
+        "original_description": "Pfa23cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "imd20ind": {
+        "status": "pending",
+        "original_description": "Imd20ind",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "cal24cd": {
+        "status": "pending",
+        "original_description": "Cal24cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "icb23cd": {
+        "status": "pending",
+        "original_description": "Icb23cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "oa21cd": {
+        "status": "pending",
+        "original_description": "Oa21cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "lsoa21cd": {
+        "status": "pending",
+        "original_description": "Lsoa21cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "msoa21cd": {
+        "status": "pending",
+        "original_description": "Msoa21cd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ruc21ind": {
+        "status": "pending",
+        "original_description": "Ruc21ind",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "f_matched_characters": {
+        "status": "pending",
+        "original_description": "F matched characters",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "f_matched_parts___part": {
+        "status": "pending",
+        "original_description": "F matched parts part",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "f_matched_parts___startindex": {
+        "status": "pending",
+        "original_description": "F matched parts startindex",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "globalid": {
+        "status": "pending",
+        "original_description": "Globalid",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      }
+    },
+    "raw_domestic_epc_certificates_tbl": {
+      "LMK_KEY": {
+        "status": "pending",
+        "original_description": "Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS1": {
+        "status": "pending",
+        "original_description": "First line of the address",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS2": {
+        "status": "pending",
+        "original_description": "Second line of the address",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS3": {
+        "status": "pending",
+        "original_description": "Third line of the address",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "POSTCODE": {
+        "status": "pending",
+        "original_description": "The postcode of the property",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "BUILDING_REFERENCE_NUMBER": {
+        "status": "pending",
+        "original_description": "Unique identifier for the property.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CURRENT_ENERGY_RATING": {
+        "status": "pending",
+        "original_description": "Current energy rating converted into a linear 'A to G' rating (where A is the most energy efficient and G is the least energy efficient)",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.8,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "POTENTIAL_ENERGY_RATING": {
+        "status": "pending",
+        "original_description": "Estimated potential energy rating converted into a linear 'A to G' rating (where A is the most energy efficient and G is the least energy efficient)",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.8,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CURRENT_ENERGY_EFFICIENCY": {
+        "status": "pending",
+        "original_description": "Based on cost of energy, i.e. energy required for space heating, water heating and lighting [in kWh/year] multiplied by fuel costs. (£/m²/year where cost is derived from kWh).",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.8,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "POTENTIAL_ENERGY_EFFICIENCY": {
+        "status": "pending",
+        "original_description": "The potential energy efficiency rating of the property.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.8,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "PROPERTY_TYPE": {
+        "status": "pending",
+        "original_description": "Describes the type of property such as House, Flat, Maisonette etc. This is the type differentiator for dwellings.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "BUILT_FORM": {
+        "status": "pending",
+        "original_description": "The building type of the Property e.g. Detached, Semi-Detached, Terrace etc. Together with the Property Type, the Build Form produces a structured description of the property",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "INSPECTION_DATE": {
+        "status": "pending",
+        "original_description": "The date that the inspection was actually carried out by the energy assessor",
+        "user_description": null,
+        "data_type": "DATE",
+        "confidence": 0.7,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LOCAL_AUTHORITY": {
+        "status": "pending",
+        "original_description": "Office for National Statistics (ONS) code. Local authority area in which the building is located.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CONSTITUENCY": {
+        "status": "pending",
+        "original_description": "Office for National Statistics (ONS) code. Parliamentary constituency in which the building is located.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "COUNTY": {
+        "status": "pending",
+        "original_description": "County in which the building is located (where applicable)",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LODGEMENT_DATE": {
+        "status": "pending",
+        "original_description": "Date lodged on the Energy Performance of Buildings Register",
+        "user_description": null,
+        "data_type": "DATE",
+        "confidence": 0.7,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "TRANSACTION_TYPE": {
+        "status": "pending",
+        "original_description": "Type of transaction that triggered EPC. For example, one of: marketed sale; non-marketed sale; new-dwelling; rental; not sale or rental; assessment for Green Deal; following Green Deal; FIT application; none of the above; RHI application; ECO assessment. Where the reason for the assessment is unknown by the energy assessor the transaction type will be recorded as 'none of the above'. Transaction types may be changed over time.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ENVIRONMENT_IMPACT_CURRENT": {
+        "status": "pending",
+        "original_description": "Environment impact current",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ENVIRONMENT_IMPACT_POTENTIAL": {
+        "status": "pending",
+        "original_description": "Environment impact potential",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ENERGY_CONSUMPTION_CURRENT": {
+        "status": "pending",
+        "original_description": "Current estimated total energy consumption for the property in a 12 month period (kWh/m2). Displayed on EPC as the current primary energy use per square metre of floor area.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ENERGY_CONSUMPTION_POTENTIAL": {
+        "status": "pending",
+        "original_description": "Estimated potential total energy consumption for the Property in a 12 month period. Value is Kilowatt Hours per Square Metre (kWh/m²)",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CO2_EMISSIONS_CURRENT": {
+        "status": "pending",
+        "original_description": "CO₂ emissions per year in tonnes/year.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CO2_EMISS_CURR_PER_FLOOR_AREA": {
+        "status": "pending",
+        "original_description": "CO₂ emissions per square metre floor area per year in kg/m²",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CO2_EMISSIONS_POTENTIAL": {
+        "status": "pending",
+        "original_description": "Estimated value in Tonnes per Year of the total CO₂ emissions produced by the Property in 12 month period.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LIGHTING_COST_CURRENT": {
+        "status": "pending",
+        "original_description": "GBP. Current estimated annual energy costs for lighting the property.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LIGHTING_COST_POTENTIAL": {
+        "status": "pending",
+        "original_description": "GBP. Potential estimated annual energy costs for lighting the property after improvements have been made.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HEATING_COST_CURRENT": {
+        "status": "pending",
+        "original_description": "GBP. Current estimated annual energy costs for heating the property.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HEATING_COST_POTENTIAL": {
+        "status": "pending",
+        "original_description": "GBP. Potential annual energy costs for lighting the property after improvements have been made.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HOT_WATER_COST_CURRENT": {
+        "status": "pending",
+        "original_description": "GBP. Current estimated annual energy costs for hot water",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HOT_WATER_COST_POTENTIAL": {
+        "status": "pending",
+        "original_description": "GBP. Potential estimated annual energy costs for hot water after improvements have been made.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "TOTAL_FLOOR_AREA": {
+        "status": "pending",
+        "original_description": "The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls, i.e. the gross floor area as measured in accordance with the guidance issued from time to time by the Royal Institute of Chartered Surveyors or by a body replacing that institution. (m²)",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.8,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ENERGY_TARIFF": {
+        "status": "pending",
+        "original_description": "Type of electricity tariff for the property, e.g. single.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINS_GAS_FLAG": {
+        "status": "pending",
+        "original_description": "Whether mains gas is available. Yes means that there is a gas meter or a gas-burning appliance in the dwelling. A closed-off gas pipe does not count.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLOOR_LEVEL": {
+        "status": "pending",
+        "original_description": "Flats and maisonettes only. Floor level relative to the lowest level of the property (0 for ground floor). If there is a basement, the basement is level 0 and the other floors are from 1 upwards",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLAT_TOP_STOREY": {
+        "status": "pending",
+        "original_description": "Whether the flat is on the top storey",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLAT_STOREY_COUNT": {
+        "status": "pending",
+        "original_description": "The number of storeys in the apartment block.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAIN_HEATING_CONTROLS": {
+        "status": "pending",
+        "original_description": "Type of main heating controls. Includes both main heating systems if there are two.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MULTI_GLAZE_PROPORTION": {
+        "status": "pending",
+        "original_description": "The estimated banded range (e.g. 0% - 10%) of the total glazed area of the Property that is multiple glazed.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "GLAZED_TYPE": {
+        "status": "pending",
+        "original_description": "The type of glazing. From British Fenestration Rating Council or manufacturer declaration, one of; single; double; triple.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "GLAZED_AREA": {
+        "status": "pending",
+        "original_description": "Ranged estimate of the total glazed area of the Habitable Area.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "EXTENSION_COUNT": {
+        "status": "pending",
+        "original_description": "The number of extensions added to the property. Between 0 and 4.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "NUMBER_HABITABLE_ROOMS": {
+        "status": "pending",
+        "original_description": "Habitable rooms include any living room, sitting room, dining room, bedroom, study and similar; and also a non-separated conservatory. A kitchen/diner having a discrete seating area (with space for a table and four chairs) also counts as a habitable room. A non-separated conservatory adds to the habitable room count if it has an internal quality door between it and the dwelling. Excluded from the room count are any room used solely as a kitchen, utility room, bathroom, cloakroom, en-suite accommodation and similar and any hallway, stairs or landing; and also any room not having a window.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "NUMBER_HEATED_ROOMS": {
+        "status": "pending",
+        "original_description": "The number of heated rooms in the property if more than half of the habitable rooms are not heated.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LOW_ENERGY_LIGHTING": {
+        "status": "pending",
+        "original_description": "The percentage of low energy lighting present in the property as a percentage of the total fixed lights in the property. 0% indicates that no low-energy lighting is present.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "NUMBER_OPEN_FIREPLACES": {
+        "status": "pending",
+        "original_description": "The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HOTWATER_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HOT_WATER_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HOT_WATER_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLOOR_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLOOR_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLOOR_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WINDOWS_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WINDOWS_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WINDOWS_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WALLS_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WALLS_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WALLS_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "SECONDHEAT_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "SHEATING_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "SHEATING_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ROOF_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ROOF_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ROOF_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINHEAT_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINHEAT_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINHEAT_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINHEATCONT_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINHEATC_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAINHEATC_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LIGHTING_DESCRIPTION": {
+        "status": "pending",
+        "original_description": "Overall description of the property feature",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LIGHTING_ENERGY_EFF": {
+        "status": "pending",
+        "original_description": "Energy efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LIGHTING_ENV_EFF": {
+        "status": "pending",
+        "original_description": "Environmental efficiency rating. One of: very good; good; average; poor; very poor. On actual energy certificate shown as one to five star rating.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAIN_FUEL": {
+        "status": "pending",
+        "original_description": "The type of fuel used to power the central heating e.g. Gas, Electricity",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "WIND_TURBINE_COUNT": {
+        "status": "pending",
+        "original_description": "Number of wind turbines; 0 if none.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "HEAT_LOSS_CORRIDOR": {
+        "status": "pending",
+        "original_description": "Flats and maisonettes only. Indicates that the flat contains a corridor through which heat is lost. Heat loss corridor, one of: no corridor; heated corridor; unheated corridor",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "UNHEATED_CORRIDOR_LENGTH": {
+        "status": "pending",
+        "original_description": "The total length of unheated corridor in the flat. Only populated if flat or maisonette contains unheated corridor. If unheated corridor, length of sheltered wall (m²).",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLOOR_HEIGHT": {
+        "status": "pending",
+        "original_description": "Average height of the storey in metres.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "PHOTO_SUPPLY": {
+        "status": "pending",
+        "original_description": "Percentage of photovoltaic area as a percentage of total roof area. 0% indicates that a Photovoltaic Supply is not present in the property.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "SOLAR_WATER_HEATING_FLAG": {
+        "status": "pending",
+        "original_description": "Indicates whether the heating in the Property is solar powered.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MECHANICAL_VENTILATION": {
+        "status": "pending",
+        "original_description": "Identifies the type of mechanical ventilation the property has. This is required for the RdSAP calculation.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS": {
+        "status": "pending",
+        "original_description": "Field containing the concatenation of address1, address2 and address3. Note that post code is recorded separately.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LOCAL_AUTHORITY_LABEL": {
+        "status": "pending",
+        "original_description": "The name of the local authority area in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Local Authority ONS Code.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CONSTITUENCY_LABEL": {
+        "status": "pending",
+        "original_description": "The name of the parliamentary constituency in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Constituency ONS Code.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "POSTTOWN": {
+        "status": "pending",
+        "original_description": "The post town of the property",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CONSTRUCTION_AGE_BAND": {
+        "status": "pending",
+        "original_description": "Age band when building part constructed. England & Wales only. One of: before 1900; 1900-1929; 1930-1949; 1950-1966; 1967-1975; 1976-1982; 1983-1990; 1991-1995; 1996-2002; 2003-2006; 2007-2011; 2012 onwards.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LODGEMENT_DATETIME": {
+        "status": "pending",
+        "original_description": "Date and time lodged on the Energy Performance of Buildings Register.",
+        "user_description": null,
+        "data_type": "TIMESTAMP",
+        "confidence": 0.7,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "TENURE": {
+        "status": "pending",
+        "original_description": "Describes the tenure type of the property. One of: Owner-occupied; Rented (social); Rented (private).",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FIXED_LIGHTING_OUTLETS_COUNT": {
+        "status": "pending",
+        "original_description": "The number of fixed lighting outlets.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LOW_ENERGY_FIXED_LIGHT_COUNT": {
+        "status": "pending",
+        "original_description": "The number of low-energy fixed lighting outlets.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "UPRN": {
+        "status": "pending",
+        "original_description": "The UPRN submitted by an assessor or alternatively from the department’s address matching algorithm.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "UPRN_SOURCE": {
+        "status": "pending",
+        "original_description": "Populated with the values \"Energy Assessor\" or \"Address Matched\" to show how the UPRN was populated.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "REPORT_TYPE": {
+        "status": "pending",
+        "original_description": "Type of assessment carried out on the building, for domestic dwellings this is either a SAP (Standard Assessment Procedure) or a Reduced SAP. 100: RdSAP (Reduced SAP for existing buildings) and 101: SAP (full Sap for new dwellings, including conversions and change of use). This variable will help distinguish between new and existing dwellings.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      }
+    },
+    "raw_non_domestic_epc_certificates_tbl": {
+      "LMK_KEY": {
+        "status": "pending",
+        "original_description": "Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS1": {
+        "status": "pending",
+        "original_description": "First line of the address",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS2": {
+        "status": "pending",
+        "original_description": "Second line of the address",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS3": {
+        "status": "pending",
+        "original_description": "Third line of the address",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "POSTCODE": {
+        "status": "pending",
+        "original_description": "The postcode of the property",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "BUILDING_REFERENCE_NUMBER": {
+        "status": "pending",
+        "original_description": "Unique identifier for the property.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ASSET_RATING": {
+        "status": "pending",
+        "original_description": "Energy Performance Asset Rating. The CO₂ emissions from the actual building in comparison to a Standard Emission Rate. (kg CO₂/m²)",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ASSET_RATING_BAND": {
+        "status": "pending",
+        "original_description": "Energy Performance Asset Rating converted into an energy band/grade into a linear 'A+ to G' scale (where A+ is the most energy efficient and G the least energy efficient)",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "PROPERTY_TYPE": {
+        "status": "pending",
+        "original_description": "Describes the type of building that is being inspected. Based on planning use class.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "INSPECTION_DATE": {
+        "status": "pending",
+        "original_description": "The date that the inspection was actually carried out by the energy assessor",
+        "user_description": null,
+        "data_type": "DATE",
+        "confidence": 0.7,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LOCAL_AUTHORITY": {
+        "status": "pending",
+        "original_description": "Office for National Statistics (ONS) code. Local authority area in which the building is located.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CONSTITUENCY": {
+        "status": "pending",
+        "original_description": "Office for National Statistics (ONS) code. Parliamentary constituency in which the building is located.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "COUNTY": {
+        "status": "pending",
+        "original_description": "County in which the building is located (where applicable)",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LODGEMENT_DATE": {
+        "status": "pending",
+        "original_description": "Date lodged on the Energy Performance of Buildings Register",
+        "user_description": null,
+        "data_type": "DATE",
+        "confidence": 0.7,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "TRANSACTION_TYPE": {
+        "status": "pending",
+        "original_description": "Type of transaction that triggered EPC. One of: mandatory issue (marketed sale); mandatory issue (non-marketed sale); mandatory issue (property on construction); mandatory issue (property to let); voluntary re-issue (a valid epc is already lodged); voluntary (no legal requirement for an epc); not recorded. Transaction types may be changed over time.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "NEW_BUILD_BENCHMARK": {
+        "status": "pending",
+        "original_description": "NEW_BUILD_BENCHMARK",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "EXISTING_STOCK_BENCHMARK": {
+        "status": "pending",
+        "original_description": "The Benchmark value of existing stock for this type of building",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "BUILDING_LEVEL": {
+        "status": "pending",
+        "original_description": "Building Complexity Level based on Energy Assessor National Occupation Standards",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "MAIN_HEATING_FUEL": {
+        "status": "pending",
+        "original_description": "Main Heating fuel for the building is taken as the fuel which delivers the greatest total thermal output for space or water heating",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "OTHER_FUEL_DESC": {
+        "status": "pending",
+        "original_description": "Text description of unspecified fuel type if 'Other' is selected for Main Heating Fuel",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "SPECIAL_ENERGY_USES": {
+        "status": "pending",
+        "original_description": "Special energy uses discounted. This only appears on the Recommendations Report.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "RENEWABLE_SOURCES": {
+        "status": "pending",
+        "original_description": "On-site renewable energy sources. This only appears on the Advisory Report.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "FLOOR_AREA": {
+        "status": "pending",
+        "original_description": "The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls, i.e. the gross floor area as measured in accordance with the guidance issued from time to time by the Royal Institute of Chartered Surveyors or by a body replacing that institution. (m2)",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "STANDARD_EMISSIONS": {
+        "status": "pending",
+        "original_description": "Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "TARGET_EMISSIONS": {
+        "status": "pending",
+        "original_description": "Standard Emission Rate is determined by applying a fixed improvement factor to the emissions from a reference building. (kg CO₂/m²/year).",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "TYPICAL_EMISSIONS": {
+        "status": "pending",
+        "original_description": "Typical Emission Rate.",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "BUILDING_EMISSIONS": {
+        "status": "pending",
+        "original_description": "Building Emissions Rate. Annual CO₂ emissions from the building. Decimal (kg CO₂/m²)",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "AIRCON_PRESENT": {
+        "status": "pending",
+        "original_description": "Air Conditioning System. Does the building have an air conditioning system?",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "AIRCON_KW_RATING": {
+        "status": "pending",
+        "original_description": "Air conditioning System. Rating in kW",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ESTIMATED_AIRCON_KW_RATING": {
+        "status": "pending",
+        "original_description": "Air Conditioning System. If exact rating unknown, what is the estimated total effective output rating of the air conditioning system",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "AC_INSPECTION_COMMISSIONED": {
+        "status": "pending",
+        "original_description": "One of:1=Yes, inspection completed; 2=Yes, inspection commissioned; 3=No inspection completed or commissioned; 4=Not relevant; 5=Don't know",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "BUILDING_ENVIRONMENT": {
+        "status": "pending",
+        "original_description": "Building environment which is taken as the servicing strategy that contributes the largest proportion of the building's CO₂ emissions.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "ADDRESS": {
+        "status": "pending",
+        "original_description": "Field containing the concatenation of address1, address2 and address3. Note that post code is recorded separately.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LOCAL_AUTHORITY_LABEL": {
+        "status": "pending",
+        "original_description": "The name of the local authority area in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Local Authority ONS Code.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "CONSTITUENCY_LABEL": {
+        "status": "pending",
+        "original_description": "The name of the parliamentary constituency in which the building is located. This field is for additional information only and should not be relied upon: please refer to the Constituency ONS Code.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "POSTTOWN": {
+        "status": "pending",
+        "original_description": "The post town of the property",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "LODGEMENT_DATETIME": {
+        "status": "pending",
+        "original_description": "Date and time lodged on the Energy Performance of Buildings Register.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "PRIMARY_ENERGY_VALUE": {
+        "status": "pending",
+        "original_description": "Displayed on the non-domestic EPC as primary energy use (kWh/m2 per year)",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "UPRN": {
+        "status": "pending",
+        "original_description": "The UPRN submitted by an assessor or alternatively from the department’s address matching algorithm.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.95,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "UPRN_SOURCE": {
+        "status": "pending",
+        "original_description": "Populated with the values \"Energy Assessor\" or \"Address Matched\" to show how the UPRN was populated.",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "REPORT_TYPE": {
+        "status": "pending",
+        "original_description": "Type of assessment carried out of the building. 102: assessment using the SBEM (Simplified Building Energy Model) tool for non-domestic (non-residential) buildings.",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.85,
+        "source": "inferred",
+        "reviewed_at": null
+      }
+    },
+    "uk_lsoa_tenure_tbl": {
+      "lsoa21_code": {
+        "status": "pending",
+        "original_description": "Lsoa21 code",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "total_households": {
+        "status": "pending",
+        "original_description": "Total households",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.8,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "tenure": {
+        "status": "pending",
+        "original_description": "Tenure",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "n": {
+        "status": "pending",
+        "original_description": "N",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      },
+      "prop": {
+        "status": "pending",
+        "original_description": "Prop",
+        "user_description": null,
+        "data_type": "DOUBLE",
+        "confidence": 0.5,
+        "source": "inferred",
+        "reviewed_at": null
+      }
+    },
+    "view:ca_la_ghg_emissions_sub_sector_ods_vw": {
+      "cauthcd": {
+        "status": "pending",
+        "original_description": "Cauthcd",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "fallback",
+        "reviewed_at": null
+      },
+      "cauthnm": {
+        "status": "pending",
+        "original_description": "Cauthnm",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "fallback",
+        "reviewed_at": null
+      }
+    },
+    "view:epc_domestic_vw": {
+      "NOMINAL_CONSTRUCTION_YEAR": {
+        "status": "pending",
+        "original_description": "Computed field: NOMINAL_CONSTRUCTION_YEAR",
+        "user_description": null,
+        "data_type": "INTEGER",
+        "confidence": 0.7,
+        "source": "computed",
+        "reviewed_at": null
+      },
+      "CONSTRUCTION_EPOCH": {
+        "status": "pending",
+        "original_description": "Computed field: CONSTRUCTION_EPOCH",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.7,
+        "source": "computed",
+        "reviewed_at": null
+      },
+      "TENURE_CLEAN": {
+        "status": "pending",
+        "original_description": "Computed field: TENURE_CLEAN",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.7,
+        "source": "computed",
+        "reviewed_at": null
+      },
+      "LODGEMENT_YEAR": {
+        "status": "pending",
+        "original_description": "Computed field: LODGEMENT_YEAR",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.7,
+        "source": "computed",
+        "reviewed_at": null
+      },
+      "LODGEMENT_MONTH": {
+        "status": "pending",
+        "original_description": "Computed field: LODGEMENT_MONTH",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.7,
+        "source": "computed",
+        "reviewed_at": null
+      },
+      "LODGEMENT_DAY": {
+        "status": "pending",
+        "original_description": "Computed field: LODGEMENT_DAY",
+        "user_description": null,
+        "data_type": "BIGINT",
+        "confidence": 0.7,
+        "source": "computed",
+        "reviewed_at": null
+      }
+    },
+    "view:epc_non_domestic_lep_vw": {
+      "geo_point_2d": {
+        "status": "pending",
+        "original_description": "Geo point 2d",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "fallback",
+        "reviewed_at": null
+      }
+    },
+    "view:epc_domestic_lep_vw": {
+      "geo_point_2d": {
+        "status": "pending",
+        "original_description": "Geo point 2d",
+        "user_description": null,
+        "data_type": "VARCHAR",
+        "confidence": 0.5,
+        "source": "fallback",
+        "reviewed_at": null
+      }
+    }
+  },
+  "statistics": {
+    "total": 364,
+    "reviewed": 31,
+    "skipped": 0,
+    "pending": 209,
+    "confirmed": 124
+  }
+}

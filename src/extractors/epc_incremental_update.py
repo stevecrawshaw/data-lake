@@ -211,9 +211,9 @@ def upsert_to_database(
             """
             )
 
-            staging_count = con.execute(
-                "SELECT COUNT(*) FROM temp_staging"
-            ).fetchone()[0]
+            staging_count = con.execute("SELECT COUNT(*) FROM temp_staging").fetchone()[
+                0
+            ]
             logger.info(f"Loaded {staging_count} records into temp staging table")
 
             # Execute MERGE INTO
@@ -293,9 +293,9 @@ def update_certificate_type(
         msg = f"Invalid certificate type: {certificate_type}"
         raise ValueError(msg)
 
-    logger.info(f"\n{'='*60}")
+    logger.info(f"\n{'=' * 60}")
     logger.info(f"Updating {certificate_type.upper()} certificates")
-    logger.info(f"{'='*60}\n")
+    logger.info(f"{'=' * 60}\n")
 
     # Step 1: Get max lodgement date
     if from_date_override:
@@ -351,9 +351,9 @@ def update_certificate_type(
         new_max_date = get_max_lodgement_date(config.db_path, table_name)
         logger.info(f"\nNew max LODGEMENT_DATE: {new_max_date}")
 
-    logger.info(f"\n{'='*60}")
+    logger.info(f"\n{'=' * 60}")
     logger.info(f"Completed {certificate_type.upper()} update")
-    logger.info(f"{'='*60}\n")
+    logger.info(f"{'=' * 60}\n")
 
 
 @click.command()
@@ -411,7 +411,9 @@ def main(
         from_date_parsed: date | None = None
         if from_date:
             # Click DateTime returns datetime object, convert to date
-            from_date_parsed = from_date.date() if hasattr(from_date, "date") else from_date  # type: ignore[union-attr]
+            from_date_parsed = (
+                from_date.date() if hasattr(from_date, "date") else from_date
+            )  # type: ignore[union-attr]
 
         # Process certificate type(s)
         if certificate_type == CertificateType.ALL:

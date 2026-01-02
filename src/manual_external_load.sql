@@ -112,6 +112,10 @@ read_csv(
 }, ignore_errors = true 
 );
 
+
+
+
+
 CREATE OR REPLACE TABLE raw_domestic_epc_certificates_tbl AS
 SELECT c.*
 FROM raw_domestic_epc_staging c

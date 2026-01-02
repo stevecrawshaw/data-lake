@@ -75,8 +75,8 @@ def save_schema_to_file(root: ET.Element, output_path: str) -> None:
 # %%
 
 if __name__ == "__main__":
-    db_path = "data/lnrs_3nf_o1.duckdb"
-    output_path = "lnrs_3nf_o1_schema.xml"
+    db_path = "../../data_lake/mca_env_base.duckdb"
+    output_path = "mca_env_base_schema.xml"
 
     root = get_schema_as_xml(db_path)
     save_schema_to_file(root, output_path)

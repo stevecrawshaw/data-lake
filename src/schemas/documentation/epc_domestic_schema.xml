@@ -74,11 +74,11 @@
       <type>STRING</type>
       <description>Type of transaction that triggered EPC. For example, one of: marketed sale; non-marketed sale; new-dwelling; rental; not sale or rental; assessment for Green Deal; following Green Deal; FIT application; none of the above; RHI application; ECO assessment. Where the reason for the assessment is unknown by the energy assessor the transaction type will be recorded as 'none of the above'. Transaction types may be changed over time.</description>
     </column>
-    <column name="ENVIRONMENTAL_IMPACT_CURRENT">
+    <column name="ENVIRONMENT_IMPACT_CURRENT">
       <type>INTEGER</type>
       <description>The Environmental Impact Rating. A measure of the property's current impact on the environment in terms of carbon dioxide (CO₂) emissions. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)</description>
     </column>
-    <column name="ENVIRONMENTAL_IMPACT_POTENTIAL">
+    <column name="ENVIRONMENT_IMPACT_POTENTIAL">
       <type>INTEGER</type>
       <description>The potential Environmental Impact Rating. A measure of the property's potential impact on the environment in terms of carbon dioxide (CO₂) emissions after improvements have been carried out. The higher the rating the lower the CO₂ emissions. (CO₂ emissions in tonnes / year)</description>
     </column>

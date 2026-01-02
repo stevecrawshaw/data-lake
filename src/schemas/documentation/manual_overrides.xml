@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema>
+  <table name="bdline_ua_lep_diss_tbl">
+    <description>Table containing 3 columns</description>
+    <column name="name">
+      <type>VARCHAR</type>
+      <description>Name</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+  <table name="bdline_ua_lep_tbl">
+    <description>Table containing 4 columns</description>
+    <column name="name">
+      <type>VARCHAR</type>
+      <description>Name</description>
+    </column>
+    <column name="code">
+      <type>VARCHAR</type>
+      <description>Code</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+  <table name="bdline_ua_weca_diss_tbl">
+    <description>Table containing 3 columns</description>
+    <column name="name">
+      <type>VARCHAR</type>
+      <description>Name</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+  <table name="bdline_ward_lep_tbl">
+    <description>Table containing 5 columns</description>
+    <column name="name">
+      <type>VARCHAR</type>
+      <description>Name</description>
+    </column>
+    <column name="file_name">
+      <type>VARCHAR</type>
+      <description>File name</description>
+    </column>
+    <column name="code">
+      <type>VARCHAR</type>
+      <description>Code</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+  <table name="boundary_lookup_tbl">
+    <description>Table containing 14 columns</description>
+    <column name="pcd7">
+      <type>VARCHAR</type>
+      <description>Postcode 7 characters</description>
+    </column>
+    <column name="pcd8">
+      <type>VARCHAR</type>
+      <description>Postcode 8 characters</description>
+    </column>
+    <column name="pcds">
+      <type>VARCHAR</type>
+      <description>Postcode with space</description>
+    </column>
+    <column name="dointr">
+      <type>BIGINT</type>
+      <description>Date of introduction</description>
+    </column>
+    <column name="doterm">
+      <type>BIGINT</type>
+      <description>Date of termination</description>
+    </column>
+    <column name="usertype">
+      <type>BIGINT</type>
+      <description>User type</description>
+    </column>
+    <column name="oa21cd">
+      <type>VARCHAR</type>
+      <description>Output area 2021</description>
+    </column>
+    <column name="lsoa21cd">
+      <type>VARCHAR</type>
+      <description>LSOA code 2021</description>
+    </column>
+    <column name="msoa21cd">
+      <type>VARCHAR</type>
+      <description>MSOA code 2021</description>
+    </column>
+    <column name="ladcd">
+      <type>VARCHAR</type>
+      <description>Local Authority District code</description>
+    </column>
+    <column name="lsoa21nm">
+      <type>VARCHAR</type>
+      <description>LSOA name 2021</description>
+    </column>
+    <column name="msoa21nm">
+      <type>VARCHAR</type>
+      <description>MSOA name 2021</description>
+    </column>
+    <column name="ladnm">
+      <type>VARCHAR</type>
+      <description>Local Authority District name</description>
+    </column>
+    <column name="ladnmw">
+      <type>VARCHAR</type>
+      <description>Local Authority District name Welsh</description>
+    </column>
+  </table>
+  <table name="ca_boundaries_bgc_tbl">
+    <description>Table containing 11 columns</description>
+    <column name="FID">
+      <type>INTEGER</type>
+      <description>Fid</description>
+    </column>
+    <column name="CAUTH25CD">
+      <type>VARCHAR</type>
+      <description>Combined authority code 2025</description>
+    </column>
+    <column name="CAUTH25NM">
+      <type>VARCHAR</type>
+      <description>Combined authority name 2025</description>
+    </column>
+    <column name="BNG_E">
+      <type>INTEGER</type>
+      <description>Easting</description>
+    </column>
+    <column name="BNG_N">
+      <type>INTEGER</type>
+      <description>Northing</description>
+    </column>
+    <column name="LONG">
+      <type>DOUBLE</type>
+      <description>Longitude</description>
+    </column>
+    <column name="LAT">
+      <type>DOUBLE</type>
+      <description>Latitude</description>
+    </column>
+    <column name="Shape__Area">
+      <type>DOUBLE</type>
+      <description>Shape area</description>
+    </column>
+    <column name="Shape__Length">
+      <type>DOUBLE</type>
+      <description>Shape length</description>
+    </column>
+    <column name="GlobalID">
+      <type>VARCHAR</type>
+      <description>Globalid</description>
+    </column>
+    <column name="geom">
+      <type>GEOMETRY</type>
+      <description>Geometry</description>
+    </column>
+  </table>
+  <table name="ca_la_lookup_tbl">
+    <description>Table containing 5 columns</description>
+    <column name="LAD25CD">
+      <type>VARCHAR</type>
+      <description>Local authority district code 2025</description>
+    </column>
+    <column name="LAD25NM">
+      <type>VARCHAR</type>
+      <description>Local authority district name 2025</description>
+    </column>
+    <column name="CAUTH25CD">
+      <type>VARCHAR</type>
+      <description>Combined authority code 2025</description>
+    </column>
+    <column name="CAUTH25NM">
+      <type>VARCHAR</type>
+      <description>Combined authority name 2025</description>
+    </column>
+    <column name="ObjectId">
+      <type>BIGINT</type>
+      <description>Objectid</description>
+    </column>
+  </table>
+  <table name="codepoint_open_lep_tbl">
+    <description>Table containing 10 columns</description>
+    <column name="postcode">
+      <type>VARCHAR</type>
+      <description>UK postal code</description>
+    </column>
+    <column name="pc_nospace">
+      <type>VARCHAR</type>
+      <description>Pc nospace</description>
+    </column>
+    <column name="admin_district_code">
+      <type>VARCHAR</type>
+      <description>Admin district code</description>
+    </column>
+    <column name="admin_ward_code">
+      <type>VARCHAR</type>
+      <description>Admin ward code</description>
+    </column>
+    <column name="xco">
+      <type>DECIMAL(10,2)</type>
+      <description>Easting</description>
+    </column>
+    <column name="yco">
+      <type>DECIMAL(10,2)</type>
+      <description>Northing</description>
+    </column>
+    <column name="lon">
+      <type>DECIMAL(9,7)</type>
+      <description>Longitude</description>
+    </column>
+    <column name="lat">
+      <type>DECIMAL(9,7)</type>
+      <description>Latitude</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+  <table name="eng_lsoa_imd_tbl">
+    <description>Table containing 25 columns</description>
+    <column name="lsoa21_code">
+      <type>VARCHAR</type>
+      <description>Lsoa21 code</description>
+    </column>
+    <column name="imd_decile">
+      <type>BIGINT</type>
+      <description>Imd decile</description>
+    </column>
+    <column name="income_decile">
+      <type>BIGINT</type>
+      <description>Income decile</description>
+    </column>
+    <column name="employment_decile">
+      <type>BIGINT</type>
+      <description>Employment decile</description>
+    </column>
+    <column name="education_decile">
+      <type>BIGINT</type>
+      <description>Education decile</description>
+    </column>
+    <column name="health_decile">
+      <type>BIGINT</type>
+      <description>Health decile</description>
+    </column>
+    <column name="crime_decile">
+      <type>BIGINT</type>
+      <description>Crime decile</description>
+    </column>
+    <column name="housing_and_services_decile">
+      <type>BIGINT</type>
+      <description>Housing and services decile</description>
+    </column>
+    <column name="environment_decile">
+      <type>BIGINT</type>
+      <description>Environment decile</description>
+    </column>
+    <column name="imd_rank">
+      <type>BIGINT</type>
+      <description>Imd rank</description>
+    </column>
+    <column name="income_rank">
+      <type>BIGINT</type>
+      <description>Income rank</description>
+    </column>
+    <column name="employment_rank">
+      <type>BIGINT</type>
+      <description>Employment rank</description>
+    </column>
+    <column name="education_rank">
+      <type>BIGINT</type>
+      <description>Education rank</description>
+    </column>
+    <column name="health_rank">
+      <type>BIGINT</type>
+      <description>Health rank</description>
+    </column>
+    <column name="crime_rank">
+      <type>BIGINT</type>
+      <description>Crime rank</description>
+    </column>
+    <column name="housing_and_services_rank">
+      <type>BIGINT</type>
+      <description>Housing and services rank</description>
+    </column>
+    <column name="environment_rank">
+      <type>BIGINT</type>
+      <description>Environment rank</description>
+    </column>
+    <column name="imd_score">
+      <type>DOUBLE</type>
+      <description>Imd score</description>
+    </column>
+    <column name="income_score">
+      <type>DOUBLE</type>
+      <description>Income score</description>
+    </column>
+    <column name="employment_score">
+      <type>DOUBLE</type>
+      <description>Employment score</description>
+    </column>
+    <column name="education_score">
+      <type>DOUBLE</type>
+      <description>Education score</description>
+    </column>
+    <column name="health_score">
+      <type>DOUBLE</type>
+      <description>Health score</description>
+    </column>
+    <column name="crime_score">
+      <type>DOUBLE</type>
+      <description>Crime score</description>
+    </column>
+    <column name="housing_and_services_score">
+      <type>DOUBLE</type>
+      <description>Housing and services score</description>
+    </column>
+    <column name="environment_score">
+      <type>DOUBLE</type>
+      <description>Environment score</description>
+    </column>
+  </table>
+  <table name="la_ghg_emissions_tbl">
+    <description>Table containing 15 columns</description>
+    <column name="country">
+      <type>VARCHAR</type>
+      <description>Country</description>
+    </column>
+    <column name="country_code">
+      <type>VARCHAR</type>
+      <description>Country code</description>
+    </column>
+    <column name="region">
+      <type>VARCHAR</type>
+      <description>Region</description>
+    </column>
+    <column name="region_code">
+      <type>VARCHAR</type>
+      <description>Region code</description>
+    </column>
+    <column name="second_tier_authority">
+      <type>VARCHAR</type>
+      <description>Second tier authority</description>
+    </column>
+    <column name="local_authority">
+      <type>VARCHAR</type>
+      <description>Local authority</description>
+    </column>
+    <column name="local_authority_code">
+      <type>VARCHAR</type>
+      <description>Local authority code</description>
+    </column>
+    <column name="calendar_year">
+      <type>BIGINT</type>
+      <description>Calendar year</description>
+    </column>
+    <column name="la_ghg_sector">
+      <type>VARCHAR</type>
+      <description>La ghg sector</description>
+    </column>
+    <column name="la_ghg_subsector">
+      <type>VARCHAR</type>
+      <description>La ghg subsector</description>
+    </column>
+    <column name="greenhouse_gas">
+      <type>VARCHAR</type>
+      <description>Greenhouse gas</description>
+    </column>
+    <column name="territorial_emissions_kt_co2e">
+      <type>DOUBLE</type>
+      <description>Territorial emissions kt co2e</description>
+    </column>
+    <column name="emissions_within_the_scope_of_influence_of_las_kt_co2">
+      <type>DOUBLE</type>
+      <description>Emissions within the scope of influence of las kt co2</description>
+    </column>
+    <column name="midyear_population_thousands">
+      <type>DOUBLE</type>
+      <description>Midyear population thousands</description>
+    </column>
+    <column name="area_km2">
+      <type>DOUBLE</type>
+      <description>Area km2</description>
+    </column>
+  </table>
+  <table name="la_ghg_emissions_wide_tbl">
+    <description>Table containing 50 columns</description>
+    <column name="regioncountry">
+      <type>VARCHAR</type>
+      <description>Regioncountry</description>
+    </column>
+    <column name="second_tier_authority">
+      <type>VARCHAR</type>
+      <description>Second tier authority</description>
+    </column>
+    <column name="local_authority">
+      <type>VARCHAR</type>
+      <description>Local authority</description>
+    </column>
+    <column name="local_authority_code">
+      <type>VARCHAR</type>
+      <description>Local authority code</description>
+    </column>
+    <column name="calendar_year">
+      <type>DOUBLE</type>
+      <description>Calendar year</description>
+    </column>
+    <column name="industry_electricity">
+      <type>DOUBLE</type>
+      <description>Industry electricity</description>
+    </column>
+    <column name="industry_gas">
+      <type>DOUBLE</type>
+      <description>Industry gas</description>
+    </column>
+    <column name="large_industrial_installations">
+      <type>DOUBLE</type>
+      <description>Large industrial installations</description>
+    </column>
+    <column name="industry_other">
+      <type>DOUBLE</type>
+      <description>Industry other</description>
+    </column>
+    <column name="industry_total">
+      <type>DOUBLE</type>
+      <description>Industry total</description>
+    </column>
+    <column name="commercial_electricity">
+      <type>DOUBLE</type>
+      <description>Commercial electricity</description>
+    </column>
+    <column name="commercial_gas">
+      <type>DOUBLE</type>
+      <description>Commercial gas</description>
+    </column>
+    <column name="commercial_other">
+      <type>DOUBLE</type>
+      <description>Commercial other</description>
+    </column>
+    <column name="commercial_total">
+      <type>DOUBLE</type>
+      <description>Commercial total</description>
+    </column>
+    <column name="public_sector_electricity">
+      <type>DOUBLE</type>
+      <description>Public sector electricity</description>
+    </column>
+    <column name="public_sector_gas">
+      <type>DOUBLE</type>
+      <description>Public sector gas</description>
+    </column>
+    <column name="public_sector_other">
+      <type>DOUBLE</type>
+      <description>Public sector other</description>
+    </column>
+    <column name="public_sector_total">
+      <type>DOUBLE</type>
+      <description>Public sector total</description>
+    </column>
+    <column name="domestic_electricity">
+      <type>DOUBLE</type>
+      <description>Domestic electricity</description>
+    </column>
+    <column name="domestic_gas">
+      <type>DOUBLE</type>
+      <description>Domestic gas</description>
+    </column>
+    <column name="domestic_other">
+      <type>DOUBLE</type>
+      <description>Domestic other</description>
+    </column>
+    <column name="domestic_total">
+      <type>DOUBLE</type>
+      <description>Domestic total</description>
+    </column>
+    <column name="road_transport_a_roads">
+      <type>DOUBLE</type>
+      <description>Road transport a roads</description>
+    </column>
+    <column name="road_transport_motorways">
+      <type>DOUBLE</type>
+      <description>Road transport motorways</description>
+    </column>
+    <column name="road_transport_minor_roads">
+      <type>DOUBLE</type>
+      <description>Road transport minor roads</description>
+    </column>
+    <column name="diesel_railways">
+      <type>DOUBLE</type>
+      <description>Diesel railways</description>
+    </column>
+    <column name="transport_other">
+      <type>DOUBLE</type>
+      <description>Transport other</description>
+    </column>
+    <column name="transport_total">
+      <type>DOUBLE</type>
+      <description>Transport total</description>
+    </column>
+    <column name="net_emissions_forestry">
+      <type>DOUBLE</type>
+      <description>Net emissions forestry</description>
+    </column>
+    <column name="net_emissions_cropland_mineral_soils_change">
+      <type>DOUBLE</type>
+      <description>Net emissions cropland mineral soils change</description>
+    </column>
+    <column name="net_emissions_grassland_mineral_soils_change">
+      <type>DOUBLE</type>
+      <description>Net emissions grassland mineral soils change</description>
+    </column>
+    <column name="net_emissions_settlements">
+      <type>DOUBLE</type>
+      <description>Net emissions settlements</description>
+    </column>
+    <column name="net_emissions_peatland">
+      <type>DOUBLE</type>
+      <description>Net emissions peatland</description>
+    </column>
+    <column name="net_emissions_bioenergy_crops">
+      <type>DOUBLE</type>
+      <description>Net emissions bioenergy crops</description>
+    </column>
+    <column name="net_emissions_other_lulucf">
+      <type>DOUBLE</type>
+      <description>Net emissions other lulucf</description>
+    </column>
+    <column name="lulucf_net_emissions">
+      <type>DOUBLE</type>
+      <description>Lulucf net emissions</description>
+    </column>
+    <column name="agriculture_electricity">
+      <type>DOUBLE</type>
+      <description>Agriculture electricity</description>
+    </column>
+    <column name="agriculture_gas">
+      <type>DOUBLE</type>
+      <description>Agriculture gas</description>
+    </column>
+    <column name="agriculture_other">
+      <type>DOUBLE</type>
+      <description>Agriculture other</description>
+    </column>
+    <column name="agriculture_livestock">
+      <type>DOUBLE</type>
+      <description>Agriculture livestock</description>
+    </column>
+    <column name="agriculture_soils">
+      <type>DOUBLE</type>
+      <description>Agriculture soils</description>
+    </column>
+    <column name="agriculture_total">
+      <type>DOUBLE</type>
+      <description>Agriculture total</description>
+    </column>
+    <column name="landfill">
+      <type>DOUBLE</type>
+      <description>Landfill</description>
+    </column>
+    <column name="waste_other">
+      <type>DOUBLE</type>
+      <description>Waste other</description>
+    </column>
+    <column name="waste_total">
+      <type>DOUBLE</type>
+      <description>Waste total</description>
+    </column>
+    <column name="grand_total">
+      <type>DOUBLE</type>
+      <description>Grand total</description>
+    </column>
+    <column name="population_000s_midyear_estimate">
+      <type>DOUBLE</type>
+      <description>Population 000s midyear estimate</description>
+    </column>
+    <column name="per_capita_emissions_t_co2e">
+      <type>DOUBLE</type>
+      <description>Per capita emissions t co2e</description>
+    </column>
+    <column name="area_km2">
+      <type>DOUBLE</type>
+      <description>Area km2</description>
+    </column>
+    <column name="emissions_per_km2_kt_co2e">
+      <type>DOUBLE</type>
+      <description>Emissions per km2 kt co2e</description>
+    </column>
+  </table>
+  <table name="lsoa_2021_lep_tbl">
+    <description>Table containing 5 columns</description>
+    <column name="lsoa21cd">
+      <type>VARCHAR</type>
+      <description>LSOA code 2021</description>
+    </column>
+    <column name="lsoa21nm">
+      <type>VARCHAR</type>
+      <description>LSOA name 2021</description>
+    </column>
+    <column name="area_m2">
+      <type>DECIMAL(12,3)</type>
+      <description>Area m2</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+  <table name="open_uprn_lep_tbl">
+    <description>Table containing 5 columns</description>
+    <column name="uprn">
+      <type>BIGINT</type>
+      <description>Unique Property Reference Number</description>
+    </column>
+    <column name="x_coordinate">
+      <type>DECIMAL(10,2)</type>
+      <description>X coordinate</description>
+    </column>
+    <column name="y_coordinate">
+      <type>DECIMAL(10,2)</type>
+      <description>Y coordinate</description>
+    </column>
+    <column name="shape">
+      <type>WKB_BLOB</type>
+      <description>Spatial geometry</description>
+    </column>
+    <column name="id">
+      <type>INTEGER</type>
+      <description>Id</description>
+    </column>
+  </table>
+</schema>
