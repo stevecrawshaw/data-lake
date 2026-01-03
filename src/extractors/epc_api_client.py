@@ -1,12 +1,12 @@
 """EPC API client with pagination and authentication support."""
 
 import base64
-import csv
 import io
 import logging
 import sys
 from datetime import date
 
+import duckdb
 import httpx
 
 from .epc_models import CertificateType, EPCConfig
@@ -190,7 +190,13 @@ class EPCAPIClient:
         progress=None,  # type: ignore[no-untyped-def]
         task=None,  # type: ignore[no-untyped-def]
     ) -> list[dict[str, str]]:
-        """Fetch pages with optional progress tracking."""
+        """Fetch pages with optional progress tracking.
+
+        Uses DuckDB read_csv + UNION ALL BY NAME for efficient CSV processing.
+        """
+        csv_pages: list[str] = []
+        total_rows = 0
+
         while True:
             page_num += 1
 
@@ -224,46 +230,71 @@ class EPCAPIClient:
                 logger.error(f"Request timeout on page {page_num}")
                 raise
 
-            # Parse CSV response
-            records = self._parse_csv_response(response)
-            all_records.extend(records)
+            # Store CSV response text
+            csv_text = response.content.decode("utf-8")
+            csv_pages.append(csv_text)
+
+            # Count rows for progress (quick estimate from newlines)
+            page_rows = csv_text.count('\n') - 1  # Subtract header
+            total_rows += page_rows
 
             # Update progress
             if progress and task:
-                progress.update(task, completed=len(all_records))
+                progress.update(task, completed=total_rows)
 
             logger.info(
-                f"Page {page_num}: Fetched {len(records)} records "
-                f"(total: {len(all_records)})"
+                f"Page {page_num}: Fetched ~{page_rows} records "
+                f"(total: ~{total_rows})"
             )
 
             # Check for next page cursor
             search_after = response.headers.get("X-Next-Search-After")
             if not search_after:
-                logger.info(f"No more pages. Total records: {len(all_records)}")
+                logger.info(f"No more pages. Total records: ~{total_rows}")
                 break
 
             # Safety check for max records
-            if len(all_records) >= self.config.max_records_per_batch:
+            if total_rows >= self.config.max_records_per_batch:
                 logger.warning(
                     f"Reached max records limit ({self.config.max_records_per_batch})"
                 )
                 break
 
-        return all_records
+        # Combine all CSV pages using DuckDB UNION ALL BY NAME
+        if not csv_pages:
+            return []
 
-    def _parse_csv_response(self, response: httpx.Response) -> list[dict[str, str]]:
-        """Parse CSV response content into list of dictionaries.
+        logger.debug("Combining CSV pages with DuckDB UNION ALL BY NAME...")
+        con = duckdb.connect()
 
-        Args:
-            response: httpx Response object with CSV content
+        try:
+            # Read each CSV page into a relation and register it
+            for idx, csv_text in enumerate(csv_pages):
+                rel = con.read_csv(io.StringIO(csv_text))
+                con.register(f"page_{idx}", rel)
 
-        Returns:
-            List of records as dictionaries (all values as strings)
-        """
-        content = response.content.decode("utf-8")
-        reader = csv.DictReader(io.StringIO(content))
-        return list(reader)
+            # Build dynamic UNION ALL BY NAME query (integer indices are safe)
+            union_query = " UNION ALL BY NAME ".join(
+                f"SELECT * FROM page_{i}" for i in range(len(csv_pages))  # noqa: S608
+            )
+            combined = con.sql(union_query)
+
+            # Convert to list of dicts
+            records = combined.fetchall()
+            columns = [desc[0] for desc in combined.description]
+            all_records = [
+                dict(zip(columns, row, strict=True)) for row in records
+            ]
+
+            logger.info(
+                f"Combined {len(all_records)} records "
+                f"from {len(csv_pages)} pages"
+            )
+
+            return all_records
+
+        finally:
+            con.close()
 
     def close(self) -> None:
         """Close the HTTP client connection."""

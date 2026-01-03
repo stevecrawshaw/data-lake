@@ -111,37 +111,6 @@ class TestEPCAPIClient:
         assert params["to-month"] == 1
         assert params["to-year"] == 2025
 
-    def test_parse_csv_response(
-        self, mock_config: EPCConfig, sample_csv_response: str
-    ) -> None:
-        """Test _parse_csv_response parses CSV correctly."""
-        client = EPCAPIClient(mock_config)
-        
-        # Create mock response
-        mock_response = Mock(spec=httpx.Response)
-        mock_response.content = sample_csv_response.encode("utf-8")
-        
-        records = client._parse_csv_response(mock_response)
-
-        assert len(records) == 2
-        assert records[0]["lmk-key"] == "ABC123"
-        assert records[0]["address1"] == "123 Test St"
-        assert records[0]["postcode"] == "TE1 1ST"
-        assert records[0]["uprn"] == "100023336958"
-        assert records[1]["lmk-key"] == "DEF456"
-
-    def test_parse_csv_response_empty(self, mock_config: EPCConfig) -> None:
-        """Test _parse_csv_response handles empty CSV."""
-        client = EPCAPIClient(mock_config)
-        
-        # Create mock response with only header
-        mock_response = Mock(spec=httpx.Response)
-        mock_response.content = "lmk-key,address1\n".encode("utf-8")
-        
-        records = client._parse_csv_response(mock_response)
-
-        assert len(records) == 0
-
     @patch("httpx.Client.get")
     def test_fetch_pages_single_page(
         self,
