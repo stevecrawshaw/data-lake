@@ -1,0 +1,47 @@
+# Silver Layer Schema Metadata
+# Defines execution order, dependencies, and validation rules for Silver layer transformations
+
+macros:
+  description: "Create spatial transformation macros (geopoint_from_blob for ODS format)"
+  depends_on: []
+  requires_vpn: false
+  enabled: true
+  source_files: []
+
+boundaries_clean:
+  description: "Clean CA/LA boundary lookups and add North Somerset to WECA"
+  depends_on:
+    - "bronze/boundaries_external"
+    - "bronze/boundaries_federated"
+  requires_vpn: false
+  enabled: true
+  source_files: []
+
+epc_domestic_clean:
+  description: "Clean domestic EPC certificates with derived construction year, epoch, and tenure"
+  depends_on:
+    - "bronze/epc_load"
+    - "bronze/boundaries_federated"
+    - "silver/macros"
+  requires_vpn: false
+  enabled: true
+  source_files: []
+
+epc_non_domestic_clean:
+  description: "Clean non-domestic EPC certificates with spatial joins"
+  depends_on:
+    - "bronze/epc_load"
+    - "bronze/boundaries_federated"
+    - "silver/macros"
+  requires_vpn: false
+  enabled: true
+  source_files: []
+
+emissions_clean:
+  description: "Join GHG emissions data with CA/LA lookups for ODS export"
+  depends_on:
+    - "bronze/emissions_load"
+    - "silver/boundaries_clean"
+  requires_vpn: false
+  enabled: true
+  source_files: []

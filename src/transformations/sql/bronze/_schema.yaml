@@ -1,0 +1,45 @@
+# Bronze Layer Schema Metadata
+# Defines execution order, dependencies, and validation rules for Bronze layer transformations
+
+boundaries_federated:
+  description: "Load UK boundaries from corporate PostGIS database (VPN required)"
+  depends_on: []
+  requires_vpn: true
+  enabled: true
+  source_files: []
+
+boundaries_external:
+  description: "Load Combined Authority boundaries from ArcGIS REST APIs"
+  depends_on: []
+  requires_vpn: false
+  enabled: true
+  source_files: []
+
+epc_load:
+  description: "Load domestic and non-domestic EPC certificates from manual CSV drop zone"
+  depends_on: []
+  requires_vpn: false
+  enabled: true
+  source_files:
+    - "data_lake/landing/manual/epc_domestic/all-domestic-certificates-single-file/certificates.csv"
+    - "data_lake/landing/manual/epc_non_domestic/all-non-domestic-certificates/all-non-domestic-certificates-single-file/certificates.csv"
+
+emissions_load:
+  description: "Load UK Local Authority GHG emissions data (long and wide formats)"
+  depends_on: []
+  requires_vpn: false
+  enabled: true
+  source_files:
+    - "data_lake/landing/manual/2005-23-uk-local-authority-ghg-emissions-CSV-dataset.csv"
+    - "data_lake/landing/manual/2005-23-uk-local-authority-ghg-emissions.xlsx"
+
+census_load:
+  description: "Load ONS census and geographic reference data (tenure, IMD, postcodes, boundaries)"
+  depends_on: []
+  requires_vpn: false
+  enabled: true
+  source_files:
+    - "data_lake/landing/manual/household_tenure21_lsoa21.csv"
+    - "data_lake/landing/manual/imd2025_england_lsoa21.csv"
+    - "data_lake/landing/manual/ONSPD_Online_latest_Postcode_Centroids_.csv"
+    - "data_lake/landing/manual/PCD_OA21_LSOA21_MSOA21_LAD_NOV25_UK_LU.csv"
