@@ -125,9 +125,9 @@ import json
 from pathlib import Path
 
 schemas = [
-    'src/schemas/epc_domestic_certificates_schema.json',
-    'src/schemas/epc_domestic_certificates_schema_single_file.json',
-    'src/schemas/epc_non-domestic_certificates_schema.json'
+    'src/schemas/config/epc_domestic_certificates_schema.json',
+    'src/schemas/config/epc_domestic_certificates_schema_single_file.json',
+    'src/schemas/config/epc_non-domestic_certificates_schema.json'
 ]
 
 for schema_path in schemas:
@@ -464,7 +464,7 @@ from src.utility.utils import create_epc_schema
 from pathlib import Path
 
 # Check if raw columns CSV exists
-columns_csv = Path('src/schemas/domestic-columns-raw-columns.csv')
+columns_csv = Path('src/schemas/analysis/domestic-columns-raw-columns.csv')
 if columns_csv.exists():
     print(f'✓ Found columns CSV: {columns_csv}')
 else:

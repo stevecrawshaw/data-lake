@@ -48,7 +48,9 @@
       "Bash(then)",
       "Bash(else)",
       "Bash(then echo \"Database exists\")",
-      "Bash(else echo \"Database not found\")"
+      "Bash(else echo \"Database not found\")",
+      "mcp__serena__find_referencing_symbols",
+      "Bash(grep:*)"
     ]
   }
 }

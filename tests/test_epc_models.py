@@ -120,10 +120,10 @@ class TestEPCConfig:
         config = EPCConfig(username="test", password="test")
 
         assert config.domestic_schema == Path(
-            "src/schemas/epc_domestic_certificates_schema.json"
+            "src/schemas/config/epc_domestic_certificates_schema.json"
         )
         assert config.non_domestic_schema == Path(
-            "src/schemas/epc_non-domestic_certificates_schema.json"
+            "src/schemas/config/epc_non-domestic_certificates_schema.json"
         )
 
 

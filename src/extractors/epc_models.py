@@ -46,10 +46,10 @@ class EPCConfig(BaseModel):
 
     # Schema paths
     domestic_schema: Path = Field(
-        default=Path("src/schemas/epc_domestic_certificates_schema.json")
+        default=Path("src/schemas/config/epc_domestic_certificates_schema.json")
     )
     non_domestic_schema: Path = Field(
-        default=Path("src/schemas/epc_non-domestic_certificates_schema.json")
+        default=Path("src/schemas/config/epc_non-domestic_certificates_schema.json")
     )
 
     # Table names

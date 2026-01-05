@@ -200,12 +200,16 @@ From `agent-docs/python-code-guidelines.md`:
 |------|---------|
 | `src/tools/schema_documenter.py` | CLI for schema documentation |
 | `src/tools/comment_editor.py` | Interactive comment editor (Rich TUI) |
-| `src/staging_csv.py` | Batch CSV→Parquet converter |
+| `src/extractors/epc_incremental_update.py` | EPC API incremental update CLI |
+| `src/extractors/epc_api_client.py` | EPC API client |
 | `src/create_views.sql` | Analytics view definitions (232 LOC) |
 | `src/manual_external_load.sql` | EPC staging SQL (249 LOC) |
+| `src/schemas/config/epc_domestic_certificates_schema.json` | EPC domestic column types |
+| `src/schemas/config/epc_non-domestic_certificates_schema.json` | EPC non-domestic column types |
 | `src/schemas/documentation/epc_domestic_schema.xml` | Canonical EPC metadata |
 | `src/schemas/documentation/manual_overrides.xml` | User edits from interactive editor |
 | `src/schemas/documentation/generated_comments.sql` | Output: SQL COMMENT statements |
+| `docs/EPC_API_UPDATE_PLAN.md` | EPC incremental update implementation plan |
 | `pyproject.toml` | Project metadata & dependencies |
 | `ruff.toml` | Code quality rules |
 
@@ -251,10 +255,19 @@ Flexible parsing supports:
 ## Directory Notes
 
 - `data_lake/` - Gitignored, contains live database files and data
-- `src/tools/` - Schema documentation toolkit (main codebase)
-- `src/schemas/` - XML schemas and generated SQL
+- `src/` - Source code package
+  - `extractors/` - API clients and data extraction (EPC API)
+  - `tools/` - Schema documentation toolkit (main codebase)
+  - `schemas/` - Schema configurations and documentation
+    - `config/` - JSON schema files for column types
+    - `reference/` - External reference data (ONSPD, PDFs)
+    - `analysis/` - Analysis artifacts (raw column CSVs)
+    - `documentation/` - XML schemas and generated SQL
+  - `utility/` - **⚠️ DEPRECATED** - Legacy code (use extractors/tools instead)
+- `docs/` - Project documentation and planning files
 - `notebooks/` - Jupyter notebooks for EDA
 - `plots/` - Generated visualizations
+- `tests/` - Pytest test suite
 - `.serena/` - Agent memory/session data
 - `.claude/` - Claude Code CLI commands
 
