@@ -336,4 +336,9 @@ class TransformationOrchestrator:
         sql_content = sql_file.read_text(encoding="utf-8")
 
         with duckdb.connect(str(self.config.db_path)) as conn:
+            # Load required extensions (INSTALL is persistent, LOAD needed per session)
+            # Spatial extension does NOT autoload, must be explicitly loaded
+            conn.execute("LOAD spatial;")
+            # Postgres extension will autoload but load explicitly for consistency
+            conn.execute("LOAD postgres;")
             conn.execute(sql_content)
