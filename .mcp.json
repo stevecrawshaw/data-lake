@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "mcp-server-motherduck": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-motherduck",
+                "--db-path",
+                "data_lake/mca_env_base.duckdb"
+            ]
+        }
+    }
+}
