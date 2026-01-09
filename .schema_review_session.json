@@ -2,7 +2,7 @@
   "version": "1.0",
   "database_path": "data_lake\\mca_env_base.duckdb",
   "created_at": "2025-12-31T13:38:32.722211",
-  "last_updated": "2025-12-31T18:12:36.586373",
+  "last_updated": "2026-01-09T14:35:38.533099",
   "current_position": null,
   "fields": {
     "bdline_ua_lep_diss_tbl": {
@@ -1428,22 +1428,22 @@
     },
     "postcode_centroids_tbl": {
       "x": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "X",
-        "user_description": null,
+        "user_description": "Easting",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:37:36.467983"
       },
       "y": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Y",
-        "user_description": null,
+        "user_description": "Northing",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:37:43.864644"
       },
       "objectid": {
         "status": "pending",
@@ -1455,481 +1455,481 @@
         "reviewed_at": null
       },
       "pcd7": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Pcd7",
-        "user_description": null,
+        "user_description": "Postcode 7 characters",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:38:09.802804"
       },
       "pcd8": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Pcd8",
-        "user_description": null,
+        "user_description": "Postcode 8 characters",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:38:22.505303"
       },
       "pcds": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Pcds",
-        "user_description": null,
+        "user_description": "Postcode with space",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:38:35.412082"
       },
       "dointr": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Dointr",
-        "user_description": null,
+        "user_description": "Date of introduction",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:38:46.848984"
       },
       "doterm": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Doterm",
-        "user_description": null,
+        "user_description": "Date of termination",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:38:57.384837"
       },
       "cty25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Cty25cd",
-        "user_description": null,
+        "user_description": "County code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:48:01.038369"
       },
       "ced25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ced25cd",
-        "user_description": null,
+        "user_description": "County electoral division 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:39:42.409854"
       },
       "lad25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lad25cd",
-        "user_description": null,
+        "user_description": "Local authority disctrict code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:40:14.602848"
       },
       "wd25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Wd25cd",
-        "user_description": null,
+        "user_description": "Ward code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:40:25.195971"
       },
       "parncp25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Parncp25cd",
-        "user_description": null,
+        "user_description": "Parish and non civil parished area code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:41:24.250201"
       },
       "usrtypind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Usrtypind",
-        "user_description": null,
+        "user_description": "Postcode User Type",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:46:50.721248"
       },
       "east1m": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "East1m",
-        "user_description": null,
+        "user_description": "Easting to 1m",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:43:58.997259"
       },
       "north1m": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "North1m",
-        "user_description": null,
+        "user_description": "Northing to 1m",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:44:07.376968"
       },
       "gridind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Gridind",
-        "user_description": null,
+        "user_description": "Grid Reference Positional Quality Indicator",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:46:28.729168"
       },
       "hlth19cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Hlth19cd",
-        "user_description": null,
+        "user_description": "Former health authority code",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:47:05.862493"
       },
       "nhser24cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Nhser24cd",
-        "user_description": null,
+        "user_description": "NHS England region code 2024",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:47:38.658235"
       },
       "ctry25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ctry25cd",
-        "user_description": null,
+        "user_description": "Country code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:48:28.680542"
       },
       "rgn25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Rgn25cd",
-        "user_description": null,
+        "user_description": "Region code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:48:41.862591"
       },
       "ssr95cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ssr95cd",
-        "user_description": null,
+        "user_description": "Standard statistical region code 1995",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:49:07.874508"
       },
       "pcon24cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Pcon24cd",
-        "user_description": null,
+        "user_description": "Westminster parliamentary constituency code 2024",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:49:40.208581"
       },
       "eer20cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Eer20cd",
-        "user_description": null,
+        "user_description": "European electoral region code 2020",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:50:22.208359"
       },
       "educ23cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Educ23cd",
-        "user_description": null,
+        "user_description": "Education code 2023",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:50:39.742776"
       },
       "ttwa15cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ttwa15cd",
-        "user_description": null,
+        "user_description": "Travel to work area code 2015",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:51:00.847431"
       },
       "pco19cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Pco19cd",
-        "user_description": null,
+        "user_description": "Primary care organisation code 2019",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:51:22.198898"
       },
       "itl25cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Itl25cd",
-        "user_description": null,
+        "user_description": "International territorial level code 2025",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:51:50.317389"
       },
       "wdstl05cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Wdstl05cd",
-        "user_description": null,
+        "user_description": "Statistical ward code 2005",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:52:30.079579"
       },
       "oa01cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Oa01cd",
-        "user_description": null,
+        "user_description": "Output area code 2001",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:52:48.407955"
       },
       "wdcas03cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Wdcas03cd",
-        "user_description": null,
+        "user_description": "CAS ward code 2003",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:53:05.671044"
       },
       "npark16cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Npark16cd",
-        "user_description": null,
+        "user_description": "National park code 2016",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T13:54:32.292471"
       },
       "lsoa01cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lsoa01cd",
-        "user_description": null,
+        "user_description": "Lower layer super output area 2001",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:38:35.962696"
       },
       "msoa01cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Msoa01cd",
-        "user_description": null,
+        "user_description": "Medium layer super output area 2001",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:39:00.424832"
       },
       "ruc01ind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ruc01ind",
-        "user_description": null,
+        "user_description": "Rural urban classification indicator 2001",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:39:32.564025"
       },
       "oac01ind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Oac01ind",
-        "user_description": null,
+        "user_description": "Output area classiciation indicator 2001",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:40:19.698886"
       },
       "oa11cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Oa11cd",
-        "user_description": null,
+        "user_description": "Output area code 2011",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:41:16.588109"
       },
       "lsoa11cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lsoa11cd",
-        "user_description": null,
+        "user_description": "Lower level super output area 2011",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:41:36.530132"
       },
       "msoa11cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Msoa11cd",
-        "user_description": null,
+        "user_description": "Medium layer super output area 2011",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:41:49.009154"
       },
       "wz11cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Wz11cd",
-        "user_description": null,
+        "user_description": "Workplace Zone 2011",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:46:39.266609"
       },
       "sicbl24cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Sicbl24cd",
-        "user_description": null,
+        "user_description": "Sub ICB locations code 2024",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:47:18.327569"
       },
       "bua24cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Bua24cd",
-        "user_description": null,
+        "user_description": "Built up areas code 2024",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:47:36.586412"
       },
       "ruc11ind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ruc11ind",
-        "user_description": null,
+        "user_description": "Rural urban classification code 2011",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:47:58.434018"
       },
       "oac11ind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Oac11ind",
-        "user_description": null,
+        "user_description": "Output area classification indicator 2011",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:48:43.882121"
       },
       "lat": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lat",
-        "user_description": null,
+        "user_description": "Latitude",
         "data_type": "DOUBLE",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:48:52.106073"
       },
       "long": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Long",
-        "user_description": null,
+        "user_description": "Longitude",
         "data_type": "DOUBLE",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:49:00.682259"
       },
       "lep21cd1": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lep21cd1",
-        "user_description": null,
+        "user_description": "Local enterprise partnership code 2021 1st instance",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:50:26.854911"
       },
       "lep21cd2": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lep21cd2",
-        "user_description": null,
+        "user_description": "Local enterprise partnership code 2021 2nd instance",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:50:13.505129"
       },
       "pfa23cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Pfa23cd",
-        "user_description": null,
+        "user_description": "Police force area code 2023",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:50:58.248775"
       },
       "imd20ind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Imd20ind",
-        "user_description": null,
+        "user_description": "Indices of multiple deprivation indicator 2020",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:51:27.472401"
       },
       "cal24cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Cal24cd",
-        "user_description": null,
+        "user_description": "Cancer alliance code 2024",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:51:44.173454"
       },
       "icb23cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Icb23cd",
-        "user_description": null,
+        "user_description": "Integrated care board code 2023",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:52:04.040632"
       },
       "oa21cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Oa21cd",
-        "user_description": null,
+        "user_description": "Output area code 2021",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:52:23.217026"
       },
       "lsoa21cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lsoa21cd",
-        "user_description": null,
+        "user_description": "Lower layer super output area code 2021",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:52:44.727728"
       },
       "msoa21cd": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Msoa21cd",
-        "user_description": null,
+        "user_description": "Medium layer super output area code 2021",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:53:29.624204"
       },
       "ruc21ind": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Ruc21ind",
-        "user_description": null,
+        "user_description": "Rural urban classification indicator 2021",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:53:54.965159"
       },
       "f_matched_characters": {
         "status": "pending",
@@ -3180,13 +3180,13 @@
     },
     "uk_lsoa_tenure_tbl": {
       "lsoa21_code": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Lsoa21 code",
-        "user_description": null,
+        "user_description": "Lower layer super output area code 2021",
         "data_type": "VARCHAR",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:54:57.320300"
       },
       "total_households": {
         "status": "pending",
@@ -3207,22 +3207,22 @@
         "reviewed_at": null
       },
       "n": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "N",
-        "user_description": null,
+        "user_description": "Number of households",
         "data_type": "BIGINT",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:55:22.496111"
       },
       "prop": {
-        "status": "pending",
+        "status": "reviewed",
         "original_description": "Prop",
-        "user_description": null,
+        "user_description": "Proportion of households",
         "data_type": "DOUBLE",
         "confidence": 0.5,
         "source": "inferred",
-        "reviewed_at": null
+        "reviewed_at": "2026-01-08T15:55:32.734756"
       }
     },
     "view:ca_la_ghg_emissions_sub_sector_ods_vw": {
@@ -3326,9 +3326,9 @@
   },
   "statistics": {
     "total": 364,
-    "reviewed": 31,
+    "reviewed": 89,
     "skipped": 0,
-    "pending": 209,
+    "pending": 151,
     "confirmed": 124
   }
 }

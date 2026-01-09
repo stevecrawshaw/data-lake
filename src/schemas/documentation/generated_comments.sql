@@ -4,26 +4,26 @@
 BEGIN TRANSACTION;
 
 -- Table: bdline_ua_lep_diss_tbl
-COMMENT ON TABLE mca_env_base.bdline_ua_lep_diss_tbl IS 'Table containing 3 columns';
+COMMENT ON TABLE mca_env_base.bdline_ua_lep_diss_tbl IS 'WECA LEP (including North Somerset) boundary';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_diss_tbl.name IS 'Name';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_diss_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_diss_tbl.id IS 'Id';
 
 -- Table: bdline_ua_lep_tbl
-COMMENT ON TABLE mca_env_base.bdline_ua_lep_tbl IS 'Table containing 4 columns';
+COMMENT ON TABLE mca_env_base.bdline_ua_lep_tbl IS 'WECA LEP UA unitary authority boundaries';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_tbl.name IS 'Name';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_tbl.code IS 'Code';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.bdline_ua_lep_tbl.id IS 'Id';
 
 -- Table: bdline_ua_weca_diss_tbl
-COMMENT ON TABLE mca_env_base.bdline_ua_weca_diss_tbl IS 'Table containing 3 columns';
+COMMENT ON TABLE mca_env_base.bdline_ua_weca_diss_tbl IS 'WECA dissolved boundary';
 COMMENT ON COLUMN mca_env_base.bdline_ua_weca_diss_tbl.name IS 'Name';
 COMMENT ON COLUMN mca_env_base.bdline_ua_weca_diss_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.bdline_ua_weca_diss_tbl.id IS 'Id';
 
 -- Table: bdline_ward_lep_tbl
-COMMENT ON TABLE mca_env_base.bdline_ward_lep_tbl IS 'Table containing 5 columns';
+COMMENT ON TABLE mca_env_base.bdline_ward_lep_tbl IS 'Ward boundaries for UA in WECA LEP';
 COMMENT ON COLUMN mca_env_base.bdline_ward_lep_tbl.name IS 'Name';
 COMMENT ON COLUMN mca_env_base.bdline_ward_lep_tbl.file_name IS 'File name';
 COMMENT ON COLUMN mca_env_base.bdline_ward_lep_tbl.code IS 'Code';
@@ -31,7 +31,7 @@ COMMENT ON COLUMN mca_env_base.bdline_ward_lep_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.bdline_ward_lep_tbl.id IS 'Id';
 
 -- Table: boundary_lookup_tbl
-COMMENT ON TABLE mca_env_base.boundary_lookup_tbl IS 'Table containing 14 columns';
+COMMENT ON TABLE mca_env_base.boundary_lookup_tbl IS 'Boundary lookup table';
 COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcd7 IS 'Postcode 7 characters';
 COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcd8 IS 'Postcode 8 characters';
 COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.pcds IS 'Postcode with space';
@@ -48,7 +48,7 @@ COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.ladnm IS 'Local Authority Dis
 COMMENT ON COLUMN mca_env_base.boundary_lookup_tbl.ladnmw IS 'Local Authority District name Welsh';
 
 -- Table: ca_boundaries_bgc_tbl
-COMMENT ON TABLE mca_env_base.ca_boundaries_bgc_tbl IS 'Table containing 11 columns';
+COMMENT ON TABLE mca_env_base.ca_boundaries_bgc_tbl IS 'Combined authority boundaries england UK';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.FID IS 'Fid';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.CAUTH25CD IS 'Combined authority code 2025';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.CAUTH25NM IS 'Combined authority name 2025';
@@ -62,7 +62,7 @@ COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.GlobalID IS 'Globalid';
 COMMENT ON COLUMN mca_env_base.ca_boundaries_bgc_tbl.geom IS 'Geometry';
 
 -- Table: ca_la_lookup_tbl
-COMMENT ON TABLE mca_env_base.ca_la_lookup_tbl IS 'Table containing 5 columns';
+COMMENT ON TABLE mca_env_base.ca_la_lookup_tbl IS 'Combined authority local authority boundaries';
 COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.LAD25CD IS 'Local authority district code 2025';
 COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.LAD25NM IS 'Local authority district name 2025';
 COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.CAUTH25CD IS 'Combined authority code 2025';
@@ -70,7 +70,7 @@ COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.CAUTH25NM IS 'Combined authority
 COMMENT ON COLUMN mca_env_base.ca_la_lookup_tbl.ObjectId IS 'Objectid';
 
 -- Table: codepoint_open_lep_tbl
-COMMENT ON TABLE mca_env_base.codepoint_open_lep_tbl IS 'Table containing 10 columns';
+COMMENT ON TABLE mca_env_base.codepoint_open_lep_tbl IS 'Codepoint open postcode LEP';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.postcode IS 'UK postal code';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.pc_nospace IS 'Pc nospace';
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.admin_district_code IS 'Admin district code';
@@ -83,7 +83,7 @@ COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.shape IS 'Spatial geometry
 COMMENT ON COLUMN mca_env_base.codepoint_open_lep_tbl.id IS 'Id';
 
 -- Table: eng_lsoa_imd_tbl
-COMMENT ON TABLE mca_env_base.eng_lsoa_imd_tbl IS 'Table containing 25 columns';
+COMMENT ON TABLE mca_env_base.eng_lsoa_imd_tbl IS 'Indices of multiple deprivation England LSOA';
 COMMENT ON COLUMN mca_env_base.eng_lsoa_imd_tbl.lsoa21_code IS 'Lsoa21 code';
 COMMENT ON COLUMN mca_env_base.eng_lsoa_imd_tbl.imd_decile IS 'Imd decile';
 COMMENT ON COLUMN mca_env_base.eng_lsoa_imd_tbl.income_decile IS 'Income decile';
@@ -111,7 +111,7 @@ COMMENT ON COLUMN mca_env_base.eng_lsoa_imd_tbl.housing_and_services_score IS 'H
 COMMENT ON COLUMN mca_env_base.eng_lsoa_imd_tbl.environment_score IS 'Environment score';
 
 -- Table: la_ghg_emissions_tbl
-COMMENT ON TABLE mca_env_base.la_ghg_emissions_tbl IS 'Table containing 15 columns';
+COMMENT ON TABLE mca_env_base.la_ghg_emissions_tbl IS 'Local authority greenhouse gas emissions (long format)';
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_tbl.country IS 'Country';
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_tbl.country_code IS 'Country code';
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_tbl.region IS 'Region';
@@ -129,7 +129,7 @@ COMMENT ON COLUMN mca_env_base.la_ghg_emissions_tbl.midyear_population_thousands
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_tbl.area_km2 IS 'Area km2';
 
 -- Table: la_ghg_emissions_wide_tbl
-COMMENT ON TABLE mca_env_base.la_ghg_emissions_wide_tbl IS 'Table containing 50 columns';
+COMMENT ON TABLE mca_env_base.la_ghg_emissions_wide_tbl IS 'Local authority greenhouse gas emissions (wide format)';
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_wide_tbl.regioncountry IS 'Regioncountry';
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_wide_tbl.second_tier_authority IS 'Second tier authority';
 COMMENT ON COLUMN mca_env_base.la_ghg_emissions_wide_tbl.local_authority IS 'Local authority';
@@ -190,7 +190,7 @@ COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.lsoa_2021_lep_tbl.id IS 'Id';
 
 -- Table: open_uprn_lep_tbl
-COMMENT ON TABLE mca_env_base.open_uprn_lep_tbl IS 'Table containing 5 columns';
+COMMENT ON TABLE mca_env_base.open_uprn_lep_tbl IS 'UPRN LEP';
 COMMENT ON COLUMN mca_env_base.open_uprn_lep_tbl.uprn IS 'Unique Property Reference Number';
 COMMENT ON COLUMN mca_env_base.open_uprn_lep_tbl.x_coordinate IS 'X coordinate';
 COMMENT ON COLUMN mca_env_base.open_uprn_lep_tbl.y_coordinate IS 'Y coordinate';
@@ -198,7 +198,7 @@ COMMENT ON COLUMN mca_env_base.open_uprn_lep_tbl.shape IS 'Spatial geometry';
 COMMENT ON COLUMN mca_env_base.open_uprn_lep_tbl.id IS 'Id';
 
 -- Table: postcode_centroids_tbl
-COMMENT ON TABLE mca_env_base.postcode_centroids_tbl IS 'Table containing 60 columns';
+COMMENT ON TABLE mca_env_base.postcode_centroids_tbl IS 'Postcode centroids UK';
 COMMENT ON COLUMN mca_env_base.postcode_centroids_tbl.x IS 'Easting';
 COMMENT ON COLUMN mca_env_base.postcode_centroids_tbl.y IS 'Northing';
 COMMENT ON COLUMN mca_env_base.postcode_centroids_tbl.pcd7 IS 'Postcode 7 characters';

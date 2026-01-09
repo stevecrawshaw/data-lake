@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <schema>
   <table name="bdline_ua_lep_diss_tbl">
-    <description>Table containing 3 columns</description>
+    <description>WECA LEP (including North Somerset) boundary</description>
     <column name="name">
       <type>VARCHAR</type>
       <description>Name</description>
@@ -16,7 +16,7 @@
     </column>
   </table>
   <table name="bdline_ua_lep_tbl">
-    <description>Table containing 4 columns</description>
+    <description>WECA LEP UA unitary authority boundaries </description>
     <column name="name">
       <type>VARCHAR</type>
       <description>Name</description>
@@ -35,7 +35,7 @@
     </column>
   </table>
   <table name="bdline_ua_weca_diss_tbl">
-    <description>Table containing 3 columns</description>
+    <description>WECA dissolved boundary</description>
     <column name="name">
       <type>VARCHAR</type>
       <description>Name</description>
@@ -50,7 +50,7 @@
     </column>
   </table>
   <table name="bdline_ward_lep_tbl">
-    <description>Table containing 5 columns</description>
+    <description>Ward boundaries for UA in WECA LEP</description>
     <column name="name">
       <type>VARCHAR</type>
       <description>Name</description>
@@ -73,7 +73,7 @@
     </column>
   </table>
   <table name="boundary_lookup_tbl">
-    <description>Table containing 14 columns</description>
+    <description>Boundary lookup table</description>
     <column name="pcd7">
       <type>VARCHAR</type>
       <description>Postcode 7 characters</description>
@@ -132,7 +132,7 @@
     </column>
   </table>
   <table name="ca_boundaries_bgc_tbl">
-    <description>Table containing 11 columns</description>
+    <description>Combined authority boundaries england UK</description>
     <column name="FID">
       <type>INTEGER</type>
       <description>Fid</description>
@@ -179,7 +179,7 @@
     </column>
   </table>
   <table name="ca_la_lookup_tbl">
-    <description>Table containing 5 columns</description>
+    <description>Combined authority local authority boundaries</description>
     <column name="LAD25CD">
       <type>VARCHAR</type>
       <description>Local authority district code 2025</description>
@@ -202,7 +202,7 @@
     </column>
   </table>
   <table name="codepoint_open_lep_tbl">
-    <description>Table containing 10 columns</description>
+    <description>Codepoint open postcode LEP</description>
     <column name="postcode">
       <type>VARCHAR</type>
       <description>UK postal code</description>
@@ -245,7 +245,7 @@
     </column>
   </table>
   <table name="eng_lsoa_imd_tbl">
-    <description>Table containing 25 columns</description>
+    <description>Indices of multiple deprivation England LSOA</description>
     <column name="lsoa21_code">
       <type>VARCHAR</type>
       <description>Lsoa21 code</description>
@@ -348,7 +348,7 @@
     </column>
   </table>
   <table name="la_ghg_emissions_tbl">
-    <description>Table containing 15 columns</description>
+    <description>Local authority greenhouse gas emissions (long format)</description>
     <column name="country">
       <type>VARCHAR</type>
       <description>Country</description>
@@ -411,7 +411,7 @@
     </column>
   </table>
   <table name="la_ghg_emissions_wide_tbl">
-    <description>Table containing 50 columns</description>
+    <description>Local authority greenhouse gas emissions (wide format)</description>
     <column name="regioncountry">
       <type>VARCHAR</type>
       <description>Regioncountry</description>
@@ -637,7 +637,7 @@
     </column>
   </table>
   <table name="open_uprn_lep_tbl">
-    <description>Table containing 5 columns</description>
+    <description>UPRN LEP</description>
     <column name="uprn">
       <type>BIGINT</type>
       <description>Unique Property Reference Number</description>
@@ -660,7 +660,7 @@
     </column>
   </table>
   <table name="postcode_centroids_tbl">
-    <description>Table containing 60 columns</description>
+    <description>Postcode centroids UK</description>
     <column name="x">
       <type>BIGINT</type>
       <description>Easting</description>

@@ -53,5 +53,8 @@
       "Bash(grep:*)",
       "WebFetch(domain:duckdb.org)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "mcp-server-motherduck"
+  ]
 }
