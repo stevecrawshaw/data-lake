@@ -659,4 +659,242 @@
       <description>Id</description>
     </column>
   </table>
+  <table name="postcode_centroids_tbl">
+    <description>Table containing 60 columns</description>
+    <column name="x">
+      <type>BIGINT</type>
+      <description>Easting</description>
+    </column>
+    <column name="y">
+      <type>BIGINT</type>
+      <description>Northing</description>
+    </column>
+    <column name="pcd7">
+      <type>VARCHAR</type>
+      <description>Postcode 7 characters</description>
+    </column>
+    <column name="pcd8">
+      <type>VARCHAR</type>
+      <description>Postcode 8 characters</description>
+    </column>
+    <column name="pcds">
+      <type>VARCHAR</type>
+      <description>Postcode with space</description>
+    </column>
+    <column name="dointr">
+      <type>BIGINT</type>
+      <description>Date of introduction</description>
+    </column>
+    <column name="doterm">
+      <type>BIGINT</type>
+      <description>Date of termination</description>
+    </column>
+    <column name="cty25cd">
+      <type>VARCHAR</type>
+      <description>County code 2025</description>
+    </column>
+    <column name="ced25cd">
+      <type>VARCHAR</type>
+      <description>County electoral division 2025</description>
+    </column>
+    <column name="lad25cd">
+      <type>VARCHAR</type>
+      <description>Local authority disctrict code 2025</description>
+    </column>
+    <column name="wd25cd">
+      <type>VARCHAR</type>
+      <description>Ward code 2025</description>
+    </column>
+    <column name="parncp25cd">
+      <type>VARCHAR</type>
+      <description>Parish and non civil parished area code 2025</description>
+    </column>
+    <column name="usrtypind">
+      <type>BIGINT</type>
+      <description>Postcode User Type</description>
+    </column>
+    <column name="east1m">
+      <type>BIGINT</type>
+      <description>Easting to 1m</description>
+    </column>
+    <column name="north1m">
+      <type>VARCHAR</type>
+      <description>Northing to 1m</description>
+    </column>
+    <column name="gridind">
+      <type>BIGINT</type>
+      <description>Grid Reference Positional Quality Indicator</description>
+    </column>
+    <column name="hlth19cd">
+      <type>VARCHAR</type>
+      <description>Former health authority code</description>
+    </column>
+    <column name="nhser24cd">
+      <type>VARCHAR</type>
+      <description>NHS England region code 2024</description>
+    </column>
+    <column name="ctry25cd">
+      <type>VARCHAR</type>
+      <description>Country code 2025</description>
+    </column>
+    <column name="rgn25cd">
+      <type>VARCHAR</type>
+      <description>Region code 2025</description>
+    </column>
+    <column name="ssr95cd">
+      <type>BIGINT</type>
+      <description>Standard statistical region code 1995</description>
+    </column>
+    <column name="pcon24cd">
+      <type>VARCHAR</type>
+      <description>Westminster parliamentary constituency code 2024</description>
+    </column>
+    <column name="eer20cd">
+      <type>VARCHAR</type>
+      <description>European electoral region code 2020</description>
+    </column>
+    <column name="educ23cd">
+      <type>VARCHAR</type>
+      <description>Education code 2023</description>
+    </column>
+    <column name="ttwa15cd">
+      <type>VARCHAR</type>
+      <description>Travel to work area code 2015</description>
+    </column>
+    <column name="pco19cd">
+      <type>VARCHAR</type>
+      <description>Primary care organisation code 2019</description>
+    </column>
+    <column name="itl25cd">
+      <type>VARCHAR</type>
+      <description>International territorial level code 2025</description>
+    </column>
+    <column name="wdstl05cd">
+      <type>VARCHAR</type>
+      <description>Statistical ward code 2005</description>
+    </column>
+    <column name="oa01cd">
+      <type>VARCHAR</type>
+      <description>Output area code 2001</description>
+    </column>
+    <column name="wdcas03cd">
+      <type>VARCHAR</type>
+      <description>CAS ward code 2003</description>
+    </column>
+    <column name="npark16cd">
+      <type>VARCHAR</type>
+      <description>National park code 2016</description>
+    </column>
+    <column name="lsoa01cd">
+      <type>VARCHAR</type>
+      <description>Lower layer super output area 2001</description>
+    </column>
+    <column name="msoa01cd">
+      <type>VARCHAR</type>
+      <description>Medium layer super output area 2001</description>
+    </column>
+    <column name="ruc01ind">
+      <type>VARCHAR</type>
+      <description>Rural urban classification indicator 2001</description>
+    </column>
+    <column name="oac01ind">
+      <type>VARCHAR</type>
+      <description>Output area classiciation indicator 2001</description>
+    </column>
+    <column name="oa11cd">
+      <type>VARCHAR</type>
+      <description>Output area code 2011</description>
+    </column>
+    <column name="lsoa11cd">
+      <type>VARCHAR</type>
+      <description>Lower level super output area 2011</description>
+    </column>
+    <column name="msoa11cd">
+      <type>VARCHAR</type>
+      <description>Medium layer super output area 2011</description>
+    </column>
+    <column name="wz11cd">
+      <type>VARCHAR</type>
+      <description>Workplace Zone 2011</description>
+    </column>
+    <column name="sicbl24cd">
+      <type>VARCHAR</type>
+      <description>Sub ICB locations code 2024</description>
+    </column>
+    <column name="bua24cd">
+      <type>VARCHAR</type>
+      <description>Built up areas code 2024</description>
+    </column>
+    <column name="ruc11ind">
+      <type>VARCHAR</type>
+      <description>Rural urban classification code 2011</description>
+    </column>
+    <column name="oac11ind">
+      <type>VARCHAR</type>
+      <description>Output area classification indicator 2011</description>
+    </column>
+    <column name="lat">
+      <type>DOUBLE</type>
+      <description>Latitude</description>
+    </column>
+    <column name="long">
+      <type>DOUBLE</type>
+      <description>Longitude</description>
+    </column>
+    <column name="lep21cd1">
+      <type>VARCHAR</type>
+      <description>Local enterprise partnership code 2021 1st instance</description>
+    </column>
+    <column name="lep21cd2">
+      <type>VARCHAR</type>
+      <description>Local enterprise partnership code 2021 2nd instance</description>
+    </column>
+    <column name="pfa23cd">
+      <type>VARCHAR</type>
+      <description>Police force area code 2023</description>
+    </column>
+    <column name="imd20ind">
+      <type>BIGINT</type>
+      <description>Indices of multiple deprivation indicator 2020</description>
+    </column>
+    <column name="cal24cd">
+      <type>VARCHAR</type>
+      <description>Cancer alliance code 2024</description>
+    </column>
+    <column name="icb23cd">
+      <type>VARCHAR</type>
+      <description>Integrated care board code 2023</description>
+    </column>
+    <column name="oa21cd">
+      <type>VARCHAR</type>
+      <description>Output area code 2021</description>
+    </column>
+    <column name="lsoa21cd">
+      <type>VARCHAR</type>
+      <description>Lower layer super output area code 2021</description>
+    </column>
+    <column name="msoa21cd">
+      <type>VARCHAR</type>
+      <description>Medium layer super output area code 2021</description>
+    </column>
+    <column name="ruc21ind">
+      <type>VARCHAR</type>
+      <description>Rural urban classification indicator 2021</description>
+    </column>
+  </table>
+  <table name="uk_lsoa_tenure_tbl">
+    <description>Table containing 5 columns</description>
+    <column name="lsoa21_code">
+      <type>VARCHAR</type>
+      <description>Lower layer super output area code 2021</description>
+    </column>
+    <column name="n">
+      <type>BIGINT</type>
+      <description>Number of households</description>
+    </column>
+    <column name="prop">
+      <type>DOUBLE</type>
+      <description>Proportion of households</description>
+    </column>
+  </table>
 </schema>

@@ -224,6 +224,23 @@ uv run python -m src.tools.schema_documenter generate \
     -x src/schemas/documentation/epc_domestic_schema.xml
 ```
 
+**⚠️ Important: Idempotency and Force Flag**
+
+The `generate` command has **idempotency protection** - it skips columns that already have comments to avoid overwriting existing metadata. If you need to update existing comments (e.g., after manual review), use the two-step workflow:
+
+```bash
+# Step 1: Generate SQL file
+uv run python -m src.tools.schema_documenter generate \
+    -d data_lake/mca_env_base.duckdb \
+    -x src/schemas/documentation/manual_overrides.xml
+
+# Step 2: Apply with --force to overwrite existing comments
+uv run python -m src.tools.schema_documenter apply \
+    -d data_lake/mca_env_base.duckdb \
+    -i src/schemas/documentation/generated_comments.sql \
+    --force
+```
+
 **How it works:**
 1. **XML Parsing** - Imports canonical metadata from curated XML schemas
 2. **Database Analysis** - Queries `duckdb_columns()`, `duckdb_tables()`, `duckdb_views()`
@@ -265,6 +282,67 @@ uv run python -m src.tools.schema_documenter edit-comments \
 ```
 Manual Overrides > External XML Schemas > Pattern Inference
 ```
+
+**XML Schema Examples:**
+
+External schema (e.g., `epc_domestic_schema.xml`):
+```xml
+<schema>
+  <table name="raw_domestic_epc_certificates_tbl">
+    <description>Domestic Energy Performance Certificate data from UK government register</description>
+    <column name="LMK_KEY">
+      <type>VARCHAR</type>
+      <description>Individual lodgement identifier. Guaranteed to be unique and can be used to identify a certificate in the downloads and the API.</description>
+    </column>
+    <column name="ADDRESS1">
+      <type>VARCHAR</type>
+      <description>First line of the address</description>
+    </column>
+    <!-- ... more columns ... -->
+  </table>
+</schema>
+```
+
+Manual overrides (generated from interactive editor):
+```xml
+<schema>
+  <table name="postcode_centroids_tbl">
+    <description>Table containing 60 columns</description>
+    <column name="x">
+      <type>BIGINT</type>
+      <description>Easting</description>
+    </column>
+    <column name="y">
+      <type>BIGINT</type>
+      <description>Northing</description>
+    </column>
+    <column name="pcd7">
+      <type>VARCHAR</type>
+      <description>Postcode 7 characters</description>
+    </column>
+    <!-- ... more columns ... -->
+  </table>
+</schema>
+```
+
+**📝 After Completing Interactive Review**
+
+Once you've finished reviewing and editing descriptions in the interactive editor, apply your changes to the database:
+
+```bash
+# The editor saves your work to manual_overrides.xml
+# Now apply it with --force to update existing comments
+uv run python -m src.tools.schema_documenter generate \
+    -d data_lake/mca_env_base.duckdb \
+    -x src/schemas/documentation/manual_overrides.xml
+
+uv run python -m src.tools.schema_documenter apply \
+    -d data_lake/mca_env_base.duckdb \
+    -i src/schemas/documentation/generated_comments.sql \
+    --force
+```
+
+**Why --force is needed:** If tables already have comments from a previous run (even auto-generated ones), the `generate` command will skip them. Using `apply --force` ensures your manually-reviewed descriptions replace the old ones.
 
 #### Verify Comments
 
