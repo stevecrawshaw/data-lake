@@ -359,6 +359,56 @@ WHERE table_name = 'raw_domestic_epc_certificates_tbl'
   AND comment IS NOT NULL;
 ```
 
+#### Editing Table-Level Descriptions
+
+**Important:** The interactive editor only supports **column-level descriptions**. Table and view descriptions must be edited manually.
+
+**Current behavior:**
+- Interactive editor: Reviews and edits column descriptions only
+- Table descriptions: Auto-generated as "Table containing X columns"
+- Manual editing required for meaningful table-level comments
+
+**Workflow for editing table descriptions:**
+
+1. **Edit manual_overrides.xml directly:**
+
+```xml
+<!-- Before: Auto-generated -->
+<table name="postcode_centroids_tbl">
+  <description>Table containing 60 columns</description>
+  <!-- columns... -->
+</table>
+
+<!-- After: Your meaningful description -->
+<table name="postcode_centroids_tbl">
+  <description>ONS Postcode Directory centroids with comprehensive geographic hierarchy lookups</description>
+  <!-- columns... -->
+</table>
+```
+
+2. **Apply changes to database:**
+
+```bash
+uv run python -m src.tools.schema_documenter generate \
+    -d data_lake/mca_env_base.duckdb \
+    -x src/schemas/documentation/manual_overrides.xml
+
+uv run python -m src.tools.schema_documenter apply \
+    -d data_lake/mca_env_base.duckdb \
+    -i src/schemas/documentation/generated_comments.sql \
+    --force
+```
+
+**Alternative (quick fix):**
+
+```sql
+-- Direct SQL (not tracked in XML)
+COMMENT ON TABLE postcode_centroids_tbl IS
+  'ONS Postcode Directory centroids with comprehensive geographic hierarchy lookups';
+```
+
+⚠️ **Note:** Direct SQL comments bypass the XML documentation system and won't be version controlled.
+
 ### 3. Incremental EPC Updates
 
 #### Daily Automation
