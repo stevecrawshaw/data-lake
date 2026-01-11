@@ -78,7 +78,7 @@ FROM raw_domestic_epc_certificates_tbl c;
 -- Excludes address fields for privacy
 CREATE OR REPLACE VIEW epc_domestic_lep_vw AS
 SELECT
-    e.* EXCLUDE (ADDRESS1, ADDRESS2, ADDRESS3, POSTCODE),
+    e.* EXCLUDE ("ADDRESS", ADDRESS1, ADDRESS2, ADDRESS3, POSTCODE),
     geopoint_from_blob(o.shape) AS geo_point_2d
 FROM epc_domestic_vw e
 LEFT JOIN open_uprn_lep_tbl o ON e.UPRN = o.uprn

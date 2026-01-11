@@ -1,3 +1,4 @@
+-- # scratchpad file to introspect duckdb database
 duckdb data_lake/mca_env_base.duckdb
 
 SHOW TABLES;

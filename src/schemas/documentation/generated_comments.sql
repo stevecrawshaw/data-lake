@@ -645,7 +645,6 @@ COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.FLOOR_HEIGHT IS 'Floor height
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.PHOTO_SUPPLY IS 'Photo supply';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.SOLAR_WATER_HEATING_FLAG IS 'Solar water heating flag (y/n)';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.MECHANICAL_VENTILATION IS 'Mechanical ventilation';
-COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.ADDRESS IS 'Full address';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.LOCAL_AUTHORITY_LABEL IS 'Local authority label';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.CONSTITUENCY_LABEL IS 'Constituency label';
 COMMENT ON COLUMN mca_env_base.epc_domestic_lep_vw.POSTTOWN IS 'Post town';
