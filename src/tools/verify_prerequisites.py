@@ -22,7 +22,6 @@ import click
 import duckdb
 import yaml
 from rich.console import Console
-from rich.table import Table
 
 # Use plain ASCII symbols for Windows compatibility
 # (avoiding Unicode encoding issues in Git Bash/cmd/PowerShell)
@@ -85,7 +84,10 @@ def create_database(db_path: Path) -> tuple[bool, str]:
         con.close()
 
         size_mb = db_path.stat().st_size / (1024**2)
-        return True, f"Created successfully ({size_mb:.1f} MB) with SPATIAL and postgres_scanner extensions"
+        return (
+            True,
+            f"Created successfully ({size_mb:.1f} MB) with SPATIAL and postgres_scanner extensions",
+        )
 
     except Exception as e:
         return False, f"Failed to create database: {e!s}"
@@ -192,7 +194,9 @@ def check_python_environment() -> tuple[bool, dict[str, str]]:
     success = True
 
     # Python version
-    python_version = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
+    python_version = (
+        f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
+    )
     versions["Python"] = python_version
 
     if sys.version_info < (3, 12):
@@ -296,7 +300,9 @@ def main(
         if create_if_missing:
             # Auto-create without prompt
             should_create = True
-            console.print(f"  {SYMBOL_INFO} Creating database automatically (--create-if-missing flag)")
+            console.print(
+                f"  {SYMBOL_INFO} Creating database automatically (--create-if-missing flag)"
+            )
         else:
             # Interactive prompt
             console.print()
@@ -308,7 +314,9 @@ def main(
             should_create = user_response in ["yes", "y"]
 
         if should_create:
-            console.print(f"  {SYMBOL_INFO} Creating database with SPATIAL and postgres_scanner extensions...")
+            console.print(
+                f"  {SYMBOL_INFO} Creating database with SPATIAL and postgres_scanner extensions..."
+            )
             create_success, create_message = create_database(db_path)
 
             if create_success:
@@ -385,7 +393,9 @@ def main(
             f"\n{SYMBOL_OK} [bold green]All prerequisites satisfied![/bold green]"
         )
         console.print("\nReady to run:")
-        console.print("  [cyan]uv run python -m src.transformations all --dry-run[/cyan]")
+        console.print(
+            "  [cyan]uv run python -m src.transformations all --dry-run[/cyan]"
+        )
         sys.exit(0)
     else:
         console.print(

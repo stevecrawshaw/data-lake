@@ -1,10 +1,8 @@
 """Tests for EPC incremental update core functionality."""
 
-import json
 from datetime import date
 from pathlib import Path
 from typing import Any
-from unittest.mock import Mock, patch
 
 import duckdb
 import pytest
@@ -45,9 +43,7 @@ class TestGetMaxLodgementDate:
                 "CREATE TABLE raw_domestic_epc_certificates_tbl (LODGEMENT_DATE DATE)"
             )
 
-        max_date = get_max_lodgement_date(
-            db_path, "raw_domestic_epc_certificates_tbl"
-        )
+        max_date = get_max_lodgement_date(db_path, "raw_domestic_epc_certificates_tbl")
 
         assert max_date is None
 
@@ -109,9 +105,7 @@ class TestNormalizeColumnNames:
         assert "lmk-key" not in normalized[0]
         assert "lodgement-date" not in normalized[0]
 
-    def test_normalize_hyphen_to_underscore(
-        self, mock_schema_domestic: Path
-    ) -> None:
+    def test_normalize_hyphen_to_underscore(self, mock_schema_domestic: Path) -> None:
         """Test that hyphens are converted to underscores."""
         records = [
             {
@@ -222,25 +216,33 @@ class TestWriteStagingCSV:
         """Test writing normalized records to CSV."""
         output_path = temp_dir / "staging.csv"
 
-        write_staging_csv(
-            sample_normalized_records_domestic, output_path, "domestic"
-        )
+        write_staging_csv(sample_normalized_records_domestic, output_path, "domestic")
 
         assert output_path.exists()
 
         # Read and verify CSV content
         with duckdb.connect() as con:
-            result = con.execute(
-                f"SELECT COUNT(*) FROM '{output_path}'"
-            ).fetchone()
+            result = con.execute(f"SELECT COUNT(*) FROM '{output_path}'").fetchone()
             assert result[0] == 2
 
     def test_write_csv_filters_null_uprn(self, temp_dir: Path) -> None:
         """Test that records with null UPRN are filtered out."""
         records = [
-            {"LMK_KEY": "ABC123", "UPRN": "100023336958", "LODGEMENT_DATE": "2025-11-15"},
-            {"LMK_KEY": "DEF456", "UPRN": "", "LODGEMENT_DATE": "2025-11-20"},  # Empty UPRN
-            {"LMK_KEY": "GHI789", "UPRN": "100023336960", "LODGEMENT_DATE": "2025-11-25"},
+            {
+                "LMK_KEY": "ABC123",
+                "UPRN": "100023336958",
+                "LODGEMENT_DATE": "2025-11-15",
+            },
+            {
+                "LMK_KEY": "DEF456",
+                "UPRN": "",
+                "LODGEMENT_DATE": "2025-11-20",
+            },  # Empty UPRN
+            {
+                "LMK_KEY": "GHI789",
+                "UPRN": "100023336960",
+                "LODGEMENT_DATE": "2025-11-25",
+            },
         ]
 
         output_path = temp_dir / "filtered.csv"
@@ -248,9 +250,7 @@ class TestWriteStagingCSV:
 
         # Should only have 2 records (empty UPRN filtered)
         with duckdb.connect() as con:
-            result = con.execute(
-                f"SELECT COUNT(*) FROM '{output_path}'"
-            ).fetchone()
+            result = con.execute(f"SELECT COUNT(*) FROM '{output_path}'").fetchone()
             assert result[0] == 2
 
     def test_write_csv_deduplicates_by_uprn(self, temp_dir: Path) -> None:
@@ -278,9 +278,7 @@ class TestWriteStagingCSV:
 
         # Should have 2 unique UPRNs
         with duckdb.connect() as con:
-            result = con.execute(
-                f"SELECT COUNT(*) FROM '{output_path}'"
-            ).fetchone()
+            result = con.execute(f"SELECT COUNT(*) FROM '{output_path}'").fetchone()
             assert result[0] == 2
 
             # Verify the later date was kept for duplicate UPRN
@@ -294,7 +292,11 @@ class TestWriteStagingCSV:
         nested_path = temp_dir / "nested" / "staging" / "output.csv"
 
         records = [
-            {"LMK_KEY": "ABC123", "UPRN": "100023336958", "LODGEMENT_DATE": "2025-11-15"}
+            {
+                "LMK_KEY": "ABC123",
+                "UPRN": "100023336958",
+                "LODGEMENT_DATE": "2025-11-15",
+            }
         ]
 
         write_staging_csv(records, nested_path, "domestic")
@@ -432,11 +434,11 @@ class TestUpsertToDatabase:
             result = con.execute(
                 "SELECT COUNT(*) FROM raw_domestic_epc_certificates_tbl"
             ).fetchone()
-            assert result[0] == 3  # Originally 2, added 1 new  # Originally 2, added 1 new
+            assert (
+                result[0] == 3
+            )  # Originally 2, added 1 new  # Originally 2, added 1 new
 
-    def test_upsert_schema_not_found(
-        self, mock_db_path: Path, temp_dir: Path
-    ) -> None:
+    def test_upsert_schema_not_found(self, mock_db_path: Path, temp_dir: Path) -> None:
         """Test upsert_to_database handles missing schema file."""
         staging_csv = temp_dir / "staging.csv"
         staging_csv.write_text("LMK_KEY,UPRN\nABC123,100023336958\n")

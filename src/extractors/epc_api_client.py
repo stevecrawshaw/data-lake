@@ -235,7 +235,7 @@ class EPCAPIClient:
             csv_pages.append(csv_text)
 
             # Count rows for progress (quick estimate from newlines)
-            page_rows = csv_text.count('\n') - 1  # Subtract header
+            page_rows = csv_text.count("\n") - 1  # Subtract header
             total_rows += page_rows
 
             # Update progress
@@ -243,8 +243,7 @@ class EPCAPIClient:
                 progress.update(task, completed=total_rows)
 
             logger.info(
-                f"Page {page_num}: Fetched ~{page_rows} records "
-                f"(total: ~{total_rows})"
+                f"Page {page_num}: Fetched ~{page_rows} records (total: ~{total_rows})"
             )
 
             # Check for next page cursor
@@ -275,20 +274,18 @@ class EPCAPIClient:
 
             # Build dynamic UNION ALL BY NAME query (integer indices are safe)
             union_query = " UNION ALL BY NAME ".join(
-                f"SELECT * FROM page_{i}" for i in range(len(csv_pages))  # noqa: S608
+                f"SELECT * FROM page_{i}"
+                for i in range(len(csv_pages))  # noqa: S608
             )
             combined = con.sql(union_query)
 
             # Convert to list of dicts
             records = combined.fetchall()
             columns = [desc[0] for desc in combined.description]
-            all_records = [
-                dict(zip(columns, row, strict=True)) for row in records
-            ]
+            all_records = [dict(zip(columns, row, strict=True)) for row in records]
 
             logger.info(
-                f"Combined {len(all_records)} records "
-                f"from {len(csv_pages)} pages"
+                f"Combined {len(all_records)} records from {len(csv_pages)} pages"
             )
 
             return all_records

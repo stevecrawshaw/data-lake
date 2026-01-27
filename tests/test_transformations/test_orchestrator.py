@@ -24,7 +24,9 @@ class TestTransformationOrchestrator:
         assert orchestrator.config == test_config
         assert orchestrator.config.db_path == test_config.db_path
 
-    def test_discover_modules_empty_directory(self, test_config: TransformationConfig) -> None:
+    def test_discover_modules_empty_directory(
+        self, test_config: TransformationConfig
+    ) -> None:
         """Test module discovery in empty SQL directory."""
         orchestrator = TransformationOrchestrator(test_config)
         modules = orchestrator.discover_modules()
@@ -81,7 +83,9 @@ class TestTransformationOrchestrator:
         assert orchestrator._discovery_complete
         assert len(orchestrator.modules) > 0
 
-    def test_execute_layer_invalid_layer(self, test_config: TransformationConfig) -> None:
+    def test_execute_layer_invalid_layer(
+        self, test_config: TransformationConfig
+    ) -> None:
         """Test that invalid layer names raise ValueError."""
         orchestrator = TransformationOrchestrator(test_config)
 
@@ -151,7 +155,9 @@ class TestTransformationOrchestrator:
         with pytest.raises(RuntimeError, match="source file"):
             orchestrator.validate_sources([module])
 
-    def test_validate_sources_all_present(self, temp_sql_root: Path, temp_dir: Path) -> None:
+    def test_validate_sources_all_present(
+        self, temp_sql_root: Path, temp_dir: Path
+    ) -> None:
         """Test source validation passes when files exist."""
         # Create a test source file
         source_file = temp_dir / "test_source.csv"

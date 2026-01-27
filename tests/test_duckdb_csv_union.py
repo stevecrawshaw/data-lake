@@ -59,7 +59,9 @@ A,100004,2024-01-18"""
     print(records_as_dicts[0])
 
     # Verify all records present
-    assert len(records_as_dicts) == 6, f"Expected 6 records, got {len(records_as_dicts)}"
+    assert len(records_as_dicts) == 6, (
+        f"Expected 6 records, got {len(records_as_dicts)}"
+    )
 
     # Verify column alignment (all should have same keys)
     assert all(

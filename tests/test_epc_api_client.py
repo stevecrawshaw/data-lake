@@ -1,10 +1,7 @@
 """Tests for EPC API client functionality."""
 
 from datetime import date
-from io import StringIO
-from pathlib import Path
-from typing import Any
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import httpx
 import pytest
@@ -64,9 +61,7 @@ class TestEPCAPIClient:
         # Client should be closed after exiting context
         assert client.client.is_closed
 
-    def test_build_params_domestic(
-        self, mock_config: EPCConfig
-    ) -> None:
+    def test_build_params_domestic(self, mock_config: EPCConfig) -> None:
         """Test _build_params builds parameters correctly."""
         client = EPCAPIClient(mock_config)
         params = client._build_params(
@@ -82,9 +77,7 @@ class TestEPCAPIClient:
         assert params["size"] == 2  # From config page_size
         assert "search-after" not in params
 
-    def test_build_params_with_search_after(
-        self, mock_config: EPCConfig
-    ) -> None:
+    def test_build_params_with_search_after(self, mock_config: EPCConfig) -> None:
         """Test _build_params includes search-after cursor."""
         client = EPCAPIClient(mock_config)
         params = client._build_params(
@@ -95,9 +88,7 @@ class TestEPCAPIClient:
 
         assert params["search-after"] == "cursor_abc123"
 
-    def test_build_params_to_date(
-        self, mock_config: EPCConfig
-    ) -> None:
+    def test_build_params_to_date(self, mock_config: EPCConfig) -> None:
         """Test _build_params with different year range."""
         client = EPCAPIClient(mock_config)
         params = client._build_params(
@@ -275,9 +266,7 @@ class TestEPCAPIClient:
         call_args = mock_get.call_args
         assert call_args[0][0] == "/api/v1/non-domestic/search"
 
-    def test_fetch_certificates_invalid_type(
-        self, mock_config: EPCConfig
-    ) -> None:
+    def test_fetch_certificates_invalid_type(self, mock_config: EPCConfig) -> None:
         """Test fetch_certificates raises ValueError for invalid certificate type."""
         client = EPCAPIClient(mock_config)
 

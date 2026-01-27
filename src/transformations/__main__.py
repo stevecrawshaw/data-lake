@@ -120,7 +120,9 @@ def main(
 
         # Execute requested layers
         if "all" in layers:
-            console.print("[bold]Executing all layers (Bronze > Silver > Gold)[/bold]\n")
+            console.print(
+                "[bold]Executing all layers (Bronze > Silver > Gold)[/bold]\n"
+            )
             orchestrator.execute_all(dry_run=dry_run, validate=validate)
         else:
             # Execute each specified layer
@@ -132,7 +134,9 @@ def main(
         if dry_run:
             console.print("[green]SUCCESS: Dry-run completed successfully[/green]")
         else:
-            console.print("[green]SUCCESS: All transformations completed successfully[/green]")
+            console.print(
+                "[green]SUCCESS: All transformations completed successfully[/green]"
+            )
 
     except Exception as e:
         console.print(f"\n[red]Error: {e}[/red]")

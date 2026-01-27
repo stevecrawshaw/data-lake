@@ -113,8 +113,8 @@ class CommentEditor:
             try:
                 self.session_manager.save()
                 self.console.print("[green]Session saved.[/green]")
-            except:
-                self.console.print("[red]Could not save session![/red]")
+            except Exception as save_error:
+                self.console.print(f"[red]Could not save session: {save_error}[/red]")
 
             sys.exit(1)
 
@@ -185,13 +185,12 @@ class CommentEditor:
 
         # Tables: Include ALL columns where table.source != "xml"
         for table_name, table in self.tables.items():
-            if table.source != "xml":
+            if table.source != "xml" and table.columns:
                 # Include all columns
-                if table.columns:
-                    fields_to_review[table_name] = table.columns
-                    logger.debug(
-                        f"Table {table_name}: {len(table.columns)} columns to review"
-                    )
+                fields_to_review[table_name] = table.columns
+                logger.debug(
+                    f"Table {table_name}: {len(table.columns)} columns to review"
+                )
 
         # Views: Include columns where source in ("fallback", "computed")
         for view_name, view in self.views.items():

@@ -45,7 +45,10 @@ class TestBronzeLayerDiscovery:
 
         # Check boundaries_federated metadata
         boundaries_fed = modules["bronze/boundaries_federated"]
-        assert boundaries_fed.description == "Load UK boundaries from corporate PostGIS database (VPN required)"
+        assert (
+            boundaries_fed.description
+            == "Load UK boundaries from corporate PostGIS database (VPN required)"
+        )
         assert boundaries_fed.requires_vpn is True
         assert boundaries_fed.depends_on == []
 

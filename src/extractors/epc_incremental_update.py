@@ -90,7 +90,7 @@ def normalize_column_names(
         schema = json.load(f)
 
     # Create lowercase -> UPPERCASE mapping (replace hyphens with underscores)
-    column_map = {k.lower().replace("-", "_"): k for k in schema.keys()}
+    column_map = {k.lower().replace("-", "_"): k for k in schema}
 
     # Transform records (replace hyphens with underscores in API column names)
     normalized = []
@@ -303,10 +303,7 @@ def update_certificate_type(
         logger.info(f"Using override start date: {from_date}")
     else:
         max_date = get_max_lodgement_date(config.db_path, table_name)
-        if max_date:
-            from_date = max_date + timedelta(days=1)
-        else:
-            from_date = date(2008, 1, 1)
+        from_date = max_date + timedelta(days=1) if max_date else date(2008, 1, 1)
 
     to_date = date.today()
 

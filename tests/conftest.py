@@ -1,7 +1,6 @@
 """Pytest configuration and shared fixtures for EPC incremental update tests."""
 
 import json
-from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -19,10 +18,7 @@ def temp_dir(tmp_path: Path) -> Path:
 def mock_env_file(temp_dir: Path) -> Path:
     """Create a mock .env file with test credentials."""
     env_path = temp_dir / ".env"
-    env_path.write_text(
-        "EPC_USERNAME=test_user\n"
-        "EPC_PASSWORD=test_password_123\n"
-    )
+    env_path.write_text("EPC_USERNAME=test_user\nEPC_PASSWORD=test_password_123\n")
     return env_path
 
 

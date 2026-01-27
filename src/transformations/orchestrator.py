@@ -97,7 +97,9 @@ class TransformationOrchestrator:
 
         self.modules = modules
         self._discovery_complete = True
-        logger.info(f"Discovered {len(modules)} SQL modules across {len(self.config.layers)} layers")
+        logger.info(
+            f"Discovered {len(modules)} SQL modules across {len(self.config.layers)} layers"
+        )
         return modules
 
     def _load_schema_metadata(self, layer: str) -> dict:
@@ -118,7 +120,9 @@ class TransformationOrchestrator:
         try:
             with schema_path.open() as f:
                 metadata = yaml.safe_load(f) or {}
-            logger.debug(f"Loaded schema metadata for {layer} layer: {len(metadata)} modules")
+            logger.debug(
+                f"Loaded schema metadata for {layer} layer: {len(metadata)} modules"
+            )
             return metadata
         except yaml.YAMLError as e:
             logger.warning(f"Failed to parse {schema_path}: {e}")
@@ -260,7 +264,9 @@ class TransformationOrchestrator:
             msg = f"{len(missing_files)} source file(s) missing"
             raise RuntimeError(msg)
 
-        logger.info(f"Validation passed: All source files present for {len(modules)} modules")
+        logger.info(
+            f"Validation passed: All source files present for {len(modules)} modules"
+        )
 
     def _preview_execution(self, modules: list[SQLModule]) -> None:
         """Preview module execution order without executing.
