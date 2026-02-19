@@ -18,7 +18,7 @@ SELECT
 FROM ca_la_lookup_tbl
 UNION BY NAME
 (SELECT
-    'E06000023' AS ladcd,
+    'E06000024' AS ladcd,
     'North Somerset' AS ladnm,
     'E47000009' AS cauthcd,
     'West of England' AS cauthnm);

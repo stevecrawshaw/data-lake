@@ -897,4 +897,57 @@
       <description>Proportion of households</description>
     </column>
   </table>
+  <table name="ca_boundaries_inc_ns_vw">
+    <description>Combined Authority boundaries including North Somerset</description>
+    <column name="cauthcd">
+      <type>VARCHAR</type>
+      <description>Combined Authority code (ONS)</description>
+    </column>
+    <column name="cauthnm">
+      <type>VARCHAR</type>
+      <description>Combined Authority name</description>
+    </column>
+    <column name="geom">
+      <type>GEOMETRY</type>
+      <description>Spatial geometry in EPSG:4326 (WGS84)</description>
+    </column>
+  </table>
+  <table name="ca_la_lookup_inc_ns_vw">
+    <description>Combined Authority to Local Authority lookup including North Somerset</description>
+    <column name="ladcd">
+      <type>VARCHAR</type>
+      <description>Local Authority District code (ONS)</description>
+    </column>
+    <column name="ladnm">
+      <type>VARCHAR</type>
+      <description>Local Authority District name</description>
+    </column>
+    <column name="cauthcd">
+      <type>VARCHAR</type>
+      <description>Combined Authority code (ONS)</description>
+    </column>
+    <column name="cauthnm">
+      <type>VARCHAR</type>
+      <description>Combined Authority name</description>
+    </column>
+  </table>
+  <table name="weca_lep_la_vw">
+    <description>West of England LEP Local Authorities lookup</description>
+    <column name="ladcd">
+      <type>VARCHAR</type>
+      <description>Local Authority District code (ONS)</description>
+    </column>
+    <column name="ladnm">
+      <type>VARCHAR</type>
+      <description>Local Authority District name</description>
+    </column>
+    <column name="cauthcd">
+      <type>VARCHAR</type>
+      <description>Combined Authority code (ONS)</description>
+    </column>
+    <column name="cauthnm">
+      <type>VARCHAR</type>
+      <description>Combined Authority name</description>
+    </column>
+  </table>
 </schema>
