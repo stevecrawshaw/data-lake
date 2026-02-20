@@ -34,12 +34,19 @@ emissions_load:
     - "data_lake/landing/manual/2005-23-uk-local-authority-ghg-emissions.xlsx"
 
 census_load:
-  description: "Load ONS census and geographic reference data (tenure, IMD, postcodes, boundaries)"
+  description: "Load ONS census and geographic reference data (tenure, postcodes, boundaries)"
   depends_on: []
   requires_vpn: false
   enabled: true
   source_files:
     - "data_lake/landing/manual/household_tenure21_lsoa21.csv"
-    - "data_lake/landing/manual/imd2025_england_lsoa21.csv"
     - "data_lake/landing/manual/ONSPD_Online_latest_Postcode_Centroids_.csv"
     - "data_lake/landing/manual/PCD_OA21_LSOA21_MSOA21_LAD_NOV25_UK_LU.csv"
+
+iod_load:
+  description: "Load IoD 2025 File 7 - all ranks, scores, deciles, population denominators by LSOA"
+  depends_on: []
+  requires_vpn: false
+  enabled: true
+  source_files:
+    - "data_lake/landing/manual/File_7_IoD2025_All_Ranks_Scores_Deciles_Population_Denominators.csv"

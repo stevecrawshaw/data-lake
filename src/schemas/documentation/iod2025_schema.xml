@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema>
+  <table name="iod2025_tbl">
+    <description>Index of Deprivation (IoD) 2025 File 7 - all ranks, scores, deciles, and population denominators by LSOA (England)</description>
+    <column name="lsoa_cd">
+      <type>VARCHAR</type>
+      <description>LSOA code (2021)</description>
+    </column>
+    <column name="lsoa_nm">
+      <type>VARCHAR</type>
+      <description>LSOA name (2021)</description>
+    </column>
+    <column name="la_cd">
+      <type>VARCHAR</type>
+      <description>Local Authority District code (2024)</description>
+    </column>
+    <column name="la_nm">
+      <type>VARCHAR</type>
+      <description>Local Authority District name (2024)</description>
+    </column>
+    <column name="imd_score">
+      <type>DOUBLE</type>
+      <description>Index of Multiple Deprivation (IMD) Score</description>
+    </column>
+    <column name="imd_rank">
+      <type>BIGINT</type>
+      <description>Index of Multiple Deprivation (IMD) Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="imd_decile">
+      <type>BIGINT</type>
+      <description>Index of Multiple Deprivation (IMD) Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="income_score">
+      <type>DOUBLE</type>
+      <description>Income Score (rate)</description>
+    </column>
+    <column name="income_rank">
+      <type>BIGINT</type>
+      <description>Income Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="income_decile">
+      <type>BIGINT</type>
+      <description>Income Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="employment_score">
+      <type>DOUBLE</type>
+      <description>Employment Score (rate)</description>
+    </column>
+    <column name="employment_rank">
+      <type>BIGINT</type>
+      <description>Employment Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="employment_decile">
+      <type>BIGINT</type>
+      <description>Employment Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="education_score">
+      <type>DOUBLE</type>
+      <description>Education, Skills and Training Score</description>
+    </column>
+    <column name="education_rank">
+      <type>BIGINT</type>
+      <description>Education, Skills and Training Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="education_decile">
+      <type>BIGINT</type>
+      <description>Education, Skills and Training Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="health_score">
+      <type>DOUBLE</type>
+      <description>Health Deprivation and Disability Score</description>
+    </column>
+    <column name="health_rank">
+      <type>BIGINT</type>
+      <description>Health Deprivation and Disability Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="health_decile">
+      <type>BIGINT</type>
+      <description>Health Deprivation and Disability Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="crime_score">
+      <type>DOUBLE</type>
+      <description>Crime Score</description>
+    </column>
+    <column name="crime_rank">
+      <type>BIGINT</type>
+      <description>Crime Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="crime_decile">
+      <type>BIGINT</type>
+      <description>Crime Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="barriers_score">
+      <type>DOUBLE</type>
+      <description>Barriers to Housing and Services Score</description>
+    </column>
+    <column name="barriers_rank">
+      <type>BIGINT</type>
+      <description>Barriers to Housing and Services Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="barriers_decile">
+      <type>BIGINT</type>
+      <description>Barriers to Housing and Services Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="living_env_score">
+      <type>DOUBLE</type>
+      <description>Living Environment Score</description>
+    </column>
+    <column name="living_env_rank">
+      <type>BIGINT</type>
+      <description>Living Environment Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="living_env_decile">
+      <type>BIGINT</type>
+      <description>Living Environment Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="idaci_score">
+      <type>DOUBLE</type>
+      <description>Income Deprivation Affecting Children Index (IDACI) Score (rate)</description>
+    </column>
+    <column name="idaci_rank">
+      <type>BIGINT</type>
+      <description>Income Deprivation Affecting Children Index (IDACI) Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="idaci_decile">
+      <type>BIGINT</type>
+      <description>Income Deprivation Affecting Children Index (IDACI) Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="idaopi_score">
+      <type>DOUBLE</type>
+      <description>Income Deprivation Affecting Older People (IDAOPI) Score (rate)</description>
+    </column>
+    <column name="idaopi_rank">
+      <type>BIGINT</type>
+      <description>Income Deprivation Affecting Older People (IDAOPI) Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="idaopi_decile">
+      <type>BIGINT</type>
+      <description>Income Deprivation Affecting Older People (IDAOPI) Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="cyp_sub_score">
+      <type>DOUBLE</type>
+      <description>Children and Young People Sub-domain Score</description>
+    </column>
+    <column name="cyp_sub_rank">
+      <type>BIGINT</type>
+      <description>Children and Young People Sub-domain Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="cyp_sub_decile">
+      <type>BIGINT</type>
+      <description>Children and Young People Sub-domain Decile (where 1 is most deprived 10% of LSO</description>
+    </column>
+    <column name="adult_skills_sub_score">
+      <type>DOUBLE</type>
+      <description>Adult Skills Sub-domain Score</description>
+    </column>
+    <column name="adult_skills_sub_rank">
+      <type>BIGINT</type>
+      <description>Adult Skills Sub-domain Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="adult_skills_sub_decile">
+      <type>BIGINT</type>
+      <description>Adult Skills Sub-domain Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="geo_barriers_sub_score">
+      <type>DOUBLE</type>
+      <description>Geographical Barriers Sub-domain Score</description>
+    </column>
+    <column name="geo_barriers_sub_rank">
+      <type>BIGINT</type>
+      <description>Geographical Barriers Sub-domain Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="geo_barriers_sub_decile">
+      <type>BIGINT</type>
+      <description>Geographical Barriers Sub-domain Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="wider_barriers_sub_score">
+      <type>DOUBLE</type>
+      <description>Wider Barriers Sub-domain Score</description>
+    </column>
+    <column name="wider_barriers_sub_rank">
+      <type>BIGINT</type>
+      <description>Wider Barriers Sub-domain Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="wider_barriers_sub_decile">
+      <type>BIGINT</type>
+      <description>Wider Barriers Sub-domain Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="indoors_sub_score">
+      <type>DOUBLE</type>
+      <description>Indoors Sub-domain Score</description>
+    </column>
+    <column name="indoors_sub_rank">
+      <type>BIGINT</type>
+      <description>Indoors Sub-domain Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="indoors_sub_decile">
+      <type>BIGINT</type>
+      <description>Indoors Sub-domain Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="outdoors_sub_score">
+      <type>DOUBLE</type>
+      <description>Outdoors Sub-domain Score</description>
+    </column>
+    <column name="outdoors_sub_rank">
+      <type>BIGINT</type>
+      <description>Outdoors Sub-domain Rank (where 1 is most deprived)</description>
+    </column>
+    <column name="outdoors_sub_decile">
+      <type>BIGINT</type>
+      <description>Outdoors Sub-domain Decile (where 1 is most deprived 10% of LSOAs)</description>
+    </column>
+    <column name="total_pop">
+      <type>BIGINT</type>
+      <description>Total population: mid 2022</description>
+    </column>
+    <column name="children_pop">
+      <type>BIGINT</type>
+      <description>Dependent Children aged 0-15: mid 2022</description>
+    </column>
+    <column name="older_pop">
+      <type>BIGINT</type>
+      <description>Older population aged 60 and over: mid 2022</description>
+    </column>
+    <column name="working_age_pop">
+      <type>BIGINT</type>
+      <description>Working age population 18-66 (for use with Employment Deprivation Domain): mid 2022</description>
+    </column>
+  </table>
+</schema>

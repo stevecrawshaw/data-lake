@@ -37,7 +37,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Package Management Commands
 
-All Python dependencies **must be installed, synchronized, and locked** using uv. Never use pip, pip-tools, poetry, or conda directly for dependency management.
+All Python dependencies **must be installed, synchronised, and locked** using uv. Never use pip, pip-tools, poetry, or conda directly for dependency management.
 
 ```bash
 # Install dependencies
@@ -128,7 +128,7 @@ uv run python -m src.transformations all -vv    # DEBUG level
 - Idempotent transformations
 - Progress tracking with Rich
 - Error handling with informative messages
-- Modular SQL organized by layer
+- Modular SQL organised by layer
 
 **Legacy SQL scripts (⚠️ deprecated, do not use):**
 
@@ -210,11 +210,11 @@ uv run ruff format                # Format code
 - `manual/` - Manual downloads (Humaniverse, ONS)
 
 **Bronze Layer:** DuckDB tables on raw files + PostGIS federation
-- 5 SQL modules: boundaries_federated, boundaries_external, epc_load, emissions_load, census_load
+- 6 SQL modules: boundaries_federated, boundaries_external, epc_load, emissions_load, census_load, iod_load
 - Minimal transformations (type casting only)
 - `CREATE OR REPLACE TABLE` for idempotency
 
-**Silver Layer:** Cleaned, deduplicated, spatially standardized (EPSG:27700)
+**Silver Layer:** Cleaned, deduplicated, spatially standardised (EPSG:27700)
 - 5 SQL modules: macros, boundaries_clean, epc_domestic_clean, epc_non_domestic_clean, emissions_clean
 - `CREATE OR REPLACE VIEW` for efficiency
 - Spatial reprojection to British National Grid
@@ -322,8 +322,8 @@ Pattern Inference (pattern_rules.yaml)
 - `src/transformations/orchestrator.py` - Execution logic with dependency resolution (~344 LOC)
 - `src/transformations/models.py` - Pydantic configuration models (~95 LOC)
 
-**SQL modules organized by layer:**
-- `src/transformations/sql/bronze/` - 5 modules (342 LOC total)
+**SQL modules organised by layer:**
+- `src/transformations/sql/bronze/` - 6 modules (342+ LOC total)
 - `src/transformations/sql/silver/` - 5 modules (189 LOC total)
 - `src/transformations/sql/gold/` - ⚠️ EMPTY (Phase 4 - in development)
 
@@ -475,6 +475,7 @@ From `agent-docs/python-code-guidelines.md`:
 | `src/schemas/config/epc_domestic_certificates_schema.json` | EPC domestic column types |
 | `src/schemas/config/epc_non-domestic_certificates_schema.json` | EPC non-domestic column types |
 | `src/schemas/documentation/epc_domestic_schema.xml` | Canonical EPC metadata |
+| `src/schemas/documentation/iod2025_schema.xml` | IoD 2025 File 7 metadata (56 columns) |
 | `src/schemas/documentation/manual_overrides.xml` | User edits from interactive editor |
 | `src/schemas/documentation/generated_comments.sql` | Output: SQL COMMENT statements |
 | `src/tools/config/pattern_rules.yaml` | Pattern matching definitions |
@@ -573,7 +574,7 @@ Flexible parsing supports:
 ### Other
 
 - `notebooks/` - Jupyter notebooks for EDA
-- `plots/` - Generated visualizations
+- `plots/` - Generated visualisations
 - `tests/` - Pytest test suite
   - `test_transformations/` - Transformation system tests
 - `.serena/` - Agent memory/session data

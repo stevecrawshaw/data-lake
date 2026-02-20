@@ -4,7 +4,6 @@
 -- Dependencies: CSV files must exist in landing/manual/
 -- Tables Created:
 --   - uk_lsoa_tenure_tbl
---   - eng_lsoa_imd_tbl
 --   - postcode_centroids_tbl
 --   - boundary_lookup_tbl
 
@@ -13,14 +12,6 @@
 CREATE OR REPLACE TABLE uk_lsoa_tenure_tbl AS
 FROM read_csv(
     'data_lake/landing/manual/household_tenure21_lsoa21.csv',
-    normalize_names = true
-);
-
--- Load Index of Multiple Deprivation (IMD) 2025 for England
--- Geography: LSOA 2021 boundaries
-CREATE OR REPLACE TABLE eng_lsoa_imd_tbl AS
-FROM read_csv(
-    'data_lake/landing/manual/imd2025_england_lsoa21.csv',
     normalize_names = true
 );
 

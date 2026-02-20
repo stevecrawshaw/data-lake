@@ -15,6 +15,10 @@ suffix_patterns:
   _type: "type"
   _status: "status"
   _ind: "indicator"
+  _score: "score"
+  _rank: "rank (where 1 is most deprived)"
+  _decile: "decile (where 1 is most deprived 10%)"
+  _pop: "population count"
 
 prefix_patterns:
   current_: "Current value of"
@@ -43,3 +47,5 @@ exact_matches:
   posttown: "Post town"
   county: "County"
   constituency: "Parliamentary constituency"
+  idaci: "Income Deprivation Affecting Children Index"
+  idaopi: "Income Deprivation Affecting Older People Index"
