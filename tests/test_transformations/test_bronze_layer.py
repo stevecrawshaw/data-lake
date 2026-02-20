@@ -23,8 +23,8 @@ class TestBronzeLayerDiscovery:
             name: module for name, module in modules.items() if module.layer == "bronze"
         }
 
-        # Should have exactly 5 Bronze modules
-        assert len(bronze_modules) == 5
+        # Should have exactly 6 Bronze modules
+        assert len(bronze_modules) == 6
 
         # Verify all expected modules are present
         expected_modules = {
@@ -33,6 +33,7 @@ class TestBronzeLayerDiscovery:
             "bronze/epc_load",
             "bronze/emissions_load",
             "bronze/census_load",
+            "bronze/iod_load",
         }
 
         assert set(bronze_modules.keys()) == expected_modules
@@ -212,9 +213,9 @@ class TestBronzeLayerSQL:
         sql_content = sql_path.read_text(encoding="utf-8")
 
         # Should create all expected census tables
+        # (eng_lsoa_imd_tbl moved to iod_load module as iod2025_tbl)
         expected_tables = [
             "uk_lsoa_tenure_tbl",
-            "eng_lsoa_imd_tbl",
             "postcode_centroids_tbl",
             "boundary_lookup_tbl",
         ]
